@@ -1,0 +1,24 @@
+.message_sent{
+	width: 30%;
+	float: right;
+	background-color: #b9f5b9;
+	padding: .5rem;
+	margin: .5rem;
+	border-radius: 5px;
+}
+
+.message_received{
+	width: 30%;
+	float: left;
+	background-color: #afd5ff;
+	padding: .5rem;
+	margin: .5rem;
+	border-radius: 5px;
+}
+
+.fullwidth{
+	width: 100%;
+	display: block;
+	position: relative;
+	clear: both;
+}
