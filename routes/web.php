@@ -21,3 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/message/send', 'MessageController@SendMessage');
 Route::get('/pusherfront', 'HomeController@pusherFront');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

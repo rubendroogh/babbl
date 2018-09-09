@@ -7,10 +7,15 @@ var channel = pusher.subscribe('messages');
 
 channel.bind('receive-message', function(data) {
     if (data.user_id == document.getElementById('user_id').value) {
-        document.getElementById('messages').innerHTML += "<div class='fullwidth'><div class='message_sent'>" + data.message + "</div></div>";
+        RenderSentMessage(data.message);
     } else{
-        document.getElementById('messages').innerHTML += "<div class='fullwidth'><div class='message_received'><small>" + data.user_name + ":\n\n</small>" + data.message + "</div></div>";
+        RenderReceivedMessage(data.message, data.user_name);
     }
+});
+
+document.getElementById("messageInput").addEventListener("submit", function(event){
+    event.preventDefault();
+    SendMessage();
 });
 
 function SendMessage(){
@@ -26,11 +31,15 @@ function SendMessage(){
     .then(
         function success(data) {
             document.getElementById('message').value = '';
-        },
-
-        function fail(data) {
-            console.log(data);
         }
     );
+}
+
+function RenderReceivedMessage(message, username){
+    document.getElementById('messages').innerHTML += "<div class='fullwidth'><div class='message_received'><small>" + username + ":\n\n</small>" + message + "</div></div>";
+}
+
+function RenderSentMessage(message){
+    document.getElementById('messages').innerHTML += "<div class='fullwidth'><div class='message_sent'>" + message + "</div></div>";
 }
 
