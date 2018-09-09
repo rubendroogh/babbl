@@ -11,9 +11,7 @@
                 <input class="form-control" id="message" type="text" name="message" autofocus>
             </div>
             <div class="col-3">
-                <button class="btn btn-primary" id="sendMessageButton">
-                    Send
-                </button>
+                <input type="submit" class="btn btn-primary" id="sendMessageButton" value="Send">
             </div>
     </form>
 </div>
