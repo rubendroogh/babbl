@@ -32,7 +32,6 @@
 .messages{
 	max-height: 81vh;
 	overflow-y: scroll;
-	background-color: pink;
 }
 
 .message_input{
