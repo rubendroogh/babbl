@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div id="messages" class="row messages"></div>
-    <form id="messageInput" class="message_input py-3 row">
+    <form id="messageInput" class="message_input py-3 row" onsubmit="return SendMessage();">
         @csrf
         <input id="user_id" type="hidden" name="_user_id" value="{{ Auth::user()->id }}">
         <input id="user_name" type="hidden" name="_user_name" value="{{ Auth::user()->name }}">
@@ -11,7 +11,7 @@
                 <input class="form-control" id="message" type="text" name="message" autofocus>
             </div>
             <div class="col-3">
-                <button class="btn btn-primary" type="button" id="sendMessageButton" onclick="SendMessage()">
+                <button class="btn btn-primary" id="sendMessageButton">
                     Send
                 </button>
             </div>
