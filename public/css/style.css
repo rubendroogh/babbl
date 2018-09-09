@@ -1,3 +1,9 @@
+.navbar{
+	width: 100%;
+	height: 9vh;
+	z-index: 1100;
+}
+
 .message_sent{
 	width: 30%;
 	float: right;
@@ -23,15 +29,16 @@
 	clear: both;
 }
 
-#messages{
-	width: 100%;
-	overflow: auto;
+.messages{
+	max-height: 81vh;
+	overflow-y: scroll;
 	background-color: pink;
 }
 
 .message_input{
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	width: 100%;
+	height: 10vh;
 	background-color: white;
 }
