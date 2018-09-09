@@ -5,7 +5,7 @@
 }
 
 .message_sent{
-	width: 40%;
+	width: 45%;
 	float: right;
 	background-color: #b9f5b9;
 	padding: .5rem;
@@ -14,12 +14,16 @@
 }
 
 .message_received{
-	width: 40%;
+	width: 45%;
 	float: left;
 	background-color: #afd5ff;
 	padding: .5rem;
 	margin: .5rem;
 	border-radius: 5px;
+}
+
+.message_received small{
+	color: #656565;
 }
 
 .fullwidth{
