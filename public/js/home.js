@@ -8,8 +8,10 @@ var channel = pusher.subscribe('messages');
 channel.bind('receive-message', function(data) {
     if (data.user_id == document.getElementById('user_id').value) {
         RenderSentMessage(data.message);
+        updateScroll();
     } else{
         RenderReceivedMessage(data.message, data.user_name);
+        updateScroll();
     }
 });
 
@@ -25,7 +27,6 @@ function SendMessage(){
     })
     .then(
         function success(data) {
-            updateScroll()
             document.getElementById('message').value = '';
         }
     );
@@ -40,14 +41,14 @@ function RenderReceivedMessage(message, username){
     var messageBox = document.getElementById('messages');
 
     var messageWrapper = document.createElement('div');
-    var messageBubble     = document.createElement('div');
+    var messageBubble  = document.createElement('div');
     var userNameBox    = document.createElement('small');
 
     var userNameNode = document.createTextNode(username + ":\n\n");
     var messageNode  = document.createTextNode(message);
 
     messageWrapper.className = 'fullwidth';
-    messageBubble.className     = 'message_received';
+    messageBubble.className  = 'message_received';
 
     userNameBox.appendChild(userNameNode);
     messageBubble.appendChild(userNameBox);
