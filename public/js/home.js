@@ -16,20 +16,31 @@ channel.bind('receive-message', function(data) {
 });
 
 function SendMessage(){
-    $.ajax('/message/send', {
-        method: 'POST',
-        data: {
-            message: document.getElementById('message').value,
-            user_id: document.getElementById('user_id').value,
-            user_name: document.getElementById('user_name').value,
-            _token: document.getElementsByName('_token')[0].value,
-        }
-    })
-    .then(
-        function success(data) {
-            document.getElementById('message').value = '';
-        }
-    );
+    var messageInput = document.getElementById('message');
+
+    var message   = document.getElementById('message').value;
+    var user_id   = document.getElementById('user_id').value;
+    var user_name = document.getElementById('user_name').value;
+    var _token    = document.getElementsByName('_token')[0].value;
+
+    if (message != '') {
+        $.ajax('/message/send', {
+            method: 'POST',
+            data: {
+                message: message,
+                user_id: user_id,
+                user_name: user_name,
+                _token: _token,
+            }
+        })
+        .then(
+            function success(data) {
+                messageInput.value = '';
+            }
+        );
+    }
+
+    return false;
 }
 
 function updateScroll(){
