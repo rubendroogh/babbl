@@ -13,11 +13,6 @@ channel.bind('receive-message', function(data) {
     }
 });
 
-document.getElementById("messageInput").addEventListener("submit", function(event){
-    event.preventDefault();
-    SendMessage();
-});
-
 function SendMessage(){
     $.ajax('/message/send', {
         method: 'POST',
@@ -30,9 +25,15 @@ function SendMessage(){
     })
     .then(
         function success(data) {
+            updateScroll()
             document.getElementById('message').value = '';
         }
     );
+}
+
+function updateScroll(){
+    var element = document.getElementById("messages");
+    element.scrollTop = element.scrollHeight;
 }
 
 function RenderReceivedMessage(message, username){
