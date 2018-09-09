@@ -36,10 +36,40 @@ function SendMessage(){
 }
 
 function RenderReceivedMessage(message, username){
-    document.getElementById('messages').innerHTML += "<div class='fullwidth'><div class='message_received'><small>" + username + ":\n\n</small>" + message + "</div></div>";
+    var messageBox = document.getElementById('messages');
+
+    var messageWrapper = document.createElement('div');
+    var messageBubble     = document.createElement('div');
+    var userNameBox    = document.createElement('small');
+
+    var userNameNode = document.createTextNode(username + ":\n\n");
+    var messageNode  = document.createTextNode(message);
+
+    messageWrapper.className = 'fullwidth';
+    messageBubble.className     = 'message_received';
+
+    userNameBox.appendChild(userNameNode);
+    messageBubble.appendChild(userNameBox);
+    messageBubble.appendChild(messageNode);
+    messageWrapper.appendChild(messageBubble);
+
+    messageBox.appendChild(messageWrapper);
 }
 
 function RenderSentMessage(message){
-    document.getElementById('messages').innerHTML += "<div class='fullwidth'><div class='message_sent'>" + message + "</div></div>";
+    var messageBox = document.getElementById('messages');
+
+    var messageWrapper = document.createElement('div');
+    var messageBubble  = document.createElement('div');
+
+    var messageNode = document.createTextNode(message);
+
+    messageWrapper.className = 'fullwidth';
+    messageBubble.className  = 'message_sent';
+
+    messageBubble.appendChild(messageNode);
+    messageWrapper.appendChild(messageBubble);
+
+    messageBox.appendChild(messageWrapper);
 }
 
