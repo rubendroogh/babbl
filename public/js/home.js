@@ -8,10 +8,10 @@ var channel = pusher.subscribe('messages');
 channel.bind('receive-message', function(data) {
     if (data.user_id == document.getElementById('user_id').value) {
         RenderSentMessage(data.message);
-        updateScroll();
+        scrollToLastMessage();
     } else{
         RenderReceivedMessage(data.message, data.user_name);
-        updateScroll();
+        scrollToLastMessage();
     }
 });
 
@@ -43,7 +43,7 @@ function SendMessage(){
     return false;
 }
 
-function updateScroll(){
+function scrollToLastMessage(){
     var element = document.getElementById("messages");
     element.scrollTop = element.scrollHeight;
 }
