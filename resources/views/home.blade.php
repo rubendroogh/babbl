@@ -9,7 +9,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <a href="{{ Route('messager') }}">Messager</a>
+            <a href="{{ Route('messenger') }}">Messenger</a>
         </div>
     </div>
 </div>

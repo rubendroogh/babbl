@@ -26,8 +26,8 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function messager()
+    public function messenger()
     {
-        return view('messager');
+        return view('messenger');
     }
 }

@@ -16,12 +16,11 @@ channel.bind('receive-message', function(data) {
 });
 
 function SendMessage(){
-    var messageInput = document.getElementById('message');
-
-    var message   = document.getElementById('message').value;
-    var user_id   = document.getElementById('user_id').value;
-    var user_name = document.getElementById('user_name').value;
-    var _token    = document.getElementsByName('_token')[0].value;
+    var messageInput = document.getElementById('message'),
+        message   = document.getElementById('message').value,
+        user_id   = document.getElementById('user_id').value,
+        user_name = document.getElementById('user_name').value,
+        _token    = document.getElementsByName('_token')[0].value;
 
     if (message != '') {
         $.ajax('/message/send', {
@@ -70,12 +69,10 @@ function RenderReceivedMessage(message, username){
 }
 
 function RenderSentMessage(message){
-    var messageBox = document.getElementById('messages');
-
-    var messageWrapper = document.createElement('div');
-    var messageBubble  = document.createElement('div');
-
-    var messageNode = document.createTextNode(message);
+    var messageBox = document.getElementById('messages'),
+        messageWrapper = document.createElement('div'),
+        messageBubble  = document.createElement('div'),
+        messageNode = document.createTextNode(message);
 
     messageWrapper.className = 'fullwidth';
     messageBubble.className  = 'message_sent';
