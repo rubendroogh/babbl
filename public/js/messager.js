@@ -16,11 +16,11 @@ channel.bind('receive-message', function(data) {
 });
 
 function SendMessage(){
-    var messageInput = document.getElementById('message'),
-        message      = document.getElementById('message').value,
-        user_id      = document.getElementById('user_id').value,
-        user_name    = document.getElementById('user_name').value,
-        _token       = document.getElementsByName('_token')[0].value;
+    var messageInput = $('#message'),
+        message      = $('#message').val(),
+        user_id      = $('#user_id').val(),
+        user_name    = $('#user_name').val(),
+        _token       = $('[name="_token"]').val();
 
     if (message != '') {
         $.ajax('/message/send', {
@@ -34,7 +34,7 @@ function SendMessage(){
         })
         .then(
             function success(data) {
-                messageInput.value = '';
+                messageInput.val('');
             }
         );
     }
@@ -43,12 +43,12 @@ function SendMessage(){
 }
 
 function scrollToLastMessage(){
-    var element = document.getElementById("messages");
-    element.scrollTop = element.scrollHeight;
+    var messageContainer = document.getElementById("messages");
+    messageContainer.scrollTop = messageContainer.scrollHeight;
 }
 
 function RenderReceivedMessage(message, username){
-    var messageBox     = document.getElementById('messages'),
+    var messageBox     = $('#messages'),
         messageWrapper = document.createElement('div'),
         messageBubble  = document.createElement('div'),
         userNameBox    = document.createElement('small');
@@ -68,7 +68,7 @@ function RenderReceivedMessage(message, username){
 }
 
 function RenderSentMessage(message){
-    var messageBox = document.getElementById('messages'),
+    var messageBox = $('#messages'),
         messageWrapper = document.createElement('div'),
         messageBubble  = document.createElement('div'),
         messageNode = document.createTextNode(message);
