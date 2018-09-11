@@ -17,10 +17,10 @@ channel.bind('receive-message', function(data) {
 
 function SendMessage(){
     var messageInput = document.getElementById('message'),
-        message   = document.getElementById('message').value,
-        user_id   = document.getElementById('user_id').value,
-        user_name = document.getElementById('user_name').value,
-        _token    = document.getElementsByName('_token')[0].value;
+        message      = document.getElementById('message').value,
+        user_id      = document.getElementById('user_id').value,
+        user_name    = document.getElementById('user_name').value,
+        _token       = document.getElementsByName('_token')[0].value;
 
     if (message != '') {
         $.ajax('/message/send', {
@@ -48,14 +48,13 @@ function scrollToLastMessage(){
 }
 
 function RenderReceivedMessage(message, username){
-    var messageBox = document.getElementById('messages');
+    var messageBox     = document.getElementById('messages'),
+        messageWrapper = document.createElement('div'),
+        messageBubble  = document.createElement('div'),
+        userNameBox    = document.createElement('small');
 
-    var messageWrapper = document.createElement('div');
-    var messageBubble  = document.createElement('div');
-    var userNameBox    = document.createElement('small');
-
-    var userNameNode = document.createTextNode(username + ":\n\n");
-    var messageNode  = document.createTextNode(message);
+    var userNameNode = document.createTextNode(username + ":\n\n"),
+        messageNode  = document.createTextNode(message);
 
     messageWrapper.className = 'fullwidth';
     messageBubble.className  = 'message_received';
@@ -65,7 +64,7 @@ function RenderReceivedMessage(message, username){
     messageBubble.appendChild(messageNode);
     messageWrapper.appendChild(messageBubble);
 
-    messageBox.appendChild(messageWrapper);
+    messageBox.appendChild(messageWrapper);   
 }
 
 function RenderSentMessage(message){
