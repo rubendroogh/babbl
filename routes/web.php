@@ -24,4 +24,4 @@ Route::post('/message/send', 'MessageController@SendMessage');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/messenger', 'HomeController@messenger')->name('messenger');
+Route::get('/messenger/{user_id?}', 'HomeController@messenger')->name('messenger');
