@@ -48,7 +48,7 @@ function scrollToLastMessage(){
 }
 
 function RenderReceivedMessage(message, username){
-    var messageBox     = $('#messages'),
+    var messageBox     = document.getElementById('messages'),
         messageWrapper = document.createElement('div'),
         messageBubble  = document.createElement('div'),
         userNameBox    = document.createElement('small');
@@ -68,7 +68,7 @@ function RenderReceivedMessage(message, username){
 }
 
 function RenderSentMessage(message){
-    var messageBox = $('#messages'),
+    var messageBox = document.getElementById('messages'),
         messageWrapper = document.createElement('div'),
         messageBubble  = document.createElement('div'),
         messageNode = document.createTextNode(message);
