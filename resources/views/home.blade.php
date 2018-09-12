@@ -4,12 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <a href="{{ Route('messenger') }}">Messenger</a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <table class="table">
+            <table class="table table-hover table-users">
                 <thead>
                     <tr>
                         <th scope="col">Users</th>
@@ -18,11 +13,17 @@
                 <tbody>
                     @foreach($users as $user)
                     <tr>
-                        <td><a href="{{route('messenger')}}">{{$user->name}}</a></td>
+                        <td><a href="{{route('messenger', ['user_id' => $user->id])}}">{{$user->name}}</a></td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <a href="{{ Route('messenger') }}">Messenger</a>
         </div>
     </div>
 </div>
