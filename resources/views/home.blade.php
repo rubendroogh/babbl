@@ -27,6 +27,4 @@
         </div>
     </div>
 </div>
-<script src="https://js.pusher.com/4.3/pusher.min.js"></script>
-<script src="js/messenger.js"></script>
 @endsection
