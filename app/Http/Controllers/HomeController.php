@@ -30,6 +30,7 @@ class HomeController extends Controller
 
     public function messenger($user_id = '')
     {
-        return view('messenger');
+        $user = User::find($user_id);
+        return view('messenger', ['user' => $user]);
     }
 }

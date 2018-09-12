@@ -11,9 +11,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($users as $user)
+                    @foreach( $users as $user )
                     <tr>
-                        <td><a href="{{route('messenger', ['user_id' => $user->id])}}">{{$user->name}}</a></td>
+                        <td><a href="{{ route('messenger', ['user_id' => $user->id]) }}">{{ $user->name }}</a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -23,7 +23,7 @@
     <hr>
     <div class="row">
         <div class="col-12">
-            <a href="{{ Route('messenger') }}">Messenger</a>
+            <a href="{{ Route('messenger') }}">Conversation messenger</a>
         </div>
     </div>
 </div>
