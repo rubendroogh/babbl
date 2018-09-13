@@ -1,12 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.messenger')
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h4>{{ $user->name }}</h4>
-        </div>
-    </div>
     <div id="messages" class="row messages"></div>
     <form id="messageInput" class="message_input py-3 row bg-white" onsubmit="return SendMessage();">
         @csrf
