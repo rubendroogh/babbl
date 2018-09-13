@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Pusher\Pusher;
 
 class MessageController extends Controller
 {
@@ -11,7 +12,7 @@ class MessageController extends Controller
             'cluster' => 'eu',
             'useTLS' => true
         );
-        $pusher = new \Pusher\Pusher(
+        $pusher = new Pusher(
             env('PUSHER_APP_KEY'),
             env('PUSHER_APP_SECRET'),
             env('PUSHER_APP_ID'),
