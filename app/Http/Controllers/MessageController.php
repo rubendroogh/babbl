@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Pusher\Pusher;
+use App\Message;
 
 class MessageController extends Controller
 {
@@ -19,6 +20,8 @@ class MessageController extends Controller
             env('PUSHER_APP_ID'),
             $options
         );
+
+        Message::create(['content' => $request->message]);
 
         $data['message'] = $request->message;
         $data['user_id'] = $request->user_id;

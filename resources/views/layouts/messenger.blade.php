@@ -31,7 +31,7 @@
                     <i class="fas fa-arrow-circle-left"></i>
                 </a>
                 <p class="navbar-nav">
-                    {{ $user->name }}
+                    {{ $group->name }}
                 </p>
             </div>
         </nav>

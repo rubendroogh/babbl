@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\User;
+use App\Group;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,13 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('home', ['users' => $users]);
+        $id = Auth::id();
+        $groups = User::find($id)->groups;
+        return view('home', ['groups' => $groups]);
     }
 
-    public function messenger($user_id = '')
+    public function messenger($group_id = '')
     {
-        $user = User::find($user_id);
-        return view('messenger', ['user' => $user]);
+        $group = Group::find($group_id);
+        return view('messenger', ['group' => $group]);
     }
 }
