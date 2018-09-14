@@ -7,7 +7,7 @@
             <table class="table table-hover table-users">
                 <thead>
                     <tr>
-                        <th scope="col">Users</th>
+                        <th scope="col">Contacts</th>
                     </tr>
                 </thead>
                 <tbody>

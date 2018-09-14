@@ -12,6 +12,7 @@ class MessageController extends Controller
             'cluster' => 'eu',
             'useTLS' => true
         );
+
         $pusher = new Pusher(
             env('PUSHER_APP_KEY'),
             env('PUSHER_APP_SECRET'),
