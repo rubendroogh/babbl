@@ -8,7 +8,7 @@ use App\Message;
 
 class MessageController extends Controller
 {
-    public function SendMessage(Request $request){
+    public function sendMessage(Request $request){
     	$options = array(
             'cluster' => 'eu',
             'useTLS' => true

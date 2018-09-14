@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div id="messages" class="row messages"></div>
-    <form id="messageInput" class="message_input py-3 row bg-white" onsubmit="return SendMessage();">
+    <form id="messageInput" class="message_input py-3 row bg-white" onsubmit="return sendMessage();">
         @csrf
         <input id="user_id" type="hidden" name="_user_id" value="{{ Auth::user()->id }}">
         <input id="group_id" type="hidden" name="_group_id" value="{{ $group->id }}">

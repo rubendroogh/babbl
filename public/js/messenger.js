@@ -15,7 +15,7 @@ channel.bind('receive-message', function(data) {
     }
 });
 
-function SendMessage(){
+function sendMessage(){
     var messageInput = $('#message'),
         message      = $('#message').val(),
         user_id      = $('#user_id').val(),
