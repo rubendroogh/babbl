@@ -24,4 +24,6 @@ Route::post('/message/send', 'MessageController@sendMessage');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/messenger/new', 'HomeController@newGroup')->name('newGroup');
+Route::post('/messenger/new', 'HomeController@createNewGroup')->name('createNewGroup');
 Route::get('/messenger/{user_id?}', 'HomeController@messenger')->name('messenger');

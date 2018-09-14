@@ -2,7 +2,13 @@
 
 @section('content')
 <div class="container">
-    <div id="messages" class="row messages"></div>
+    <div id="messages" class="row messages">
+        @foreach( $group->messages as $message )
+            <div class="fullwidth">
+                <div class="message_sent">{{ $message->content }}</div>
+            </div>
+        @endforeach
+    </div>
     <form id="messageInput" class="message_input py-3 row bg-white" onsubmit="return sendMessage();">
         @csrf
         <input id="user_id" type="hidden" name="_user_id" value="{{ Auth::user()->id }}">
