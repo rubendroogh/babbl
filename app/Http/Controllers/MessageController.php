@@ -21,7 +21,7 @@ class MessageController extends Controller
             $options
         );
 
-        Message::create(['content' => $request->message]);
+        Message::create(['content' => $request->message, 'group_id' => $request->group_id, 'user_id' => $request->user_id]);
 
         $data['message'] = $request->message;
         $data['user_id'] = $request->user_id;
