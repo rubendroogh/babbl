@@ -31,7 +31,7 @@ class HomeController extends Controller
         return view('home', ['groups' => $groups]);
     }
 
-    public function messenger($group_id = '')
+    public function messenger($group_id = 1)
     {
         $group = Group::find($group_id);
         return view('messenger', ['group' => $group]);
