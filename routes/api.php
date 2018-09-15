@@ -17,4 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/users/all', 'APIController@allUsers');
+
 Route::post('/message/send', 'MessageController@sendMessage');
