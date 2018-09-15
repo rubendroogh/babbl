@@ -22,6 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/messenger/new', 'HomeController@newGroup')->name('newGroup');
-Route::post('/messenger/new', 'HomeController@createNewGroup')->name('createNewGroup');
-Route::get('/messenger/{user_id?}', 'HomeController@messenger')->name('messenger');
+
+Route::post('/messenger/new', 'GroupController@createNewGroup')->name('createNewGroup');
+
+Route::get('/messenger/new', 'GroupController@newGroup')->name('newGroup');
+Route::get('/messenger/{group_id?}/info', 'GroupController@messenger')->name('groupInfo');
+Route::get('/messenger/{group_id?}', 'GroupController@messenger')->name('messenger');
