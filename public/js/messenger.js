@@ -47258,6 +47258,7 @@ function RenderReceivedMessage(message, username) {
     var messageBox = document.getElementById('messages'),
         messageWrapper = document.createElement('div'),
         messageBubble = document.createElement('div'),
+        messageBreak = document.createElement('br'),
         userNameBox = document.createElement('small');
 
     var userNameNode = document.createTextNode(username + ":\n\n"),
@@ -47268,6 +47269,7 @@ function RenderReceivedMessage(message, username) {
 
     userNameBox.appendChild(userNameNode);
     messageBubble.appendChild(userNameBox);
+    messageBubble.appendChild(messageBreak);
     messageBubble.appendChild(messageNode);
     messageWrapper.appendChild(messageBubble);
 
