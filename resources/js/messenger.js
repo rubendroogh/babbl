@@ -7,6 +7,10 @@ const app = new Vue({
     el: '#messages'
 });
 
+// Set variables
+
+var group_id = $('#group_id').val();
+
 // Notifications
 
 Notification.requestPermission().then(function(permission) {
@@ -46,7 +50,7 @@ var pusher = new Pusher('ea6b376da831c806c735', {
 
 var channel = pusher.subscribe('messages');
 
-channel.bind('receive-message', function(data) {
+channel.bind('receive-message-' + group_id, function(data) {
     if (data.user_id == document.getElementById('user_id').value) {
         RenderSentMessage(data.message);
         scrollToLastMessage();
