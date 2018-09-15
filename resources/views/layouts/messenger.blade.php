@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container text-center">
-                <a class="navbar-brand" href="{{ URL::previous() }}">
+                <a class="navbar-brand" href="{{ Route('home') }}">
                     <i class="fas fa-arrow-circle-left"></i>
                 </a>
                 <p class="navbar-nav">
