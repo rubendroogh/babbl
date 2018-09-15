@@ -5,7 +5,7 @@ $.get( "/api/users/all", function( data ) {
 	$('#usersInput').selectize({
 	    persist: false,
 	    maxItems: null,
-	    valueField: 'email',
+	    valueField: 'id',
 	    labelField: 'name',
 	    searchField: ['name', 'email'],
 	    options: data,
