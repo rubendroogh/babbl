@@ -45,8 +45,18 @@ class HomeController extends Controller
 
     public function createNewGroup(Request $request)
     {
+        $user_ids = explode(',', $request->users);
+        if ( !in_array( Auth::id(), $user_ids, false ) ) {
+            $user_ids[] = Auth::id();
+        }
+
+        $users = User::find($user_ids);     
         $group = Group::create(['name' => $request->group_name]);
-        $group->users()->save(Auth::user());
+
+        foreach ($users as $user) {
+            $group->users()->save($user);
+        }
+        
         return view('messenger', ['group' => $group]);
     }
 }
