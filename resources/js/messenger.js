@@ -7,6 +7,36 @@ const app = new Vue({
     el: '#messages'
 });
 
+// Notifications
+
+Notification.requestPermission().then(function(permission) {
+    //do something
+});
+
+function notifyUser(){
+    if (!("Notification" in window)) {
+        alert("This browser does not support desktop notification");
+    }
+
+    else if (Notification.permission === "granted") {
+        var notification = new Notification("Hee Henk!");
+    }
+
+    else if (Notification.permission !== "denied") {
+        Notification.requestPermission(function (permission) {
+            if (permission === "granted") {
+                var notification = new Notification("Hi there!");
+            }
+        });
+    }
+}
+
+$( "#notify" ).click(function( event ) {
+    notifyUser();
+    event.preventDefault();
+});
+
+
 // Pusher listening for messages
 
 var pusher = new Pusher('ea6b376da831c806c735', {
