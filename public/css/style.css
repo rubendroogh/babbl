@@ -38,6 +38,11 @@
 	overflow-y: scroll;
 }
 
+.group_info.show{
+	transition: 1s ease;
+	height: 82vh;
+}
+
 .message_input{
 	position: absolute;
 	bottom: 0;

@@ -24,11 +24,13 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container text-center">
-                <a class="navbar-brand" href="{{ route('home') }}">
+                <a class="navbar-brand" href="{{ URL::previous() }}">
                     <i class="fas fa-arrow-circle-left"></i>
                 </a>
                 <p class="navbar-nav">
-                    <a href="{{ route('groupInfo', ['group_id' => $group->id]) }}">{{ $group->name }}</a>
+                    <a data-toggle="collapse" href="#collapseGroupInfo" aria-expanded="false" aria-controls="collapseGroupInfo">
+                        {{ $group->name }}
+                    </a>
                 </p>
             </div>
         </nav>

@@ -3,6 +3,8 @@
 @section('content')
 <div class="container">
 
+    <br>
+
     <div class="row">
         <div class="col-12">
             <h3>{{$group->name}}</h3>
