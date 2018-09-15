@@ -47160,12 +47160,16 @@ module.exports = __webpack_require__(44);
 /* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
+// Get Laravel js requirements and vue.js
+
 __webpack_require__(11);
 window.Vue = __webpack_require__(34);
 
 var app = new Vue({
     el: '#messages'
 });
+
+// Pusher listening for messages
 
 var pusher = new Pusher('ea6b376da831c806c735', {
     cluster: 'eu',
@@ -47176,13 +47180,22 @@ var channel = pusher.subscribe('messages');
 
 channel.bind('receive-message', function (data) {
     if (data.user_id == document.getElementById('user_id').value) {
-        RenderSentMessageVue(data.message);
+        RenderSentMessage(data.message);
         scrollToLastMessage();
     } else {
         RenderReceivedMessage(data.message, data.user_name);
         scrollToLastMessage();
     }
 });
+
+// Send message when form submitted
+
+$("#messageInput").submit(function (event) {
+    sendMessage();
+    event.preventDefault();
+});
+
+// Functions for sending and rendering messages
 
 function sendMessage() {
     var messageInput = $('#message'),

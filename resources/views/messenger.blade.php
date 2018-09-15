@@ -11,7 +11,7 @@
         @endforeach
     </div>
 
-    <form id="messageInput" class="message_input py-3 row bg-white" onsubmit="return sendMessage();">
+    <form id="messageInput" class="message_input py-3 row bg-white">
         @csrf
         <input id="user_id" type="hidden" name="_user_id" value="{{ Auth::user()->id }}">
         <input id="group_id" type="hidden" name="_group_id" value="{{ $group->id }}">
