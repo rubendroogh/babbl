@@ -28,7 +28,7 @@
                     <i class="fas fa-arrow-circle-left"></i>
                 </a>
                 <p class="navbar-nav">
-                    {{ $group->name }}
+                    <a href="{{ route('groupInfo', ['group_id' => $group->id]) }}">{{ $group->name }}</a>
                 </p>
             </div>
         </nav>

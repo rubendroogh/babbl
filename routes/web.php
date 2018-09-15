@@ -26,5 +26,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/messenger/new', 'GroupController@createNewGroup')->name('createNewGroup');
 
 Route::get('/messenger/new', 'GroupController@newGroup')->name('newGroup');
-Route::get('/messenger/{group_id?}/info', 'GroupController@messenger')->name('groupInfo');
-Route::get('/messenger/{group_id?}', 'GroupController@messenger')->name('messenger');
+Route::get('/messenger/{group_id?}/info', 'GroupController@getGroupInfo')->name('groupInfo');
+Route::get('/messenger/{group_id?}', 'GroupController@openGroup')->name('messenger');
