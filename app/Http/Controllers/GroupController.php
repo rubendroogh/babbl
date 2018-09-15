@@ -16,12 +16,6 @@ class GroupController extends Controller
         return view('messenger', ['group' => $group]);
     }
 
-    public function getGroupInfo($group_id = 1)
-    {
-    	$group = Group::find($group_id);
-        return view('groupinfo', ['group' => $group]);
-    }
-
     public function newGroup()
     {
         return view('newgroup');
