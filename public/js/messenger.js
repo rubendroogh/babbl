@@ -24,7 +24,7 @@ function sendMessage(){
         _token       = $('[name="_token"]').val();
 
     if (message != '') {
-        $.ajax('/message/send', {
+        $.ajax('/api/message/send', {
             method: 'POST',
             data: {
                 message: message,
