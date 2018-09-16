@@ -1,0 +1,29 @@
+html, body, main{
+	height: 100%;
+}
+
+.navbar{
+	height: 5rem;
+}
+
+#app, .container-fluid, .row{
+	height: calc(100% - 5rem);
+	font-family: 'Nunito', sans-serif;
+}
+
+body{
+	background-color: #3049ee !important;
+	box-shadow: inset 0 0 100px #1f309b;
+	color: #f8f9fa !important;
+	
+}
+
+.btn-chatboy{
+	color: #f8f9fa;
+    background-color: #ffa80a;
+    border-color: #eb9700;
+}
+
+a{
+	color: #f8f9fa !important;
+}
