@@ -22,11 +22,11 @@
                     <hr>
                     <div class="card-body text-center">
                         @if(!Auth::User())
-                        <a class="btn btn-chatboy text-light wdt-5 mb-3" href="{{ Route('login') }}" role="button">Login</a>
-                        <a class="btn btn-chatboy text-light wdt-5 mb-3" href="{{ Route('register') }}" role="button">Sign up</a>
+                            <a class="btn btn-chatboy text-light wdt-5 mb-3" href="{{ Route('login') }}" role="button">Login</a>
+                            <a class="btn btn-chatboy text-light wdt-5 mb-3" href="{{ Route('register') }}" role="button">Sign up</a>
                         @else
-                        <p>Welcome back, {{ Auth::User()->name }}!</p>
-                        <a class="btn btn-chatboy text-light wdt-5 mb-3" href="{{ Route('home') }}" role="button">Your groups</a>
+                            <p>Welcome back, {{ Auth::User()->name }}!</p>
+                            <a class="btn btn-chatboy text-light wdt-5 mb-3" href="{{ Route('home') }}" role="button">Your groups</a>
                         @endif
                     </div>
                 </div>

@@ -5,6 +5,7 @@ body{
 
 html, body, .row, .container-fluid{
 	height: 100% !important;
+	font-family: 'Nunito', sans-serif;
 }
 
 .card{
