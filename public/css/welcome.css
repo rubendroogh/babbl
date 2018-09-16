@@ -1,0 +1,23 @@
+body{
+	background-color: #3049ee !important;
+}
+
+html, body, .row, .container-fluid{
+	height: 100% !important;
+}
+
+.card{
+	background-color: rgba(0,0,0,0) !important;
+	border: none !important;
+	color: white;
+}
+
+.btn-chatboy{
+	color: #212529;
+    background-color: #ffa80a;
+    border-color: #eb9700;
+}
+
+.wdt-5{
+	width: 7rem;
+}
