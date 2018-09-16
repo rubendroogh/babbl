@@ -13,7 +13,13 @@
                 <tbody>
                     @foreach( $groups as $group )
                     <tr>
-                        <td><a href="{{ route('messenger', ['group_id' => $group->id]) }}">{{ $group->name }}</a></td>
+                        <td>
+                            <a href="{{ route('messenger', ['group_id' => $group->id]) }}">
+                                <div class="whole">
+                                    {{ $group->name }}
+                                </div>
+                            </a>
+                        </td>
                     </tr>
                     @endforeach
                     <tr>
