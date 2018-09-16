@@ -40,6 +40,6 @@ class GroupController extends Controller
             $group->users()->save($user);
         }
         
-        return view('messenger', ['group' => $group]);
+        return redirect()->route('messenger', ['group' => $group]);
     }
 }
