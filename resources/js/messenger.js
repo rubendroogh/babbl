@@ -11,6 +11,10 @@ const app = new Vue({
 
 var group_id = $('#group_id').val();
 
+// Scroll down on init
+
+scrollToLastMessage();
+
 // Notifications
 
 Notification.requestPermission().then(function(permission) {
