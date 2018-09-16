@@ -21,8 +21,8 @@
                     <img class="card-img-top mx-auto" src="{{ asset('svg/logo.svg') }}" alt="Card image cap" style="width: 5.5rem;">
                     <hr>
                     <div class="card-body text-center">
-                        <a class="btn btn-chatboy text-light wdt-5 mb-3" href="#" role="button">Login</a>
-                        <a class="btn btn-chatboy text-light wdt-5 mb-3" href="#" role="button">Sign up</a>
+                        <a class="btn btn-chatboy text-light wdt-5 mb-3" href="{{ Route('login') }}" role="button">Login</a>
+                        <a class="btn btn-chatboy text-light wdt-5 mb-3" href="{{ Route('register') }}" role="button">Sign up</a>
                     </div>
                 </div>
             </div>
