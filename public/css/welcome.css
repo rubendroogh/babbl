@@ -1,5 +1,6 @@
 body{
 	background-color: #3049ee !important;
+	box-shadow: inset 0 0 100px #1f309b;
 }
 
 html, body, .row, .container-fluid{
