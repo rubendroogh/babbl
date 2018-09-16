@@ -37,7 +37,7 @@
         @endforeach
     </div>
 
-    <form id="messageInput" class="message_input py-3 row bg-white">
+    <form id="messageInput" class="message_input py-3 row bg-dark">
         @csrf
         <input id="user_id" type="hidden" name="_user_id" value="{{ Auth::user()->id }}">
         <input id="group_id" type="hidden" name="_group_id" value="{{ $group->id }}">
@@ -46,7 +46,7 @@
             <input class="form-control" id="message" type="text" name="message" autofocus>
         </div>
         <div class="col-3">
-            <input type="submit" class="btn btn-primary" id="sendMessageButton" value="Send">
+            <input type="submit" class="btn btn-chatboy" id="sendMessageButton" value="Send">
         </div>
     </form>
 
