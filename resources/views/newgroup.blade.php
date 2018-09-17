@@ -15,7 +15,7 @@
             <input name="users" type="text" class="form-control" aria-describedby="userHelp" id="usersInput">
             <small id="userHelp" class="form-text text-muted">You can search on either name or email.</small>
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-chatboy">Save</button>
     </form>
 </div>
 <script src="/js/new_group.js"></script>

@@ -12,6 +12,10 @@ a{
 	color: #f8f9fa !important;
 }
 
+form .text-muted{
+	color: #becfde !important;
+}
+
 .navbar{
 	width: 100%;
 	height: 9vh;
