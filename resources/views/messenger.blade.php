@@ -15,9 +15,12 @@
             <div class="col-12">
                 @foreach ($group->users as $user)
                     <hr>
-                    {{$user->name}}<br>
+                    {{$user->name}}
+                    @if($user->pivot->role === 1)
+                    <small>(Admin)</small>
+                    @endif
+                    <br>
                     {{$user->email}}<br>
-                    {{$user->id}}
                 @endforeach
             </div>
         </div>

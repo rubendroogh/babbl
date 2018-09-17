@@ -12,7 +12,7 @@ class Group extends Model
 
     public function users()
     {
-    	return $this->belongsToMany('App\User', 'group_users');
+    	return $this->belongsToMany('App\User', 'group_users')->withPivot('role');
     }
 
     public function messages()
