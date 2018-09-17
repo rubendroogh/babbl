@@ -37,7 +37,8 @@ class GroupController extends Controller
         $group = Group::create(['name' => $request->group_name]);
 
         foreach ($users as $user) {
-            $group->users()->save($user);
+            $role = ( $user->id == Auth::id() ) ? 1 : 0;
+            $group->users()->save($user, ['role' => $role]);
         }
         
         return redirect()->route('messenger', ['group' => $group]);
