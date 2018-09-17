@@ -35,6 +35,8 @@
                         <br>
                     @endif
                     {{ $m->content }}
+                    <br>
+                    <small>{{ $m->created_at }}</small>
                 </div>
             </div>
         @endforeach

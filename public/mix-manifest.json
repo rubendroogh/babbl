@@ -1,6 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/messenger.js": "/js/messenger.js",
-    "/js/new_group.js": "/js/new_group.js"
+    "/js/new_group.js": "/js/new_group.js",
+    "/js/messenger.js": "/js/messenger.js"
 }

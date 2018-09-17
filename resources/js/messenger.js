@@ -111,37 +111,61 @@ function RenderReceivedMessage(message, username){
     var messageBox     = document.getElementById('messages'),
         messageWrapper = document.createElement('div'),
         messageBubble  = document.createElement('div'),
-        messageBreak   = document.createElement('br'),
-        userNameBox    = document.createElement('small');
+        breakElement   = document.createElement('br'),
+        userNameBox    = document.createElement('small'),
+        dateBox        = document.createElement('small');
 
     var userNameNode = document.createTextNode(username + ":\n\n"),
-        messageNode  = document.createTextNode(message);
+        messageNode  = document.createTextNode(message),
+        dateNode     = document.createTextNode(getDateInFormat());
 
     messageWrapper.className = 'fullwidth';
     messageBubble.className  = 'message_received';
 
     userNameBox.appendChild(userNameNode);
+    dateBox.appendChild(dateNode);
     messageBubble.appendChild(userNameBox);
-    messageBubble.appendChild(messageBreak);
+    messageBubble.appendChild(breakElement);
     messageBubble.appendChild(messageNode);
+    messageBubble.appendChild(breakElement);
+    messageBubble.appendChild(dateBox);
     messageWrapper.appendChild(messageBubble);
 
     messageBox.appendChild(messageWrapper);   
 }
 
 function RenderSentMessage(message){
-    var messageBox = document.getElementById('messages'),
+    var messageBox     = document.getElementById('messages'),
         messageWrapper = document.createElement('div'),
         messageBubble  = document.createElement('div'),
-        messageNode = document.createTextNode(message);
+        breakElement   = document.createElement('br'),
+        messageNode    = document.createTextNode(message),
+        dateBox        = document.createElement('small'),
+        dateNode       = document.createTextNode(getDateInFormat());
 
     messageWrapper.className = 'fullwidth';
     messageBubble.className  = 'message_sent';
 
+    dateBox.appendChild(dateNode);
+
     messageBubble.appendChild(messageNode);
+    messageBubble.appendChild(breakElement);
+    messageBubble.appendChild(dateBox);
     messageWrapper.appendChild(messageBubble);
 
     messageBox.appendChild(messageWrapper);
+}
+
+function getDateInFormat(){
+    var d = new Date(),
+        year    = d.getFullYear(),
+        month   = d.getMonth(),
+        day     = d.getDate(),
+        hours   = d.getHours(),
+        minutes = d.getMinutes(),
+        seconds = d.getSeconds();
+
+    return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
 }
 
 // function RenderSentMessageVue(message){
