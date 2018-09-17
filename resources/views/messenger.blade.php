@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <div id="messages" class="row messages">
+    <div id="messages" class="messages">
         @foreach( $group->messages as $m )
             <div class="fullwidth">
                 <div class="message_{{ $m->user == Auth::user() ? 'sent' : 'received' }}">
