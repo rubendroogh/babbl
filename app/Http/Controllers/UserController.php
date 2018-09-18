@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 
 class UserController extends Controller
 {
@@ -19,13 +20,36 @@ class UserController extends Controller
 
     /** -----------------------------------------------------------------------------------------------
      * UserDetailView
-     * - Show the detail view of the user
+     * - Show the detail view of the user.
      *
      */
     public function userDetailView()
     {
-      $user = Auth::User();
+        return view('user/overview');
+    }
 
-      return view('user/overview');
+    /** -----------------------------------------------------------------------------------------------
+     * EditUserView
+     * - Show a form where the user can edit their details.
+     */
+    public function editUserView()
+    {
+        return view('user/edit');
+    }
+
+    /** -----------------------------------------------------------------------------------------------
+     * UpdateUser
+     * - Updates db with new user details.
+     *
+     * @param Request $request
+     * @return Route
+     */
+    public function updateUser(Request $request)
+    {
+        $user = Auth::user();
+
+        $user->update($request->all());
+
+        return redirect('/user');
     }
 }

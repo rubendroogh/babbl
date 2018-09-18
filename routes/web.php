@@ -26,3 +26,5 @@ Route::get('/messenger/{group_id?}', 'GroupController@openGroup')->name('messeng
 
 //user routes
 Route::get('/user', 'UserController@userDetailView')->name('userDetailView');
+Route::get('/user/edit', 'UserController@editUserView')->name('editUserView');
+Route::post('/user/update', 'UserController@updateUser')->name('updateUser');
