@@ -19,10 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::post('/messenger/new', 'GroupController@createNewGroup')->name('createNewGroup');
 
 Route::get('/messenger/new', 'GroupController@newGroup')->name('newGroup');
