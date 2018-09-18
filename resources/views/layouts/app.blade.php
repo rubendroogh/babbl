@@ -31,6 +31,9 @@
                 </a>
 
                 <ul class="navbar-nav ml-auto">
+                    <li>
+                        <a href="{{ route('userDetailView') }}">{{ Auth::User()->name }}</a>
+                    </li>
                     @guest
                     @else
                     <a href="{{ route('logout') }}"

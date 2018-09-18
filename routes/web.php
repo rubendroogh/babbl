@@ -23,3 +23,6 @@ Route::post('/messenger/new', 'GroupController@createNewGroup')->name('createNew
 
 Route::get('/messenger/new', 'GroupController@newGroup')->name('newGroup');
 Route::get('/messenger/{group_id?}', 'GroupController@openGroup')->name('messenger');
+
+//user routes
+Route::get('/user', 'UserController@userDetailView')->name('userDetailView');
