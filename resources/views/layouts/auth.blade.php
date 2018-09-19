@@ -17,7 +17,6 @@
     <link rel="shortcut icon" href="{{ asset('img/logo.ico') }}" />
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
     <link href="{{ asset('css/selectize.bootstrap3.css') }}" rel="stylesheet">
 </head>
