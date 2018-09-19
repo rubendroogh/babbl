@@ -31,20 +31,22 @@
                 </a>
 
                 <ul class="navbar-nav ml-auto">
-                    <li>
-                        <a href="{{ route('userDetailView') }}">{{ Auth::User()->name }}</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('userDetailView') }}">{{ Auth::User()->name }}</a>
                     </li>
                     @guest
                     @else
-                    <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
                     @endguest
                 </ul>
             </div>
