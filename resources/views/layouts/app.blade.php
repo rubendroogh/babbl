@@ -56,5 +56,10 @@
             @yield('content')
         </main>
     </div>
+    <div class="mobile-menu">
+        <ul>
+            <li>Menu</li>
+        </ul>
+    </div>
 </body>
 </html>

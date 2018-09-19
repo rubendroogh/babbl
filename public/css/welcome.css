@@ -1,25 +1,30 @@
-body{
-	background-color: #3049ee !important;
-	box-shadow: inset 0 0 100px #1f309b;
+body {
+  background-color: #3049ee !important;
+  -webkit-box-shadow: inset 0 0 100px #1f309b;
+          box-shadow: inset 0 0 100px #1f309b;
 }
 
-html, body, .row, .container-fluid{
-	height: 100% !important;
-	font-family: 'Nunito', sans-serif;
+html,
+body,
+.row,
+.container-fluid {
+  height: 100% !important;
+  font-family: 'Nunito', sans-serif;
 }
 
-.card{
-	background-color: rgba(0,0,0,0) !important;
-	border: none !important;
-	color: white;
+.card {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: none !important;
+  color: white;
 }
 
-.btn-chatboy{
-	color: #f8f9fa;
-    background-color: #ffa80a;
-    border-color: #eb9700;
+.btn-chatboy {
+  color: #f8f9fa;
+  background-color: #ffa80a;
+  border-color: #eb9700;
 }
 
-.wdt-5{
-	width: 7rem;
+.wdt-5 {
+  width: 7rem;
 }
+
