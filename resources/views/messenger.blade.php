@@ -15,15 +15,18 @@
             <div class="col-12">
                 @foreach ($group->users as $user)
                     <hr>
-                    {{$user->name}}<br>
+                    {{$user->name}}
+                    @if($user->pivot->role === 1)
+                    <small>(Admin)</small>
+                    @endif
+                    <br>
                     {{$user->email}}<br>
-                    {{$user->id}}
                 @endforeach
             </div>
         </div>
     </div>
 
-    <div id="messages" class="row messages">
+    <div id="messages" class="messages">
         @foreach( $group->messages as $m )
             <div class="fullwidth">
                 <div class="message_{{ $m->user == Auth::user() ? 'sent' : 'received' }}">
@@ -32,6 +35,8 @@
                         <br>
                     @endif
                     {{ $m->content }}
+                    <br>
+                    <small>{{ $m->created_at }}</small>
                 </div>
             </div>
         @endforeach

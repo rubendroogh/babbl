@@ -5,10 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Chatboy</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+
+        <!-- Icon -->
+        <link rel="shortcut icon" href="{{ asset('img/logo.ico') }}" />
 
         {{-- Style --}}
         <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">

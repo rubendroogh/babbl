@@ -35915,7 +35915,9 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 34 */
+/* 34 */,
+/* 35 */,
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46878,10 +46880,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(35).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(37).setImmediate))
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -46937,7 +46939,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(36);
+__webpack_require__(38);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -46951,7 +46953,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -47144,8 +47146,6 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(10)))
 
 /***/ }),
-/* 37 */,
-/* 38 */,
 /* 39 */,
 /* 40 */,
 /* 41 */,
@@ -47164,7 +47164,7 @@ module.exports = __webpack_require__(45);
 // Get Laravel js requirements and vue.js
 
 __webpack_require__(11);
-window.Vue = __webpack_require__(34);
+window.Vue = __webpack_require__(36);
 
 var app = new Vue({
     el: '#messages'
@@ -47266,19 +47266,24 @@ function RenderReceivedMessage(message, username) {
     var messageBox = document.getElementById('messages'),
         messageWrapper = document.createElement('div'),
         messageBubble = document.createElement('div'),
-        messageBreak = document.createElement('br'),
-        userNameBox = document.createElement('small');
+        breakElement = document.createElement('br'),
+        userNameBox = document.createElement('small'),
+        dateBox = document.createElement('small');
 
     var userNameNode = document.createTextNode(username + ":\n\n"),
-        messageNode = document.createTextNode(message);
+        messageNode = document.createTextNode(message),
+        dateNode = document.createTextNode(getDateInFormat());
 
     messageWrapper.className = 'fullwidth';
     messageBubble.className = 'message_received';
 
     userNameBox.appendChild(userNameNode);
+    dateBox.appendChild(dateNode);
     messageBubble.appendChild(userNameBox);
-    messageBubble.appendChild(messageBreak);
+    messageBubble.appendChild(breakElement);
     messageBubble.appendChild(messageNode);
+    messageBubble.appendChild(breakElement);
+    messageBubble.appendChild(dateBox);
     messageWrapper.appendChild(messageBubble);
 
     messageBox.appendChild(messageWrapper);
@@ -47288,15 +47293,34 @@ function RenderSentMessage(message) {
     var messageBox = document.getElementById('messages'),
         messageWrapper = document.createElement('div'),
         messageBubble = document.createElement('div'),
-        messageNode = document.createTextNode(message);
+        breakElement = document.createElement('br'),
+        messageNode = document.createTextNode(message),
+        dateBox = document.createElement('small'),
+        dateNode = document.createTextNode(getDateInFormat());
 
     messageWrapper.className = 'fullwidth';
     messageBubble.className = 'message_sent';
 
+    dateBox.appendChild(dateNode);
+
     messageBubble.appendChild(messageNode);
+    messageBubble.appendChild(breakElement);
+    messageBubble.appendChild(dateBox);
     messageWrapper.appendChild(messageBubble);
 
     messageBox.appendChild(messageWrapper);
+}
+
+function getDateInFormat() {
+    var d = new Date(),
+        year = d.getFullYear(),
+        month = d.getMonth(),
+        day = d.getDate(),
+        hours = d.getHours(),
+        minutes = d.getMinutes(),
+        seconds = d.getSeconds();
+
+    return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
 }
 
 // function RenderSentMessageVue(message){
