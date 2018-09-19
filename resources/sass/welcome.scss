@@ -1,6 +1,9 @@
 // Variables
 @import 'variables';
 
+// Components
+@import 'components';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
@@ -18,12 +21,6 @@ html, body, .row, .container-fluid{
 	background-color: rgba(0,0,0,0) !important;
 	border: none !important;
 	color: white;
-}
-
-.btn-chatboy{
-	color: #f8f9fa;
-    background-color: #ffa80a;
-    border-color: #eb9700;
 }
 
 .wdt-5{

@@ -5,14 +5,11 @@
 // Variables
 @import 'variables';
 
+// Components
+@import 'components';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
-// Laravel standard
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
 
 // Custom
 html, body{
@@ -92,12 +89,6 @@ form .text-muted{
 
 .table-users thead th{
 	border-top: none;
-}
-
-.btn-chatboy{
-	color: #f8f9fa;
-    background-color: #ffa80a;
-    border-color: #eb9700;
 }
 
 .whole{
