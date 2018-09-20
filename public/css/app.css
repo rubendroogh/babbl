@@ -1,4 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);.btn-chatboy {
+  color: #f8f9fa;
+  background-color: #ffa80a;
+  border-color: #eb9700;
+}
+
+/*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -10471,9 +10477,113 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #3049ee !important;
+  -webkit-box-shadow: inset 0 0 100px #1f309b;
+          box-shadow: inset 0 0 100px #1f309b;
+  color: #f8f9fa !important;
+}
+
+body a {
+  color: #f8f9fa !important;
+}
+
+body form .text-muted {
+  color: #becfde !important;
+}
+
+body .navbar {
+  width: 100%;
+  height: 9vh;
+  z-index: 1100;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+body .message_sent {
+  width: 45%;
+  float: right;
+  background-color: #3a3a3a;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: 5px;
+}
+
+body .message_received {
+  width: 45%;
+  float: left;
+  background-color: #ffffff;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: 5px;
+  color: #2d2d2d;
+}
+
+body .message_received small {
+  color: #656565;
+}
+
+body .fullwidth {
+  width: 100%;
+  display: block;
+  position: relative;
+  clear: both;
+}
+
+body .messages {
+  height: calc(91vh - 4.3rem);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body .group_info.show {
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+  height: 83vh;
+}
+
+body .message_input {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4.3rem;
+  -webkit-box-shadow: 0px -1px 5px 0px #343a40;
+          box-shadow: 0px -1px 5px 0px #343a40;
+  max-width: 800px;
+}
+
+body .table-users thead th {
+  border-top: none;
+}
+
+body .whole {
+  width: 100%;
+  height: 100%;
+}
+
+body #mobileMenu {
+  width: 60vw;
+  height: 100vh;
+  position: absolute;
+  display: inline-block;
+  background-color: red;
+  top: 0;
+  right: -60vw;
+  z-index: 1200;
+  -webkit-transition: ease .5s;
+  transition: ease .5s;
+}
+
+body #menuToggle {
+  width: 3rem;
+  height: 3rem;
+  background-color: green;
+  position: relative;
+  top: calc( 100vh - 4rem);
+  right: 3rem;
 }
 

@@ -18,9 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="{{ asset('css/selectize.bootstrap3.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
 </head>
 <body>
     <div id="app">
@@ -28,33 +29,38 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class="card-img-top mx-auto" src="{{ asset('svg/logo.svg') }}" style="width: 3rem;">
-                </a>
-
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('userDetailView') }}">{{ Auth::User()->name }}</a>
-                    </li>
-                    @guest
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </li>
-                    @endguest
-                </ul>
+                </a>         
             </div>
         </nav>
 
         <main>
             @yield('content')
         </main>
+
+        <nav id="mobileMenu">
+            <div id="menuToggle">
+                menu
+            </div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('userDetailView') }}">{{ Auth::User()->name }}</a>
+                </li>
+                @guest
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+                @endguest
+            </ul>
+        </nav>
     </div>
 </body>
 </html>
