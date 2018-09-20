@@ -17,6 +17,7 @@ class CreateMessagesTable extends Migration
             $table->increments('id');
             $table->string('content', 255);
             $table->unsignedTinyInteger('read')->default('0');
+            $table->string('type', 255);
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('group_id');
             $table->timestamps();
