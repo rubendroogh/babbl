@@ -35948,10 +35948,12 @@ $(document).ready(function () {
 
 	var triggered = false;
 	$("#menuToggle").click(function (event) {
-		var val = triggered ? '-60vw' : '0';
+		var width = triggered ? '0' : '60vw';
+		var display = triggered ? 'none' : 'initial';
 		triggered = !triggered;
 
-		$("#mobileMenu").css('right', val);
+		$("#mobileMenu").css('width', width);
+		$("#mobileMenu .navbar-nav").css('display', display);
 	});
 });
 

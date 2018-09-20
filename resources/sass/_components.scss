@@ -1,5 +1,5 @@
 .btn-chatboy{
 	color: #f8f9fa;
-    background-color: #ffa80a;
-    border-color: #eb9700;
+    background-color: $chatboyOrange;
+    border-color: darken($chatboyOrange, 10%);
 }

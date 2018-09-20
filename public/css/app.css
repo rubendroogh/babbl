@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);.btn-chatboy {
   color: #f8f9fa;
   background-color: #ffa80a;
-  border-color: #eb9700;
+  border-color: #d68a00;
 }
 
 /*!
@@ -10484,8 +10484,8 @@ body {
 
 body {
   background-color: #3049ee !important;
-  -webkit-box-shadow: inset 0 0 100px #1f309b;
-          box-shadow: inset 0 0 100px #1f309b;
+  -webkit-box-shadow: inset 0 0 100px #0e23aa;
+          box-shadow: inset 0 0 100px #0e23aa;
   color: #f8f9fa !important;
 }
 
@@ -10561,29 +10561,34 @@ body .table-users thead th {
 }
 
 body .whole {
+  position: relative;
   width: 100%;
   height: 100%;
 }
 
 body #mobileMenu {
-  width: 60vw;
+  width: 0;
   height: 100vh;
   position: absolute;
   display: inline-block;
   background-color: red;
   top: 0;
-  right: -60vw;
+  right: 0;
   z-index: 1200;
   -webkit-transition: ease .5s;
   transition: ease .5s;
 }
 
-body #menuToggle {
+body #mobileMenu #menuToggle {
   width: 3rem;
   height: 3rem;
   background-color: green;
   position: relative;
   top: calc( 100vh - 4rem);
   right: 3rem;
+}
+
+body #mobileMenu .navbar-nav {
+  display: none;
 }
 
