@@ -10489,22 +10489,22 @@ body {
   color: #f8f9fa !important;
 }
 
-a {
+body a {
   color: #f8f9fa !important;
 }
 
-form .text-muted {
+body form .text-muted {
   color: #becfde !important;
 }
 
-.navbar {
+body .navbar {
   width: 100%;
   height: 9vh;
   z-index: 1100;
   background-color: rgba(0, 0, 0, 0) !important;
 }
 
-.message_sent {
+body .message_sent {
   width: 45%;
   float: right;
   background-color: #3a3a3a;
@@ -10513,7 +10513,7 @@ form .text-muted {
   border-radius: 5px;
 }
 
-.message_received {
+body .message_received {
   width: 45%;
   float: left;
   background-color: #ffffff;
@@ -10523,30 +10523,30 @@ form .text-muted {
   color: #2d2d2d;
 }
 
-.message_received small {
+body .message_received small {
   color: #656565;
 }
 
-.fullwidth {
+body .fullwidth {
   width: 100%;
   display: block;
   position: relative;
   clear: both;
 }
 
-.messages {
+body .messages {
   height: calc(91vh - 4.3rem);
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.group_info.show {
+body .group_info.show {
   -webkit-transition: 1s ease;
   transition: 1s ease;
   height: 83vh;
 }
 
-.message_input {
+body .message_input {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -10556,12 +10556,34 @@ form .text-muted {
   max-width: 800px;
 }
 
-.table-users thead th {
+body .table-users thead th {
   border-top: none;
 }
 
-.whole {
+body .whole {
   width: 100%;
   height: 100%;
+}
+
+body #mobileMenu {
+  width: 60vw;
+  height: 100vh;
+  position: absolute;
+  display: inline-block;
+  background-color: red;
+  top: 0;
+  right: -60vw;
+  z-index: 1200;
+  -webkit-transition: ease .5s;
+  transition: ease .5s;
+}
+
+body #menuToggle {
+  width: 3rem;
+  height: 3rem;
+  background-color: green;
+  position: relative;
+  top: calc( 100vh - 4rem);
+  right: 3rem;
 }
 

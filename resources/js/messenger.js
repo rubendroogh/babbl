@@ -44,7 +44,6 @@ $( "#notify" ).click(function( event ) {
     event.preventDefault();
 });
 
-
 // Pusher listening for messages
 
 var pusher = new Pusher('ea6b376da831c806c735', {
