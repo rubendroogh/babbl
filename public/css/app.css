@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);.btn-chatboy {
   color: #f8f9fa;
   background-color: #ffa80a;
-  border-color: #eb9700;
+  border-color: #d68a00;
 }
 
 /*!
@@ -10484,8 +10484,8 @@ body {
 
 body {
   background-color: #3049ee !important;
-  -webkit-box-shadow: inset 0 0 100px #1f309b;
-          box-shadow: inset 0 0 100px #1f309b;
+  -webkit-box-shadow: inset 0 0 100px #0e23aa;
+          box-shadow: inset 0 0 100px #0e23aa;
   color: #f8f9fa !important;
 }
 
