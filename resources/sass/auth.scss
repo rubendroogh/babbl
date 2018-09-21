@@ -21,8 +21,8 @@ html, body, main{
 }
 
 body{
-	background-color: #3049ee !important;
-	box-shadow: inset 0 0 100px #1f309b;
+	background: $chatboyPrimary !important;
+	box-shadow: inset 0 0 100px rgba(0,0,0,.4);
 	color: #f8f9fa !important;	
 }
 

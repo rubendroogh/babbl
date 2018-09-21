@@ -117,8 +117,8 @@ body{
 			position: relative;
 			top: calc( 100vh - 4rem );
 			right: 3rem;
-			border-top-left-radius: $border-radius;
-			border-bottom-left-radius: $border-radius;
+			border-top-left-radius: $menu-border-radius;
+			border-bottom-left-radius: $menu-border-radius;
 
 			i{
 				font-size: 2rem;
