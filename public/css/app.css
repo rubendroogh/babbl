@@ -5,6 +5,21 @@
   border-color: rgba(0, 0, 0, 0.4);
 }
 
+a {
+  color: #f8f9fa !important;
+}
+
+form .text-muted {
+  color: #f8f9fa !important;
+}
+
+.navbar {
+  width: 100%;
+  height: 4.5rem;
+  z-index: 1100;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -10479,11 +10494,15 @@ a.text-dark:focus {
 }
 
 html,
-body {
+body,
+#app,
+.container-fluid {
   height: 100%;
 }
 
-body {
+body #app {
+  height: inherit;
+  overflow-y: hidden;
   background: -webkit-gradient(linear, left top, right top, from(#ff416c), to(#ff4b2b)) !important;
   background: linear-gradient(to right, #ff416c, #ff4b2b) !important;
   -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.4);
@@ -10491,24 +10510,8 @@ body {
   color: #f8f9fa !important;
 }
 
-body #app {
-  height: inherit;
-  overflow-y: hidden;
-}
-
-body #app a {
-  color: #f8f9fa !important;
-}
-
-body #app form .text-muted {
-  color: #f8f9fa !important;
-}
-
-body #app .navbar {
-  width: 100%;
-  height: 9vh;
-  z-index: 1100;
-  background-color: rgba(0, 0, 0, 0) !important;
+body #app .container-fluid {
+  height: 100%;
 }
 
 body #app .message_sent {
@@ -10542,9 +10545,10 @@ body #app .fullwidth {
 }
 
 body #app .messages {
-  height: calc(91vh - 4.3rem);
+  max-height: calc(100vh - 8.8rem);
   overflow-y: scroll;
   overflow-x: hidden;
+  position: relative;
 }
 
 body #app .group_info.show {
@@ -10554,13 +10558,17 @@ body #app .group_info.show {
 }
 
 body #app .message_input {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 -15px 0 -15px;
+}
+
+body #app .bottom-absolute {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 4.3rem;
   -webkit-box-shadow: 0px -1px 5px 0px #343a40;
           box-shadow: 0px -1px 5px 0px #343a40;
-  max-width: 800px;
 }
 
 body #app .table-users thead th {
