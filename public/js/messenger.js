@@ -47216,6 +47216,13 @@ var pusher = new Pusher('ea6b376da831c806c735', {
 
 var channel = pusher.subscribe('messages');
 
+channel.bind('read-messages', function (data) {
+    var data = $.parseJSON(data);
+    $.each(data, function (key, message) {
+        updateMessageReadStatus(message);
+    });
+});
+
 channel.bind('receive-message-' + group_id, function (data) {
     if (data.user_id == document.getElementById('user_id').value) {
         RenderSentMessage(data.message);
@@ -47327,9 +47334,29 @@ function getDateInFormat() {
     return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
 }
 
-// function RenderSentMessageVue(message){
-//     Vue.component('messages', require('./components/MessageSent.vue'));
-// }
+// Message read
+messagesRead();
+
+function messagesRead() {
+    var user_id = $('#user_id').val(),
+        group_id = $('#group_id').val(),
+        _token = $('[name="_token"]').val();
+
+    $.ajax('/api/message/read', {
+        method: 'POST',
+        data: {
+            group_id: group_id,
+            user_id: user_id,
+            _token: _token
+        }
+    });
+}
+
+function updateMessageReadStatus(message) {
+    var messageReadElement = $('#messageRead' + message.id);
+
+    messageReadElement.html('banaan');
+}
 
 /***/ })
 /******/ ]);

@@ -10491,22 +10491,27 @@ body {
   color: #f8f9fa !important;
 }
 
-body a {
+body #app {
+  height: inherit;
+  overflow-y: hidden;
+}
+
+body #app a {
   color: #f8f9fa !important;
 }
 
-body form .text-muted {
+body #app form .text-muted {
   color: #f8f9fa !important;
 }
 
-body .navbar {
+body #app .navbar {
   width: 100%;
   height: 9vh;
   z-index: 1100;
   background-color: rgba(0, 0, 0, 0) !important;
 }
 
-body .message_sent {
+body #app .message_sent {
   width: 45%;
   float: right;
   background-color: #3a3a3a;
@@ -10515,7 +10520,7 @@ body .message_sent {
   border-radius: 5px;
 }
 
-body .message_received {
+body #app .message_received {
   width: 45%;
   float: left;
   background-color: #ffffff;
@@ -10525,30 +10530,30 @@ body .message_received {
   color: #2d2d2d;
 }
 
-body .message_received small {
+body #app .message_received small {
   color: #656565;
 }
 
-body .fullwidth {
+body #app .fullwidth {
   width: 100%;
   display: block;
   position: relative;
   clear: both;
 }
 
-body .messages {
+body #app .messages {
   height: calc(91vh - 4.3rem);
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-body .group_info.show {
+body #app .group_info.show {
   -webkit-transition: 1s ease;
   transition: 1s ease;
   height: 83vh;
 }
 
-body .message_input {
+body #app .message_input {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -10558,17 +10563,17 @@ body .message_input {
   max-width: 800px;
 }
 
-body .table-users thead th {
+body #app .table-users thead th {
   border-top: none;
 }
 
-body .whole {
+body #app .whole {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-body #mobileMenu {
+body #app #mobileMenu {
   width: 0;
   height: 100vh;
   position: absolute;
@@ -10584,7 +10589,7 @@ body #mobileMenu {
           box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
-body #mobileMenu #menuToggle {
+body #app #mobileMenu #menuToggle {
   width: 3rem;
   height: 3rem;
   background: -webkit-gradient(linear, left top, right top, from(#00b4db), to(#0083b0));
@@ -10596,14 +10601,14 @@ body #mobileMenu #menuToggle {
   border-bottom-left-radius: 10px;
 }
 
-body #mobileMenu #menuToggle i {
+body #app #mobileMenu #menuToggle i {
   font-size: 2rem;
   position: relative;
   top: .5rem;
   left: .7rem;
 }
 
-body #mobileMenu .navbar-nav {
+body #app #mobileMenu .navbar-nav {
   display: none;
 }
 

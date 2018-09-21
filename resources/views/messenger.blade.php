@@ -17,10 +17,10 @@
                     <hr>
                     {{$user->name}}
                     @if($user->pivot->role === 1)
-                    <small>(Admin)</small>
+                        <small>(Admin)</small>
                     @endif
-                    <br>
-                    {{$user->email}}<br>
+                        <br>
+                        {{$user->email}}<br>
                 @endforeach
             </div>
         </div>
@@ -37,6 +37,10 @@
                     {{ $m->content }}
                     <br>
                     <small>{{ $m->created_at }}</small>
+                    @if( $m->user == Auth::user() )
+                        <small id="messageRead{{ $m->id }}">{{ $m->read }}</small>
+                    @endif
+                    
                 </div>
             </div>
         @endforeach

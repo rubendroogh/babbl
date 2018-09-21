@@ -21,115 +21,120 @@ body{
 	box-shadow: inset 0 0 100px rgba(0,0,0,.4);
 	color: #f8f9fa !important;
 
-	a{
-		color: #f8f9fa !important;
-	}
+	#app{
+		height: inherit;
+		overflow-y: hidden;
 
-	form{
-		.text-muted{
+		a{
 			color: #f8f9fa !important;
 		}
-	}
 
-	.navbar{
-		width: 100%;
-		height: 9vh;
-		z-index: 1100;
-		background-color: rgba(0,0,0,0) !important;
-	}
-
-	.message_sent{
-		width: 45%;
-		float: right;
-		background-color: #3a3a3a;
-		padding: .5rem;
-		margin: .5rem;
-		border-radius: 5px;
-	}
-
-	.message_received{
-		width: 45%;
-		float: left;
-		background-color: #ffffff;
-		padding: .5rem;
-		margin: .5rem;
-		border-radius: 5px;
-		color: #2d2d2d;
-	}
-
-	.message_received small{
-		color: #656565;
-	}
-
-	.fullwidth{
-		width: 100%;
-		display: block;
-		position: relative;
-		clear: both;
-	}
-
-	.messages{
-		height: calc(91vh - 4.3rem);
-		overflow-y: scroll;
-		overflow-x: hidden;
-	}
-
-	.group_info.show{
-		transition: 1s ease;
-		height: 83vh;
-	}
-
-	.message_input{
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-		height: 4.3rem;
-		box-shadow: 0px -1px 5px 0px #343a40;
-		max-width: 800px;
-	}
-
-	.table-users thead th{
-		border-top: none;
-	}
-
-	.whole{
-		position: relative;
-		width: 100%;
-		height: 100%;
-	}
-
-	#mobileMenu{
-		width: 0;
-		height: 100vh;
-		position: absolute;
-		display: inline-block;
-		background: $chatboySecondary;
-		top: 0;
-		right: 0;
-		z-index: 1200;
-		transition: ease .5s;
-		box-shadow: 0px -1px 5px 0px rgba(0,0,0,.4);
-
-		#menuToggle{
-			width: 3rem;
-			height: 3rem;
-			background: $chatboySecondary;
-			position: relative;
-			top: calc( 100% - 4rem );
-			right: 3rem;
-			border-top-left-radius: $menu-border-radius;
-			border-bottom-left-radius: $menu-border-radius;
-
-			i{
-				font-size: 2rem;
-				position: relative;
-				top: .5rem;
-				left: .7rem;
+		form{
+			.text-muted{
+				color: #f8f9fa !important;
 			}
 		}
 
-		.navbar-nav{
-			display: none;
+		.navbar{
+			width: 100%;
+			height: 9vh;
+			z-index: 1100;
+			background-color: rgba(0,0,0,0) !important;
+		}
+
+		.message_sent{
+			width: 45%;
+			float: right;
+			background-color: #3a3a3a;
+			padding: .5rem;
+			margin: .5rem;
+			border-radius: 5px;
+		}
+
+		.message_received{
+			width: 45%;
+			float: left;
+			background-color: #ffffff;
+			padding: .5rem;
+			margin: .5rem;
+			border-radius: 5px;
+			color: #2d2d2d;
+		}
+
+		.message_received small{
+			color: #656565;
+		}
+
+		.fullwidth{
+			width: 100%;
+			display: block;
+			position: relative;
+			clear: both;
+		}
+
+		.messages{
+			height: calc(91vh - 4.3rem);
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+
+		.group_info.show{
+			transition: 1s ease;
+			height: 83vh;
+		}
+
+		.message_input{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 4.3rem;
+			box-shadow: 0px -1px 5px 0px #343a40;
+			max-width: 800px;
+		}
+
+		.table-users thead th{
+			border-top: none;
+		}
+
+		.whole{
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+
+		#mobileMenu{
+			width: 0;
+			height: 100vh;
+			position: absolute;
+			display: inline-block;
+			background: $chatboySecondary;
+			top: 0;
+			right: 0;
+			z-index: 1200;
+			transition: ease .5s;
+			box-shadow: 0px -1px 5px 0px rgba(0,0,0,.4);
+
+			#menuToggle{
+				width: 3rem;
+				height: 3rem;
+				background: $chatboySecondary;
+				position: relative;
+				top: calc( 100% - 4rem );
+				right: 3rem;
+				border-top-left-radius: $menu-border-radius;
+				border-bottom-left-radius: $menu-border-radius;
+
+				i{
+					font-size: 2rem;
+					position: relative;
+					top: .5rem;
+					left: .7rem;
+				}
+			}
+
+			.navbar-nav{
+				display: none;
+			}
 		}
 	}
 }
