@@ -17,6 +17,8 @@
     <link rel="shortcut icon" href="{{ asset('img/logo.ico') }}" />
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/selectize.bootstrap3.css') }}" rel="stylesheet">
 
@@ -39,15 +41,16 @@
 
         <nav id="mobileMenu">
             <div id="menuToggle">
-                menu
+                <i class="fas fa-bars"></i>
             </div>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item pl-3">
                     <a class="nav-link" href="{{ route('userDetailView') }}">{{ Auth::User()->name }}</a>
                 </li>
-                @guest
-                @else
-                <li class="nav-item">
+                <li class="nav-item pl-3">
+                    <a class="nav-link" href="{{ route('editUserView') }}">Settings</a>
+                </li>
+                <li class="nav-item pl-3">
                     <a class="nav-link" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
@@ -58,7 +61,6 @@
                         @csrf
                     </form>
                 </li>
-                @endguest
             </ul>
         </nav>
     </div>
