@@ -10590,7 +10590,7 @@ body #mobileMenu #menuToggle {
   background: -webkit-gradient(linear, left top, right top, from(#00b4db), to(#0083b0));
   background: linear-gradient(to right, #00b4db, #0083b0);
   position: relative;
-  top: calc( 100vh - 4rem);
+  top: calc( 100% - 4rem);
   right: 3rem;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
