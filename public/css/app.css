@@ -10496,7 +10496,7 @@ a.text-dark:focus {
 html,
 body,
 #app,
-.container-fluid {
+main {
   height: 100%;
 }
 
@@ -10544,11 +10544,12 @@ body #app .fullwidth {
   clear: both;
 }
 
-body #app .messages {
-  max-height: calc(100vh - 8.8rem);
-  overflow-y: scroll;
-  overflow-x: hidden;
+body #app .messages,
+body #app #messages {
+  max-height: 100%;
+  overflow-y: auto;
   position: relative;
+  padding-bottom: 4.5rem;
 }
 
 body #app .group_info.show {
