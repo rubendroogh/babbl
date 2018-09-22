@@ -10584,7 +10584,7 @@ body #app .whole {
 
 body #app #mobileMenu {
   width: 0;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   display: inline-block;
   background: -webkit-gradient(linear, left top, right top, from(#00b4db), to(#0083b0));
