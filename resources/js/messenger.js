@@ -14,6 +14,7 @@ var group_id = $('#group_id').val();
 // Scroll down on init
 
 scrollToLastMessage();
+messagesRead();
 
 // Notifications
 
@@ -175,7 +176,7 @@ function getDateInFormat(){
 }
 
 // Message read
-messagesRead();
+
 
 function messagesRead(){
     var user_id  = $('#user_id').val(),
