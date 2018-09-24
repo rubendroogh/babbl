@@ -38,7 +38,7 @@
                             @endif
                             {{ $m->content }}
                             <br>
-                            <small>{{ $m->created_at }}</small>
+                            <small>{{ $m->created_at->diffForHumans() }}</small>
                             @if( $m->user == Auth::user() )
                                 <small id="messageRead{{ $m->id }}">
                                     <i class="fas fa-check{{ $m->read ? '-double' : '' }}"></i>
