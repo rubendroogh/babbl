@@ -51,20 +51,23 @@
         </div>
     </div>
 
-    <form id="messageInput" class="message_input py-3 row bg-dark">
-        @csrf
-        <input id="user_id" type="hidden" name="_user_id" value="{{ Auth::user()->id }}">
-        <input id="group_id" type="hidden" name="_group_id" value="{{ $group->id }}">
-        <input id="user_name" type="hidden" name="_user_name" value="{{ Auth::user()->name }}">
-        <input id="message_type" type="hidden" name="_message_type" value="string">
-        <div class="col-9">
-            <input class="form-control" id="message" type="text" name="message" autofocus autocomplete="off">
+    <div class="row bottom-absolute bg-dark">
+        <div class="col-12">
+            <form id="messageInput" class="message_input py-3 row">
+                @csrf
+                <input id="user_id" type="hidden" name="_user_id" value="{{ Auth::user()->id }}">
+                <input id="group_id" type="hidden" name="_group_id" value="{{ $group->id }}">
+                <input id="user_name" type="hidden" name="_user_name" value="{{ Auth::user()->name }}">
+                <input id="message_type" type="hidden" name="_message_type" value="string">
+                <div class="col-9">
+                    <input class="form-control" id="message" type="text" name="message" autofocus autocomplete="off">
+                </div>
+                <div class="col-3">
+                    <input type="submit" class="btn btn-chatboy" id="sendMessageButton" value="Send">
+                </div>
+            </form>
         </div>
-        <div class="col-1">
-            <input type="submit" class="btn btn-chatboy" id="sendMessageButton" value="Send">
-        </div>
-
-    </form>
+    </div>
 </div>
 <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
 <script src="/js/messenger.js"></script>
