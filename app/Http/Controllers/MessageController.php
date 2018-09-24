@@ -33,7 +33,7 @@ class MessageController extends Controller
 
         $messages = Message::where('group_id', $request->group_id)
             ->where('read', 1)
-            ->where('user_id', '!=', $request->user_id)
+            ->where('user_id', '==', $request->user_id)
             ->get();
 
         $pusher->trigger('messages', 'read-messages', $messages->toJson());     
