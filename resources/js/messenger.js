@@ -1,52 +1,14 @@
-// Get Laravel js requirements and vue.js
-
+// Get Laravel js requirements
 require('./bootstrap');
-window.Vue = require('vue');
-
-const app = new Vue({
-    el: '#messages'
-});
 
 // Set variables
-
 var group_id = $('#group_id').val();
 
 // Scroll down on init
-
 scrollToLastMessage();
 messagesRead();
 
-// Notifications
-
-Notification.requestPermission().then(function(permission) {
-    //do something
-});
-
-function notifyUser(){
-    if (!("Notification" in window)) {
-        alert("This browser does not support desktop notification");
-    }
-
-    else if (Notification.permission === "granted") {
-        var notification = new Notification("Hee Henk!");
-    }
-
-    else if (Notification.permission !== "denied") {
-        Notification.requestPermission(function (permission) {
-            if (permission === "granted") {
-                var notification = new Notification("Hi there!");
-            }
-        });
-    }
-}
-
-$( "#notify" ).click(function( event ) {
-    notifyUser();
-    event.preventDefault();
-});
-
 // Pusher listening for messages
-
 var pusher = new Pusher('ea6b376da831c806c735', {
     cluster: 'eu',
     forceTLS: true
@@ -72,14 +34,12 @@ channel.bind('receive-message-' + group_id, function(data) {
 });
 
 // Send message when form submitted
-
 $( "#messageInput" ).submit(function( event ) {
     sendMessage();
     event.preventDefault();
 });
 
 // Functions for sending and rendering messages
-
 function sendMessage(){
     var messageInput = $('#message'),
         message      = $('#message').val(),
@@ -176,8 +136,6 @@ function getDateInFormat(){
 }
 
 // Message read
-
-
 function messagesRead(){
     var user_id  = $('#user_id').val(),
         group_id = $('#group_id').val(),
@@ -196,5 +154,5 @@ function messagesRead(){
 function updateMessageReadStatus(message){
     var messageReadElement = $('#messageRead' + message.id);
 
-    messageReadElement.html('banaan');
+    messageReadElement.html('<i class="fas fa-check-double"></i>');
 }

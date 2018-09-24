@@ -40,9 +40,10 @@
                             <br>
                             <small>{{ $m->created_at }}</small>
                             @if( $m->user == Auth::user() )
-                                <small id="messageRead{{ $m->id }}">{{ $m->read }}</small>
+                                <small id="messageRead{{ $m->id }}">
+                                    <i class="fas fa-check{{ $m->read ? '-double' : '' }}"></i>
+                                </small>
                             @endif
-                            
                         </div>
                     </div>
                 @endforeach
