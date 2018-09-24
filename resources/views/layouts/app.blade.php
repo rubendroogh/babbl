@@ -48,6 +48,9 @@
                     <a class="nav-link" href="{{ route('userDetailView') }}">{{ Auth::User()->name }}</a>
                 </li>
                 <li class="nav-item pl-3">
+                    <a class="nav-link" href="{{ route('home') }}">Your groups</a>
+                </li>
+                <li class="nav-item pl-3">
                     <a class="nav-link" href="{{ route('editUserView') }}">Settings</a>
                 </li>
                 <li class="nav-item pl-3">
