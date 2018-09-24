@@ -14,12 +14,15 @@ class MessageController extends Controller
         Message::create([
             'content' => $request->message,
             'group_id' => $request->group_id,
-            'user_id' => $request->user_id
+            'user_id' => $request->user_id,
+            'type' => $request->message_type,
         ]);
 
         $data['message'] = $request->message;
         $data['user_id'] = $request->user_id;
         $data['user_name'] = $request->user_name;
+        $data['type'] = $request->message_type;
+
         $pusher->trigger('messages', 'receive-message-' . $request->group_id, $data);
     }
 
