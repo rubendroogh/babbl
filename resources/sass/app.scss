@@ -44,10 +44,6 @@ body{
 				position: relative;
 				clear: both;
 
-				.message_menu{
-					display: none;
-				}
-
 				.message_sent{
 					width: 45%;
 					float: right;
@@ -58,6 +54,7 @@ body{
 
 					&.message_selected{
 						background-color: #4c4c4c;
+						content: '';
 					}
 				}
 

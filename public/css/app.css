@@ -10534,11 +10534,6 @@ body #app #messages .fullwidth {
   clear: both;
 }
 
-body #app .messages .fullwidth .message_menu,
-body #app #messages .fullwidth .message_menu {
-  display: none;
-}
-
 body #app .messages .fullwidth .message_sent,
 body #app #messages .fullwidth .message_sent {
   width: 45%;
@@ -10552,6 +10547,7 @@ body #app #messages .fullwidth .message_sent {
 body #app .messages .fullwidth .message_sent.message_selected,
 body #app #messages .fullwidth .message_sent.message_selected {
   background-color: #4c4c4c;
+  content: '';
 }
 
 body #app .messages .fullwidth .message_received,

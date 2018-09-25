@@ -35939,17 +35939,36 @@ module.exports = __webpack_require__(47);
 /* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// Get Laravel js requirements
+// Get requirements
 __webpack_require__(11);
-
-// Set variables
-var group_id = $('#group_id').val();
+__webpack_require__(59);
+__webpack_require__(60);
 
 // Scroll down on init
 scrollToLastMessage();
+
+function scrollToLastMessage() {
+    var messageContainer = document.getElementById("messages");
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+/***/ }),
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */
+/***/ (function(module, exports) {
+
 messagesRead();
 
-// Pusher listening for messages
 var pusher = new Pusher('ea6b376da831c806c735', {
     cluster: 'eu',
     forceTLS: true
@@ -35964,6 +35983,39 @@ channel.bind('read-messages', function (data) {
     });
 });
 
+function messagesRead() {
+    var user_id = $('#user_id').val(),
+        group_id = $('#group_id').val(),
+        _token = $('[name="_token"]').val();
+
+    $.ajax('/api/message/read', {
+        method: 'POST',
+        data: {
+            group_id: group_id,
+            user_id: user_id,
+            _token: _token
+        }
+    });
+}
+
+function updateMessageReadStatus(message) {
+    var messageReadElement = $('#messageRead' + message.id);
+
+    messageReadElement.html('<i class="fas fa-check-double"></i>');
+}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports) {
+
+var pusher = new Pusher('ea6b376da831c806c735', {
+    cluster: 'eu',
+    forceTLS: true
+});
+
+var channel = pusher.subscribe('messages');
+var group_id = $('#group_id').val();
+
 channel.bind('receive-message-' + group_id, function (data) {
     if (data.user_id == document.getElementById('user_id').value) {
         RenderSentMessage(data.message);
@@ -35974,18 +36026,11 @@ channel.bind('receive-message-' + group_id, function (data) {
     }
 });
 
-// Event listeners
 $("#messageInput").submit(function (event) {
     sendMessage();
     event.preventDefault();
 });
 
-$(".message_sent").click(function (event) {
-    $(this).addClass('message_selected');
-    $(this).children('.message_menu').css('display', 'initial');
-});
-
-// Functions for sending and rendering messages
 function sendMessage() {
     var messageInput = $('#message'),
         message = $('#message').val(),
@@ -36010,11 +36055,6 @@ function sendMessage() {
     }
 
     return false;
-}
-
-function scrollToLastMessage() {
-    var messageContainer = document.getElementById("messages");
-    messageContainer.scrollTop = messageContainer.scrollHeight;
 }
 
 function RenderReceivedMessage(message, username) {
@@ -36078,26 +36118,9 @@ function getDateInFormat() {
     return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
 }
 
-// Message read
-function messagesRead() {
-    var user_id = $('#user_id').val(),
-        group_id = $('#group_id').val(),
-        _token = $('[name="_token"]').val();
-
-    $.ajax('/api/message/read', {
-        method: 'POST',
-        data: {
-            group_id: group_id,
-            user_id: user_id,
-            _token: _token
-        }
-    });
-}
-
-function updateMessageReadStatus(message) {
-    var messageReadElement = $('#messageRead' + message.id);
-
-    messageReadElement.html('<i class="fas fa-check-double"></i>');
+function scrollToLastMessage() {
+    var messageContainer = document.getElementById("messages");
+    messageContainer.scrollTop = messageContainer.scrollHeight;
 }
 
 /***/ })
