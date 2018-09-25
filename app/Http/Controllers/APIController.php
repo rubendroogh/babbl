@@ -13,8 +13,23 @@ class APIController extends Controller
     	return $users;
     }
 
+    public function allUserGroups($user_id){
+        $user = User::find($user_id);
+        return $user->groups;
+    }
+
     public function allGroups(){
         $groups = Group::all();
         return $groups;
+    }
+
+    public function allGroupMessages($group_id){
+        $group = Group::find($group_id);
+        return $group->messages;
+    }
+
+    public function allGroupUsers($group_id){
+        $group = Group::find($group_id);
+        return $group->users;
     }
 }

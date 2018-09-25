@@ -18,7 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/users/all', 'APIController@allUsers');
+Route::get('/users/{id}/groups', 'APIController@allUserGroups');
+
 Route::get('/groups/all', 'APIController@allGroups');
+Route::get('/groups/{id}/messages', 'APIController@allGroupMessages');
+Route::get('/groups/{id}/users', 'APIController@allGroupUsers');
 
 Route::post('/message/send', 'MessageController@sendMessage');
 Route::post('/message/read', 'MessageController@messageRead');
