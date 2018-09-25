@@ -28,34 +28,8 @@ body{
 			height: 100%;
 		}
 
-		.message_sent{
-			width: 45%;
-			float: right;
-			background-color: #3a3a3a;
-			padding: .5rem;
-			margin: .5rem;
-			border-radius: 5px;
-		}
-
-		.message_received{
-			width: 45%;
-			float: left;
-			background-color: #ffffff;
-			padding: .5rem;
-			margin: .5rem;
-			border-radius: 5px;
-			color: #2d2d2d;
-		}
-
 		.message_received small{
 			color: #656565;
-		}
-
-		.fullwidth{
-			width: 100%;
-			display: block;
-			position: relative;
-			clear: both;
 		}
 
 		.messages, #messages{
@@ -63,7 +37,43 @@ body{
 			overflow-y: auto;
 			position: relative;
 			padding-bottom: 4.5rem;
+
+			.fullwidth{
+				width: 100%;
+				display: block;
+				position: relative;
+				clear: both;
+
+				.message_menu{
+					display: none;
+				}
+
+				.message_sent{
+					width: 45%;
+					float: right;
+					background-color: #3a3a3a;
+					padding: .5rem;
+					margin: .5rem;
+					border-radius: 5px;
+
+					&.message_selected{
+						background-color: #4c4c4c;
+					}
+				}
+
+				.message_received{
+					width: 45%;
+					float: left;
+					background-color: #ffffff;
+					padding: .5rem;
+					margin: .5rem;
+					border-radius: 5px;
+					color: #2d2d2d;
+				}
+			}
 		}
+
+		
 
 		.group_info.show{
 			transition: 1s ease;

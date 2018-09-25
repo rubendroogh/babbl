@@ -10514,34 +10514,8 @@ body #app .container-fluid {
   height: 100%;
 }
 
-body #app .message_sent {
-  width: 45%;
-  float: right;
-  background-color: #3a3a3a;
-  padding: .5rem;
-  margin: .5rem;
-  border-radius: 5px;
-}
-
-body #app .message_received {
-  width: 45%;
-  float: left;
-  background-color: #ffffff;
-  padding: .5rem;
-  margin: .5rem;
-  border-radius: 5px;
-  color: #2d2d2d;
-}
-
 body #app .message_received small {
   color: #656565;
-}
-
-body #app .fullwidth {
-  width: 100%;
-  display: block;
-  position: relative;
-  clear: both;
 }
 
 body #app .messages,
@@ -10550,6 +10524,45 @@ body #app #messages {
   overflow-y: auto;
   position: relative;
   padding-bottom: 4.5rem;
+}
+
+body #app .messages .fullwidth,
+body #app #messages .fullwidth {
+  width: 100%;
+  display: block;
+  position: relative;
+  clear: both;
+}
+
+body #app .messages .fullwidth .message_menu,
+body #app #messages .fullwidth .message_menu {
+  display: none;
+}
+
+body #app .messages .fullwidth .message_sent,
+body #app #messages .fullwidth .message_sent {
+  width: 45%;
+  float: right;
+  background-color: #3a3a3a;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: 5px;
+}
+
+body #app .messages .fullwidth .message_sent.message_selected,
+body #app #messages .fullwidth .message_sent.message_selected {
+  background-color: #4c4c4c;
+}
+
+body #app .messages .fullwidth .message_received,
+body #app #messages .fullwidth .message_received {
+  width: 45%;
+  float: left;
+  background-color: #ffffff;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: 5px;
+  color: #2d2d2d;
 }
 
 body #app .group_info.show {

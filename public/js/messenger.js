@@ -35974,10 +35974,15 @@ channel.bind('receive-message-' + group_id, function (data) {
     }
 });
 
-// Send message when form submitted
+// Event listeners
 $("#messageInput").submit(function (event) {
     sendMessage();
     event.preventDefault();
+});
+
+$(".message_sent").click(function (event) {
+    $(this).addClass('message_selected');
+    $(this).children('.message_menu').css('display', 'initial');
 });
 
 // Functions for sending and rendering messages
