@@ -15,10 +15,17 @@ class GroupController extends Controller
         $this->middleware('auth');
     }
 
-    public function openGroup($group_id = 1)
+    public function openGroup($group_id = 1, Request $request)
     {
         $group = Group::find($group_id);
-        return view('messenger', ['group' => $group]);
+
+        if (!$group->users()->where('user_id', Auth::id())->first()) {
+            $request->session()->flash('alert-info', 'You do not have access to this group.');
+            return redirect()->route('home');
+        } else{
+            return view('messenger', ['group' => $group]);
+        }
+        
     }
 
     public function newGroup()

@@ -4,6 +4,15 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+            <div class="flash-message">
+                @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                    @if(Session::has('alert-' . $msg))
+                        <p class="alert-panel alert-{{ $msg }} p-1 alert">{{ Session::get('alert-' . $msg) }}
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        </p>
+                    @endif
+                @endforeach
+            </div>
             <table class="table table-hover table-users">
                 <thead>
                     <tr>
