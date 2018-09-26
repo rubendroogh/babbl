@@ -45,18 +45,20 @@ class DatabaseSeeder extends Seeder
 
         DB::table('messages')->insert([
             [
-                'content'  => 'Hallo daar!',
-                'group_id' => '1',
-                'user_id'  => '1',
-                'read'     => '0',
-                'type'     => 'string',
+                'content'    => 'Hallo daar!',
+                'group_id'   => '1',
+                'user_id'    => '1',
+                'read'       => '0',
+                'type'       => 'string',
+                'created_at' => '2018-09-26 15:07:38',
             ],
             [
-                'content'  => 'Jij ook hallo!',
-                'group_id' => '1',
-                'user_id'  => '2',
-                'read'     => '0',
-                'type'     => 'string',
+                'content'    => 'Jij ook hallo!',
+                'group_id'   => '1',
+                'user_id'    => '2',
+                'read'       => '0',
+                'type'       => 'string',
+                'created_at' => '2018-09-26 15:07:38',
             ],
         ]);
     }
