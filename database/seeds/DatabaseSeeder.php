@@ -23,5 +23,41 @@ class DatabaseSeeder extends Seeder
                 'password' => bcrypt('test123'),
             ],
         ]);
+
+        DB::table('groups')->insert([
+            [
+                'name' => 'Plebs',
+            ],
+        ]);
+
+        DB::table('group_users')->insert([
+            [
+                'group_id' => '1',
+                'user_id'  => '1',
+                'role'     => '1',
+            ],
+            [
+                'group_id' => '1',
+                'user_id'  => '2',
+                'role'     => '1',
+            ],
+        ]);
+
+        DB::table('messages')->insert([
+            [
+                'content'  => 'Hallo daar!',
+                'group_id' => '1',
+                'user_id'  => '1',
+                'read'     => '0',
+                'type'     => 'string',
+            ],
+            [
+                'content'  => 'Jij ook hallo!',
+                'group_id' => '1',
+                'user_id'  => '2',
+                'read'     => '0',
+                'type'     => 'string',
+            ],
+        ]);
     }
 }
