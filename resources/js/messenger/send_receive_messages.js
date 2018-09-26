@@ -26,8 +26,7 @@ function sendMessage(){
         message      = $('#message').val(),
         user_id      = $('#user_id').val(),
         group_id     = $('#group_id').val(),
-        user_name    = $('#user_name').val(),
-        _token       = $('[name="_token"]').val();
+        user_name    = $('#user_name').val();
 
     if (message != '') {
         $.ajax('/api/message/send', {
@@ -36,8 +35,7 @@ function sendMessage(){
                 message: message,
                 group_id: group_id,
                 user_id: user_id,
-                user_name: user_name,
-                _token: _token,
+                user_name: user_name
             }
         })
         .then(
