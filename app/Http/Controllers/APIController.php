@@ -25,7 +25,8 @@ class APIController extends Controller
 
     public function allGroupMessages($group_id){
         $group = Group::find($group_id);
-        return $group->messages;
+        $messages = $group->messages()->with('user')->get();
+        return $messages;
     }
 
     public function allGroupUsers($group_id){
