@@ -24,5 +24,5 @@ Route::get('/groups/all', 'APIController@allGroups');
 Route::get('/groups/{id}/messages', 'APIController@allGroupMessages');
 Route::get('/groups/{id}/users', 'APIController@allGroupUsers');
 
-Route::post('/message/send', 'MessageController@sendMessage');
-Route::post('/message/read', 'MessageController@messageRead');
+Route::post('/message/send', 'APIController@sendMessage');
+Route::post('/message/read', 'APIController@messageRead');
