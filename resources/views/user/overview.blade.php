@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Gebruiker: {{ Auth::User()->name }}</h1>
+                <h4>{{ Auth::User()->name }}</h4>
             </div>
         </div>
         <div class="row">
