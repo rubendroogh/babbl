@@ -17,12 +17,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/users/all', 'APIController@allUsers');
-Route::get('/users/{id}/groups', 'APIController@allUserGroups');
+Route::middleware('auth:api')->group(function(){
+	Route::get('/users/all', 'APIController@allUsers');
+	Route::get('/users/{id}/groups', 'APIController@allUserGroups');
 
-Route::get('/groups/all', 'APIController@allGroups');
-Route::get('/groups/{id}/messages', 'APIController@allGroupMessages');
-Route::get('/groups/{id}/users', 'APIController@allGroupUsers');
+	Route::get('/groups/all', 'APIController@allGroups');
+	Route::get('/groups/{id}/messages', 'APIController@allGroupMessages');
+	Route::get('/groups/{id}/users', 'APIController@allGroupUsers');
+});
 
 Route::post('/message/send', 'APIController@sendMessage');
 Route::post('/message/read', 'APIController@messageRead');

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
 	protected $fillable = [
-        'content', 'group_id', 'user_id',
+        'content', 'group_id', 'user_id', 'type'
     ];
 
     public function group()
