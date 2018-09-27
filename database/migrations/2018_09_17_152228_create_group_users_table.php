@@ -19,8 +19,8 @@ class CreateGroupUsersTable extends Migration
             $table->unsignedInteger('group_id');
             $table->unsignedTinyInteger('role')->nullable();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('group_id')->references('id')->on('groups');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
         });
     }
 
