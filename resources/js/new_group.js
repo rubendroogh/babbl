@@ -4,7 +4,7 @@ require('./selectize.min');
 var settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "http://api.local/api/users/all",
+	"url": "/users/all",
 	"method": "GET",
 	"headers": {
 		"Accept": "application/json",

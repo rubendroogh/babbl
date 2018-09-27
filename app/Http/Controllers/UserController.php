@@ -52,4 +52,9 @@ class UserController extends Controller
 
         return redirect('/user');
     }
+
+    public function allUsers(){
+        $users = User::all();
+        return $users;
+    }
 }
