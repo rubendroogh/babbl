@@ -35,13 +35,17 @@ class GroupController extends Controller
 
     public function createNewGroup(Request $request)
     {
+        $validated = $request->validate([
+            'group_name' => 'required|max:255'
+        ]);
+
         $user_ids = explode(',', $request->users);
         if ( !in_array( Auth::id(), $user_ids, false ) ) {
             $user_ids[] = Auth::id();
         }
 
         $users = User::find($user_ids);     
-        $group = Group::create(['name' => $request->group_name]);
+        $group = Group::create(['name' => $validated['group_name']]);
 
         foreach ($users as $user) {
             $role = ( $user->id == Auth::id() ) ? 1 : 0;

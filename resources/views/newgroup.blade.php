@@ -2,7 +2,17 @@
 
 @section('content')
 <div class="container">
-    <br>
+    <div class="row">
+        <div class="col-12">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}
+                    @endforeach
+                </div>
+            @endif
+        </div>
+    </div>
     <form method="POST" action="{{ Route('createNewGroup') }}">
         @csrf
         <div class="form-group">
