@@ -48,7 +48,11 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        $user->update($request->all());
+        $validated = $request->validate([
+            'name' => 'required|max:255'
+        ]);
+
+        $user->update($validated);
 
         return redirect('/user');
     }
