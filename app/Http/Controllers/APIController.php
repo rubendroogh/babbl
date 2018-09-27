@@ -39,7 +39,7 @@ class APIController extends Controller
     public function sendMessage(Request $request){
         $pusher = $this->getPusherObject();
 
-        Message::create([
+        $message = Message::create([
             'content' => $request->message,
             'group_id' => $request->group_id,
             'user_id' => $request->user_id,
@@ -50,6 +50,7 @@ class APIController extends Controller
         $data['user_id'] = $request->user_id;
         $data['user_name'] = $request->user_name;
         $data['type'] = $request->message_type;
+        $data['id'] = $message->id;
 
         $pusher->trigger('messages', 'receive-message-' . $request->group_id, $data);
     }

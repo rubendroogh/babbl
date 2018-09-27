@@ -22,6 +22,7 @@ class MessageController extends Controller
         $data['user_id'] = $request->user_id;
         $data['user_name'] = $request->user_name;
         $data['type'] = $request->message_type;
+        $data['id'] = $request->id;
 
         $pusher->trigger('messages', 'receive-message-' . $request->group_id, $data);
     }
