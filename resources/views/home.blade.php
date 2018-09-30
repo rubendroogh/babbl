@@ -24,8 +24,13 @@
                     <tr>
                         <td>
                             <a href="{{ route('messenger', ['group_id' => $group->id]) }}">
-                                <div class="whole">
-                                    {{ $group->name }}
+                                <div>
+                                    <span>{{ $group->name }}</span>
+                                    <br />
+                                    <small>
+                                        {{ $group->latestMessage()['user']['name'] }}:
+                                        {{ $group->latestMessage()['content'] }}
+                                    </small>
                                 </div>
                             </a>
                         </td>
