@@ -31,7 +31,7 @@
             <div id="messages">
                 @foreach( $group->messages as $m )
                     <div class="fullwidth">
-                        <div class="message_{{ $m->user == Auth::user() ? 'sent' : 'received' }}">
+                        <div class="message_{{ $m->user == Auth::user() ? 'sent' : 'received' }}" translate="no">
                             @if( $m->user != Auth::user() )
                                 <small>{{ $m->user->name }}</small>
                                 <br>
