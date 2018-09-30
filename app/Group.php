@@ -19,4 +19,9 @@ class Group extends Model
     {
     	return $this->hasMany('App\Message');
     }
+
+    public function latestMessage()
+    {
+        return $this->messages()->latest()->first();
+    }
 }
