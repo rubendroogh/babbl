@@ -26,7 +26,7 @@
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">

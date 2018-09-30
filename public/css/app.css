@@ -10495,14 +10495,15 @@ a.text-dark:focus {
 
 html,
 body,
-#app,
+.app,
 main {
   height: 100%;
 }
 
-body #app {
+.app {
   height: inherit;
   overflow-y: hidden;
+  position: relative;
   background: -webkit-gradient(linear, left top, right top, from(#ff416c), to(#ff4b2b)) !important;
   background: linear-gradient(to right, #ff416c, #ff4b2b) !important;
   -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.4);
@@ -10510,32 +10511,32 @@ body #app {
   color: #f8f9fa !important;
 }
 
-body #app .container-fluid {
+.app .container-fluid {
   height: 100%;
 }
 
-body #app .message_received small {
+.app .message_received small {
   color: #656565;
 }
 
-body #app .messages,
-body #app #messages {
+.app .messages,
+.app #messages {
   max-height: 100%;
   overflow-y: auto;
   position: relative;
   padding-bottom: 4.5rem;
 }
 
-body #app .messages .fullwidth,
-body #app #messages .fullwidth {
+.app .messages .fullwidth,
+.app #messages .fullwidth {
   width: 100%;
   display: block;
   position: relative;
   clear: both;
 }
 
-body #app .messages .fullwidth .message_sent,
-body #app #messages .fullwidth .message_sent {
+.app .messages .fullwidth .message_sent,
+.app #messages .fullwidth .message_sent {
   width: 45%;
   float: right;
   background-color: #3a3a3a;
@@ -10544,14 +10545,14 @@ body #app #messages .fullwidth .message_sent {
   border-radius: 5px;
 }
 
-body #app .messages .fullwidth .message_sent.message_selected,
-body #app #messages .fullwidth .message_sent.message_selected {
+.app .messages .fullwidth .message_sent.message_selected,
+.app #messages .fullwidth .message_sent.message_selected {
   background-color: #4c4c4c;
   content: '';
 }
 
-body #app .messages .fullwidth .message_received,
-body #app #messages .fullwidth .message_received {
+.app .messages .fullwidth .message_received,
+.app #messages .fullwidth .message_received {
   width: 45%;
   float: left;
   background-color: #ffffff;
@@ -10561,19 +10562,19 @@ body #app #messages .fullwidth .message_received {
   color: #2d2d2d;
 }
 
-body #app .group_info.show {
+.app .group_info.show {
   -webkit-transition: 1s ease;
   transition: 1s ease;
   height: 83vh;
 }
 
-body #app .message_input {
+.app .message_input {
   width: 100%;
   max-width: 800px;
   margin: 0 -15px 0 -15px;
 }
 
-body #app .bottom-absolute {
+.app .bottom-absolute {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -10581,17 +10582,17 @@ body #app .bottom-absolute {
           box-shadow: 0px -1px 5px 0px #343a40;
 }
 
-body #app .table-users thead th {
+.app .table-users thead th {
   border-top: none;
 }
 
-body #app .whole {
+.app .whole {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-body #app #mobileMenu {
+.app #mobileMenu {
   width: 0;
   height: 100%;
   position: absolute;
@@ -10607,7 +10608,7 @@ body #app #mobileMenu {
           box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
-body #app #mobileMenu #menuToggle {
+.app #mobileMenu #menuToggle {
   width: 3rem;
   height: 3rem;
   background: -webkit-gradient(linear, left top, right top, from(#00b4db), to(#0083b0));
@@ -10619,14 +10620,14 @@ body #app #mobileMenu #menuToggle {
   border-bottom-left-radius: 10px;
 }
 
-body #app #mobileMenu #menuToggle i {
+.app #mobileMenu #menuToggle i {
   font-size: 2rem;
   position: relative;
   top: .5rem;
   left: .7rem;
 }
 
-body #app #mobileMenu .navbar-nav {
+.app #mobileMenu .navbar-nav {
   display: none;
 }
 

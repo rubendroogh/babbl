@@ -22,7 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container text-center">
                 <a class="navbar-brand" href="{{ Route('home') }}">

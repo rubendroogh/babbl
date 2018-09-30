@@ -1,5 +1,7 @@
 window.moment = require('moment');
 
+messagesRead();
+
 var pusher = new Pusher('ea6b376da831c806c735', {
     cluster: 'eu',
     forceTLS: true
@@ -9,14 +11,21 @@ var channel = pusher.subscribe('messages');
 var group_id = $('#group_id').val();
 
 channel.bind('receive-message-' + group_id, function(data) {
-    console.log(data);
     if (data.user_id == document.getElementById('user_id').value) {
         RenderSentMessage(data.message, data.id);
         scrollToLastMessage();
     } else{
         RenderReceivedMessage(data.message, data.user_name);
+        messagesRead();
         scrollToLastMessage();
     }
+});
+
+channel.bind('read-messages', function(data) {
+    var data = $.parseJSON( data );
+    $.each(data, function( key, message ) {
+        updateMessageReadStatus(message);
+    });  
 });
 
 $( "#messageInput" ).submit(function( event ) {
@@ -63,7 +72,7 @@ function RenderReceivedMessage(message, username){
 
     var userNameNode = document.createTextNode(username + ":\n\n"),
         messageNode  = document.createTextNode(message),
-        dateNode     = document.createTextNode(moment().fromNow());
+        dateNode     = document.createTextNode(moment().fromNow()); // This uses moment.js 
 
     messageWrapper.className = 'fullwidth';
     messageBubble.className  = 'message_received';
@@ -87,7 +96,7 @@ function RenderSentMessage(message, id){
         breakElement   = document.createElement('br'),
         messageNode    = document.createTextNode(message),
         dateBox        = document.createElement('small'),
-        dateNode       = document.createTextNode(moment().fromNow() + ' '),
+        dateNode       = document.createTextNode(moment().fromNow() + ' '), // This uses moment.js 
         readBox        = document.createElement('small'),
         readNode       = document.createElement('i');
 
@@ -107,6 +116,27 @@ function RenderSentMessage(message, id){
     messageWrapper.appendChild(messageBubble);
 
     messageBox.appendChild(messageWrapper);
+}
+
+function messagesRead(){
+    var user_id  = $('#user_id').val(),
+        group_id = $('#group_id').val(),
+        _token   = $('[name="_token"]').val();
+
+    $.ajax('/api/message/read', {
+        method: 'POST',
+        data: {
+            group_id: group_id,
+            user_id: user_id,
+            _token: _token,
+        }
+    });
+}
+
+function updateMessageReadStatus(message){
+    var messageReadElement = $('#messageRead' + message.id);
+
+    messageReadElement.html('<i class="fas fa-check-double"></i>');
 }
 
 function scrollToLastMessage(){
