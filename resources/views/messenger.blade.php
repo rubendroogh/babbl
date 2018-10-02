@@ -27,7 +27,7 @@
                                 @method('DELETE')
                                 <input type="hidden" name="user" value="{{ $user->id }}">
                                 <input type="hidden" name="group" value="{{ $group->id }}">
-                                <input class="btn btn-warning" type="submit" value="x">
+                                <input class="btn btn-chatboy" type="submit" value="x">
                             </form>
                         </div>
                         <br />
