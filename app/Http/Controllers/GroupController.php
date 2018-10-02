@@ -54,4 +54,17 @@ class GroupController extends Controller
         
         return redirect()->route('messenger', ['group' => $group]);
     }
+
+    public function deleteUser(Request $request)
+    {
+        $group = Group::find($request->group);
+        $role = $group->users()->find(Auth::id())->pivot->role;
+
+        if ($role === 1) {
+            $user = User::find($request->user);
+            $user->groups()->detach($group->id);
+        }
+
+        return redirect()->route('messenger', ['group' => $group]);
+    }
 }

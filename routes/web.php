@@ -24,6 +24,8 @@ Route::post('/messenger/new', 'GroupController@createNewGroup')->name('createNew
 Route::get('/messenger/new', 'GroupController@newGroup')->name('newGroup');
 Route::get('/messenger/{group_id?}', 'GroupController@openGroup')->name('messenger');
 
+Route::delete('/group/user/delete', 'GroupController@deleteUser')->name('deleteGroupUser');
+
 //user routes
 Route::get('/user', 'UserController@userDetailView')->name('userDetailView');
 Route::get('/user/edit', 'UserController@editUserView')->name('editUserView');

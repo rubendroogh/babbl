@@ -17,10 +17,22 @@
                     <hr>
                     {{$user->name}}
                     @if($user->pivot->role === 1)
-                        <small>(Admin)</small>
+                        <small>
+                            (Admin)
+                        </small>
                     @endif
-                        <br>
-                        {{$user->email}}<br>
+                        <div class="float-right">
+                            <form method="POST" action="{{ Route('deleteGroupUser') }}" onsubmit="return confirm('Are you sure you want to remove this user from the group?')">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="user" value="{{ $user->id }}">
+                                <input type="hidden" name="group" value="{{ $group->id }}">
+                                <input class="btn btn-warning" type="submit" value="x">
+                            </form>
+                        </div>
+                        <br />
+                        {{$user->email}}
+                        <br />
                 @endforeach
             </div>
         </div>
@@ -69,6 +81,14 @@
         </div>
     </div>
 </div>
+
+@foreach (['danger', 'warning', 'success', 'info'] as $msg)
+    @if(Session::has('alert-' . $msg))
+        <p class="alert-panel alert-{{ $msg }} p-1 alert">{{ Session::get('alert-' . $msg) }}
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        </p>
+    @endif
+@endforeach
 <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
 <script src="/js/messenger.js"></script>
 @endsection
