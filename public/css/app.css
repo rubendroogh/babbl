@@ -10495,20 +10495,25 @@ a.text-dark:focus {
 
 html,
 body,
-.app,
-main {
+.app {
+  max-height: 100%;
   height: 100%;
 }
 
 .app {
   height: inherit;
-  overflow-y: hidden;
   position: relative;
   background: -webkit-gradient(linear, left top, right top, from(#ff416c), to(#ff4b2b)) !important;
   background: linear-gradient(to right, #ff416c, #ff4b2b) !important;
   -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.4);
           box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.4);
   color: #f8f9fa !important;
+}
+
+.app main {
+  overflow-y: auto;
+  max-height: calc(100% - 4.5rem);
+  height: calc(100% - 4.5rem);
 }
 
 .app .container-fluid {

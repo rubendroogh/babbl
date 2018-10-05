@@ -12,17 +12,23 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Custom
-html, body, .app, main{
+html, body, .app{
+	max-height: 100%;
 	height: 100%;
 }
 
 .app{
 	height: inherit;
-	overflow-y: hidden;
 	position: relative;
 	background: $chatboyPrimary !important;
 	box-shadow: inset 0 0 100px rgba(0,0,0,.4);
 	color: #f8f9fa !important;
+
+	main{
+		overflow-y: auto;
+		max-height: calc(100% - 4.5rem);
+		height: calc(100% - 4.5rem);
+	}
 
 	.container-fluid{
 		height: 100%;
