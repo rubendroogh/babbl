@@ -24,6 +24,8 @@ class InviteController extends Controller
 			$invite->delete();
 
 			return redirect()->route('messenger', ['group' => $invite->group]);
+		} else{
+			return redirect()->route('invites');
 		}
 	}
 
