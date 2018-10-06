@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use App\Group;
+use App\Invite;
 use App\Message;
 use Illuminate\Http\Request;
 
@@ -47,10 +48,15 @@ class GroupController extends Controller
         $users = User::find($user_ids);     
         $group = Group::create(['name' => $validated['group_name']]);
 
+        // Send all users invite
         foreach ($users as $user) {
-            $role = ( $user->id == Auth::id() ) ? 1 : 0;
-            $group->users()->save($user, ['role' => $role]);
+            if ($user->id !== Auth::id()) {
+                $this->newInvite($group->id, $user->id);
+            }
         }
+
+        // Add creator to group
+        $group->users()->save(Auth::user(), ['role' => 1]);
         
         return redirect()->route('messenger', ['group' => $group]);
     }
@@ -66,5 +72,15 @@ class GroupController extends Controller
         }
 
         return redirect()->route('messenger', ['group' => $group]);
+    }
+
+    public function newInvite($group_id, $user_id)
+    {
+        $invite = Invite::Create([
+            'group_id' => $group_id,
+            'user_id'  => $user_id
+        ]);
+
+        return $invite;
     }
 }

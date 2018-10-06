@@ -20,11 +20,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/messenger/new', 'GroupController@createNewGroup')->name('createNewGroup');
-
 Route::get('/messenger/new', 'GroupController@newGroup')->name('newGroup');
 Route::get('/messenger/{group_id?}', 'GroupController@openGroup')->name('messenger');
 
 Route::delete('/group/user/delete', 'GroupController@deleteUser')->name('deleteGroupUser');
+
+Route::get('/invites', 'InviteController@index')->name('invites');
+Route::get('/invites/accept/{id}', 'InviteController@accept')->name('acceptInvite');
+Route::get('/invites/decline/{id}', 'InviteController@decline')->name('declineInvite');
 
 //user routes
 Route::get('/user', 'UserController@userDetailView')->name('userDetailView');
