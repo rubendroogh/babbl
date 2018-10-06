@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\User;
+use App\Invite;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,6 +28,7 @@ class HomeController extends Controller
     {
         $id = Auth::id();
         $groups = User::find($id)->groups;
-        return view('home', ['groups' => $groups]);
+        $invite_count = Invite::where('user_id', Auth::id())->count();
+        return view('home', ['groups' => $groups, 'invite_count' => $invite_count]);
     }
 }

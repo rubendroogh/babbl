@@ -51,7 +51,12 @@
                     <a class="nav-link" href="{{ route('home') }}">Your groups</a>
                 </li>
                 <li class="nav-item pl-3">
-                    <a class="nav-link" href="{{ route('invites') }}">Group invites</a>
+                    <a class="nav-link" href="{{ route('invites') }}">
+                        Group invites
+                        @if(isset($invite_count))
+                            <span class="badge badge-secondary">{{ $invite_count }}</span>
+                        @endif
+                    </a>
                 </li>
                 <li class="nav-item pl-3">
                     <a class="nav-link" href="{{ route('editUserView') }}">Settings</a>
