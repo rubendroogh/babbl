@@ -10540,6 +10540,11 @@ body,
   clear: both;
 }
 
+.app .messages .fullwidth .chatboy_message,
+.app #messages .fullwidth .chatboy_message {
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .app .messages .fullwidth .message_sent,
 .app #messages .fullwidth .message_sent {
   width: 45%;

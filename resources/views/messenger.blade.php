@@ -41,23 +41,40 @@
     <div class="row messages">
         <div class="col-12">
             <div id="messages">
+                <div class="fullwidth text-center">
+                    <hr class="mb-0">
+                    <small class="chatboy_message">{{ $group->name }} was created by {{ $group->users[0]->name }}.</small>
+                </div>
                 @foreach( $group->messages as $m )
-                    <div class="fullwidth">
-                        <div class="message_{{ $m->user == Auth::user() ? 'sent' : 'received' }}" translate="no">
-                            @if( $m->user != Auth::user() )
-                                <small>{{ $m->user->name }}</small>
-                                <br>
-                            @endif
-                            {{ $m->content }}
-                            <br>
-                            <small>{{ $m->created_at->diffForHumans() }}</small>
-                            @if( $m->user == Auth::user() )
-                                <small id="messageRead{{ $m->id }}">
-                                    <i class="fas fa-check{{ $m->read ? '-double' : '' }}"></i>
-                                </small>
-                            @endif
-                        </div>
-                    </div>
+                    @switch($m->type)
+
+                        @case('string')
+                            <div class="fullwidth">
+                                <div class="message_{{ $m->user == Auth::user() ? 'sent' : 'received' }}" translate="no">
+                                    @if( $m->user != Auth::user() )
+                                        <small>{{ $m->user->name }}</small>
+                                        <br>
+                                    @endif
+                                    {{ $m->content }}
+                                    <br>
+                                    <small>{{ $m->created_at->diffForHumans() }}</small>
+                                    @if( $m->user == Auth::user() )
+                                        <small id="messageRead{{ $m->id }}">
+                                            <i class="fas fa-check{{ $m->read ? '-double' : '' }}"></i>
+                                        </small>
+                                    @endif
+                                </div>
+                            </div>
+                            @break
+
+                        @case('info')
+                            <div class="fullwidth text-center">
+                                <hr class="mb-0">
+                                <small class="chatboy_message">{{ $m->content }}</small>
+                            </div>
+                            @break
+
+                    @endswitch
                 @endforeach
             </div>
         </div>

@@ -50,6 +50,10 @@ html, body, .app{
 			position: relative;
 			clear: both;
 
+			.chatboy_message{
+				color: rgba(0,0,0,.5);
+			}
+
 			.message_sent{
 				width: 45%;
 				float: right;
