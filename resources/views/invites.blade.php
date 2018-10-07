@@ -7,7 +7,7 @@
             <table class="table table-hover table-users">
                 <thead>
                     <tr>
-                        <th scope="col">Groups</th>
+                        <th scope="col">Invites</th>
                     </tr>
                 </thead>
                 <tbody>

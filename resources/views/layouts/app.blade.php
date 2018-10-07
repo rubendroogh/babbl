@@ -53,7 +53,7 @@
                 <li class="nav-item pl-3">
                     <a class="nav-link" href="{{ route('invites') }}">
                         Group invites
-                        @if(isset($invite_count))
+                        @if(isset($invite_count) && $invite_count != 0)
                             <span class="badge badge-secondary">{{ $invite_count }}</span>
                         @endif
                     </a>
