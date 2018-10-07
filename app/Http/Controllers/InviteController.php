@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Message;
 use App\Invite;
 use Auth;
 
@@ -22,6 +23,15 @@ class InviteController extends Controller
 		if (Auth::id() == $invite->user->id) {
 			$invite->group->users()->save(Auth::user(), ['role' => 1]);
 			$invite->delete();
+
+			$message = $invite->user->name . ' has been added to the group.';
+
+			Message::create([
+	            'content' => $message,
+	            'group_id' => $invite->group->id,
+	            'user_id' => $invite->user->id,
+	            'type' => 'info',
+	        ]);
 
 			return redirect()->route('messenger', ['group' => $invite->group]);
 		} else{
