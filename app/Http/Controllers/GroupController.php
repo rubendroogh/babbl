@@ -48,6 +48,14 @@ class GroupController extends Controller
         $users = User::find($user_ids);     
         $group = Group::create(['name' => $validated['group_name']]);
 
+        // Add 'group created by user' message
+        Message::create([
+            'content' => $group->name . ' was created by ' . Auth::user()->name,
+            'group_id' => $group->id,
+            'user_id' => Auth::id(),
+            'type' => 'info',
+        ]);
+
         // Send all users invite
         foreach ($users as $user) {
             if ($user->id !== Auth::id()) {

@@ -41,10 +41,6 @@
     <div class="row messages">
         <div class="col-12">
             <div id="messages">
-                <div class="fullwidth text-center">
-                    <hr class="mb-0">
-                    <small class="chatboy_message">{{ $group->name }} was created by {{ $group->users[0]->name }}.</small>
-                </div>
                 @foreach( $group->messages as $m )
                     @switch($m->type)
 

@@ -32,11 +32,7 @@
                                         {{ $group->latestMessage()['content'] }}
                                     </small>
                                     <small class="float-right">
-                                        @if($group->latestMessage())
-                                            {{ $group->latestMessage()['created_at']->diffForHumans() }}
-                                        @else
-                                            {{ $group->created_at->diffForHumans() }}
-                                        @endif
+                                        {{ $group->latestMessage()['created_at']->diffForHumans() }}
                                     </small>
                                 </div>
                             </a>
