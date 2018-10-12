@@ -22,6 +22,7 @@ class Group extends Model
 
     public function latestMessage()
     {
-        return $this->messages()->latest()->first();
+        $latestMessage = $this->messages()->latest()->first();
+        return $latestMessage;
     }
 }

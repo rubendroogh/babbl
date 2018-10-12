@@ -31,6 +31,13 @@
                                         {{ $group->latestMessage()['user']['name'] }}:
                                         {{ $group->latestMessage()['content'] }}
                                     </small>
+                                    <small class="float-right">
+                                        @if($group->latestMessage())
+                                            {{ $group->latestMessage()['created_at']->diffForHumans() }}
+                                        @else
+                                            {{ $group->created_at->diffForHumans() }}
+                                        @endif
+                                    </small>
                                 </div>
                             </a>
                         </td>
