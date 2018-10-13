@@ -52,7 +52,7 @@ class GroupController extends Controller
         Message::create([
             'content' => $group->name . ' was created by ' . Auth::user()->name,
             'group_id' => $group->id,
-            'user_id' => Auth::id(),
+            'user_id' => null,
             'type' => 'info',
         ]);
 

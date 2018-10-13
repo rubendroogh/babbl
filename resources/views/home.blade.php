@@ -28,11 +28,13 @@
                                     <span>{{ $group->name }}</span>
                                     <br />
                                     <small>
-                                        {{ $group->latestMessage()['user']['name'] }}:
-                                        {{ $group->latestMessage()['content'] }}
+                                        @if($group->latestMessage()->user)
+                                            {{ $group->latestMessage()->user->name }}:
+                                        @endif
+                                        {{ $group->latestMessage()->content }}
                                     </small>
                                     <small class="float-right">
-                                        {{ $group->latestMessage()['created_at']->diffForHumans() }}
+                                        {{ $group->latestMessage()->created_at->diffForHumans() }}
                                     </small>
                                 </div>
                             </a>
