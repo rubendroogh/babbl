@@ -29,7 +29,7 @@ class InviteController extends Controller
 			Message::create([
 	            'content' => $message,
 	            'group_id' => $invite->group->id,
-	            'user_id' => $invite->user->id,
+	            'user_id' => null,
 	            'type' => 'info',
 	        ]);
 
