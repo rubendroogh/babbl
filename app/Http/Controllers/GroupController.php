@@ -9,6 +9,10 @@ use App\Invite;
 use App\Message;
 use Illuminate\Http\Request;
 
+use BotMan\BotMan\BotMan;
+use BotMan\BotMan\BotManFactory;
+use BotMan\BotMan\Drivers\DriverManager;
+
 class GroupController extends Controller
 {
     public function __construct()
@@ -20,13 +24,13 @@ class GroupController extends Controller
     {
         $group = Group::find($group_id);
 
+
         if (!$group->users()->where('user_id', Auth::id())->first()) {
             $request->session()->flash('alert-info', 'You do not have access to this group.');
             return redirect()->route('home');
         } else{
             return view('messenger', ['group' => $group]);
         }
-        
     }
 
     public function newGroup()
