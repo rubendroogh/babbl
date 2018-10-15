@@ -1,6 +1,7 @@
 // Get requirements
 require('./bootstrap');
 require('./messenger/send_receive_messages');
+require('./messenger/speech');
 
 // Scroll down on init
 scrollToLastMessage();
