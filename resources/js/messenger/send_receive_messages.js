@@ -29,32 +29,33 @@ channel.bind('read-messages', function(data) {
 });
 
 $( "#messageInput" ).submit(function( event ) {
-    sendMessage();
+    var formData = {
+        message:   $('#message').val(),
+        user_id:   $('#user_id').val(),
+        group_id:  $('#group_id').val(),
+        user_name: $('#user_name').val(),
+        type:      $('#message_type').val()
+    }
+
+    sendMessage(formData);
     event.preventDefault();
 });
 
-function sendMessage(){
-    var messageInput = $('#message'),
-        message      = $('#message').val(),
-        user_id      = $('#user_id').val(),
-        group_id     = $('#group_id').val(),
-        user_name    = $('#user_name').val(),
-        type         = $('#message_type').val();
-
+function sendMessage(data){
     if (message != '') {
         $.ajax('/api/message/send', {
             method: 'POST',
             data: {
-                message: message,
-                group_id: group_id,
-                user_id: user_id,
-                user_name: user_name,
-                message_type: type
+                message: data.message,
+                group_id: data.group_id,
+                user_id: data.user_id,
+                user_name: data.user_name,
+                message_type: data.type
             }
         })
         .then(
             function success(data) {
-                messageInput.val('');
+                $('#message').val('');
             }
         );
     }
