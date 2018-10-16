@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProcessMessage;
 use Illuminate\Http\Request;
 use Pusher\Pusher;
 use App\Message;
@@ -9,22 +10,7 @@ use App\Message;
 class MessageController extends Controller
 {
     public function sendMessage(Request $request){
-    	$pusher = $this->getPusherObject();
-
-        Message::create([
-            'content' => $request->message,
-            'group_id' => $request->group_id,
-            'user_id' => $request->user_id,
-            'type' => $request->message_type,
-        ]);
-
-        $data['message'] = $request->message;
-        $data['user_id'] = $request->user_id;
-        $data['user_name'] = $request->user_name;
-        $data['type'] = $request->message_type;
-        $data['id'] = $request->id;
-
-        $pusher->trigger('messages', 'receive-message-' . $request->group_id, $data);
+    	ProcessMessage::dispatch($request);
     }
 
     public function messageRead(Request $request){
