@@ -10,6 +10,10 @@ class Group extends Model
         'name',
     ];
 
+    protected $appends = [
+        'latestMessage'
+    ];
+
     public function users()
     {
     	return $this->belongsToMany('App\User', 'group_users')->withPivot('role');
@@ -23,5 +27,13 @@ class Group extends Model
     public function latestMessage()
     {
         return $this->messages()->latest()->first();
+    }
+
+    public function getLatestMessageAttribute($value) {
+        $latestMessage = null;
+        if ($this->latestMessage()) {
+            $latestMessage = $this->latestMessage();
+        }
+        return $latestMessage;
     }
 }
