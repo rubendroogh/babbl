@@ -118,7 +118,11 @@ pusher_connect.channel.bind('receive-message-' + group_id, function(data) {
         read_messages.messagesRead();
         scrollToLastMessage();
         if (document.hidden) {
-            notifications.notifyUser(data.message);
+            message = { 
+                title: data.user_name,
+                text: data.message
+            };
+            notifications.notifyUser(message);
         }
     }
 });
