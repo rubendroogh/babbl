@@ -23,7 +23,7 @@ class UserController extends Controller
      * - Show the detail view of the user.
      *
      */
-    public function userDetailView()
+    public function read_form_view()
     {
         return view('user/overview');
     }
@@ -32,7 +32,7 @@ class UserController extends Controller
      * EditUserView
      * - Show a form where the user can edit their details.
      */
-    public function editUserView()
+    public function edit_form_view()
     {
         return view('user/edit');
     }
@@ -44,7 +44,7 @@ class UserController extends Controller
      * @param Request $request
      * @return Route
      */
-    public function updateUser(Request $request)
+    public function update(Request $request)
     {
         $user = Auth::user();
 
@@ -57,7 +57,7 @@ class UserController extends Controller
         return redirect('/user');
     }
 
-    public function allUsers(){
+    public function index(){
         $users = User::all();
         return $users;
     }

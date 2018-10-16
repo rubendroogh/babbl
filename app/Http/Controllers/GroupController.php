@@ -20,7 +20,7 @@ class GroupController extends Controller
         $this->middleware('auth');
     }
 
-    public function openGroup($group_id = 1, Request $request)
+    public function read($group_id = 1, Request $request)
     {
         $group = Group::find($group_id);
 
@@ -33,12 +33,12 @@ class GroupController extends Controller
         }
     }
 
-    public function newGroup()
+    public function create_form_view()
     {
         return view('newgroup');
     }
 
-    public function createNewGroup(Request $request)
+    public function create(Request $request)
     {
         $validated = $request->validate([
             'group_name' => 'required|max:255'
@@ -63,7 +63,7 @@ class GroupController extends Controller
         // Send all users invite
         foreach ($users as $user) {
             if ($user->id !== Auth::id()) {
-                $this->newInvite($group->id, $user->id);
+                $this->new_invite($group->id, $user->id);
             }
         }
 
@@ -73,7 +73,7 @@ class GroupController extends Controller
         return redirect()->route('messenger', ['group' => $group]);
     }
 
-    public function deleteUser(Request $request)
+    public function delete_user(Request $request)
     {
         $group = Group::find($request->group);
         $role = $group->users()->find(Auth::id())->pivot->role;
@@ -86,7 +86,7 @@ class GroupController extends Controller
         return redirect()->route('messenger', ['group' => $group]);
     }
 
-    public function newInvite($group_id, $user_id)
+    public function new_invite($group_id, $user_id)
     {
         $invite = Invite::Create([
             'group_id' => $group_id,
