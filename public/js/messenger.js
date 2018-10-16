@@ -35942,6 +35942,7 @@ module.exports = __webpack_require__(47);
 // Get requirements
 __webpack_require__(11);
 __webpack_require__(185);
+__webpack_require__(188);
 __webpack_require__(186);
 __webpack_require__(48);
 
@@ -35960,6 +35961,7 @@ function scrollToLastMessage() {
 window.moment = __webpack_require__(60);
 var pusher_connect = __webpack_require__(187);
 var read_messages = __webpack_require__(186);
+var notifications = __webpack_require__(188);
 
 module.exports = {
     sendMessage: function sendMessage(data) {
@@ -36073,6 +36075,7 @@ pusher_connect.channel.bind('receive-message-' + group_id, function (data) {
         _renderReceivedMessage(data.message, data.user_name);
         read_messages.messagesRead();
         _scrollToLastMessage();
+        notifications.notifyUser(data.message);
     }
 });
 
@@ -52832,6 +52835,34 @@ module.exports = {
     pusher: pusher,
     channel: channel
 };
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports) {
+
+Notification.requestPermission().then(function (permission) {
+    //do something
+});
+
+module.exports = {
+    notifyUser: function notifyUser(message) {
+        _notifyUser(message);
+    }
+};
+
+function _notifyUser(message) {
+    if (!("Notification" in window)) {
+        console.log("This browser does not support desktop notification");
+    } else if (Notification.permission === "granted") {
+        var notification = new Notification(message);
+    } else if (Notification.permission !== "denied") {
+        Notification.requestPermission(function (permission) {
+            if (permission === "granted") {
+                var notification = new Notification(message);
+            }
+        });
+    }
+}
 
 /***/ })
 /******/ ]);

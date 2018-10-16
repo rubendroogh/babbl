@@ -1,6 +1,7 @@
 window.moment = require('moment');
-var pusher_connect = require('./pusher_connect.js');
-var read_messages = require('./read_messages.js');
+var pusher_connect = require('./pusher_connect');
+var read_messages = require('./read_messages');
+var notifications = require('./notifications');
 
 module.exports = {
     sendMessage: function(data){
@@ -116,6 +117,7 @@ pusher_connect.channel.bind('receive-message-' + group_id, function(data) {
         renderReceivedMessage(data.message, data.user_name);
         read_messages.messagesRead();
         scrollToLastMessage();
+        notifications.notifyUser(data.message);
     }
 });
 
