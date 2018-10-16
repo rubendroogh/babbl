@@ -13,7 +13,10 @@ recognition.maxAlternatives = 1;
 recognition.start();
 
 document.body.onclick = function() {
-    recognition.start();
+    try {
+        recognition.start();
+    }
+    catch(e) {}
 }
 
 recognition.onresult = function(event) {
