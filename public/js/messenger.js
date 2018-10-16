@@ -35966,13 +35966,13 @@ module.exports = {
         _sendMessage(data);
     },
     renderReceivedMessage: function renderReceivedMessage(message, username) {
-        _renderReceivedMessage(message, username);
+        return _renderReceivedMessage(message, username);
     },
     renderSentMessage: function renderSentMessage(message, id) {
-        _renderSentMessage(message, id);
+        return _renderSentMessage(message, id);
     },
     scrollToLastMessage: function scrollToLastMessage() {
-        _scrollToLastMessage();
+        return _scrollToLastMessage();
     }
 };
 
@@ -36020,6 +36020,8 @@ function _renderReceivedMessage(message, username) {
     messageWrapper.appendChild(messageBubble);
 
     messageBox.appendChild(messageWrapper);
+
+    return messageBox;
 };
 
 function _renderSentMessage(message, id) {
@@ -36050,11 +36052,15 @@ function _renderSentMessage(message, id) {
     messageWrapper.appendChild(messageBubble);
 
     messageBox.appendChild(messageWrapper);
+
+    return messageBox;
 };
 
 function _scrollToLastMessage() {
     var messageContainer = document.getElementById("messages");
     messageContainer.scrollTop = messageContainer.scrollHeight;
+
+    return true;
 };
 
 var group_id = $('#group_id').val();
@@ -52776,7 +52782,7 @@ module.exports = {
         _messagesRead();
     },
     updateMessageReadStatus: function updateMessageReadStatus(message) {
-        _updateMessageReadStatus(message);
+        return _updateMessageReadStatus(message);
     }
 };
 
@@ -52800,6 +52806,8 @@ function _messagesRead() {
 function _updateMessageReadStatus(message) {
     var messageReadElement = $('#messageRead' + message.id);
     messageReadElement.html('<i class="fas fa-check-double"></i>');
+
+    return messageReadElement;
 };
 
 pusher_connect.channel.bind('read-messages', function (data) {

@@ -7,13 +7,13 @@ module.exports = {
         sendMessage(data);
     },
     renderReceivedMessage: function(message, username){
-        renderReceivedMessage(message, username)
+        return renderReceivedMessage(message, username)
     },    
     renderSentMessage: function(message, id){
-        renderSentMessage(message, id);
+        return renderSentMessage(message, id);
     },    
     scrollToLastMessage: function(){
-        scrollToLastMessage()
+        return scrollToLastMessage()
     }
 };
 
@@ -64,6 +64,8 @@ function renderReceivedMessage(message, username){
     messageWrapper.appendChild(messageBubble);
 
     messageBox.appendChild(messageWrapper);   
+
+    return messageBox;
 };
 
 function renderSentMessage(message, id){
@@ -93,11 +95,15 @@ function renderSentMessage(message, id){
     messageWrapper.appendChild(messageBubble);
 
     messageBox.appendChild(messageWrapper);
+
+    return messageBox;
 };
 
 function scrollToLastMessage(){
     var messageContainer = document.getElementById("messages");
     messageContainer.scrollTop = messageContainer.scrollHeight;
+
+    return true;
 };
 
 var group_id = $('#group_id').val();

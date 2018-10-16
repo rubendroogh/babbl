@@ -1,7 +1,8 @@
 Notification.requestPermission().then(function(permission) {
     //do something
 });
- function notifyUser(){
+
+function notifyUser(){
     if (!("Notification" in window)) {
         alert("This browser does not support desktop notification");
     }
@@ -16,6 +17,7 @@ Notification.requestPermission().then(function(permission) {
         });
     }
 }
+
  $( "#notify" ).click(function( event ) {
     notifyUser();
     event.preventDefault();

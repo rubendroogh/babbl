@@ -5,7 +5,7 @@ module.exports = {
         messagesRead();
     },
     updateMessageReadStatus: function(message){
-        updateMessageReadStatus(message);
+        return updateMessageReadStatus(message);
     }
 }
 
@@ -29,6 +29,8 @@ function messagesRead(){
 function updateMessageReadStatus(message){
     var messageReadElement = $('#messageRead' + message.id);
     messageReadElement.html('<i class="fas fa-check-double"></i>');
+
+    return messageReadElement;
 };
 
 pusher_connect.channel.bind('read-messages', function(data) {
