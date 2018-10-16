@@ -1,10 +1,12 @@
+var sendReceive = require('./send_receive_messages');
+
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
 var recognition = new SpeechRecognition();
 var startedMessage = 0;
 
-recognition.lang = 'en-US';
+recognition.lang = 'nl-NL';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
@@ -26,12 +28,11 @@ recognition.onresult = function(event) {
             type:      'string'
         }
 
-        sendMessage(data);
+        sendReceive.sendMessage(data);
         startedMessage = 0;
     }
 
-    if (input == 'send message') {
-        console.log('say your message');
+    if (input == 'stuur bericht') {
         startedMessage = 1;
     }
 }

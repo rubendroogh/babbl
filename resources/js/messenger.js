@@ -1,6 +1,7 @@
 // Get requirements
 require('./bootstrap');
 require('./messenger/speech');
+require('./messenger/read_messages');
 require('./messenger/send_receive_messages');
 
 // Scroll down on init
