@@ -10,6 +10,10 @@ use App\User;
 
 class APIController extends Controller
 {
+    public function user(Request $request){
+        return $request->user();
+    }
+
     public function all_users(){
     	$users = User::all();
     	return $users;
