@@ -87,12 +87,20 @@
                 <div class="col-9">
                     <input class="form-control" id="message" type="text" name="message" autofocus autocomplete="off">
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <input type="submit" class="btn btn-chatboy" id="sendMessageButton" value="Send">
+                </div>
+                <div class="col-1">
+                    <button class="btn btn-chatboy" type="button" id="speechButton"><i class="fas fa-microphone"></i></button>
                 </div>
             </form>
         </div>
     </div>
+</div>
+
+<div class="speech_overlay p-3" id="speechOverlay">
+    <i class="fas fa-microphone mb-3"></i>
+    <h2 class="mt-3">Zeg iets!</h2>   
 </div>
 
 @foreach (['danger', 'warning', 'success', 'info'] as $msg)

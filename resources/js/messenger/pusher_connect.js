@@ -1,4 +1,4 @@
-var pusher = new Pusher('ea6b376da831c806c735', {
+var pusher = new Pusher('c4229bd9d8566c211080', {
     cluster: 'eu',
     forceTLS: true
 })
