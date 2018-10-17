@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('auth:api')->group(function(){
 	Route::get('/users/all', 'APIController@all_users');
-	Route::get('/users/{id}/groups', 'APIController@all_user_groups');
+	Route::get('/user/groups', 'APIController@all_user_groups');
 
 	Route::get('/groups/all', 'APIController@all_groups');
 	Route::get('/groups/{id}/messages', 'APIController@all_group_messages');

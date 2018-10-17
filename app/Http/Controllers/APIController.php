@@ -15,7 +15,8 @@ class APIController extends Controller
     	return $users;
     }
 
-    public function all_user_groups($user_id){
+    public function all_user_groups(Request $request){
+        return $request->user()->groups;
         $user = User::find($user_id);
         return $user->groups;
     }
