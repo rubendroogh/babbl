@@ -32,28 +32,28 @@ html, body, .app{
 		display: none;
 		top: 0;
 		left: 0;
+	}
 
-		.speech_overlay{
-			width: 50vw;
-			background: #f8f9fa;
-			position: absolute;
-			border-radius: $border-radius;
-			left: calc(50% - (50vw / 2));
-			top: calc(50% - (30vh / 2));
-			box-shadow: 0 0 10px rgba(0,0,0,.4);
-	
-			h2{
-				width: 100%;
-				color: black;
-				text-align: center;
-			}
-	
-			i{
-				width: 100%;
-				color: black;
-				text-align: center;
-				font-size: 8rem;
-			}
+	.speech_overlay{
+		width: 50vw;
+		background: #f8f9fa;
+		position: absolute;
+		border-radius: $border-radius;
+		left: calc(50% - (50vw / 2));
+		top: calc(50% - (30vh / 2));
+		box-shadow: 0 0 10px rgba(0,0,0,.4);
+
+		h2{
+			width: 100%;
+			color: black;
+			text-align: center;
+		}
+
+		i{
+			width: 100%;
+			color: black;
+			text-align: center;
+			font-size: 8rem;
 		}
 	}
 
@@ -71,7 +71,7 @@ html, body, .app{
 		color: #656565;
 	}
 
-	.messages, #messages{
+	.messages{
 		max-height: 100%;
 		overflow-y: auto;
 		position: relative;
@@ -82,35 +82,35 @@ html, body, .app{
 			display: block;
 			position: relative;
 			clear: both;
-
-			.chatboy_message{
-				color: rgba(0,0,0,.5);
-			}
-
-			.message_sent{
-				width: 45%;
-				float: right;
-				background-color: #3a3a3a;
-				padding: .5rem;
-				margin: .5rem;
-				border-radius: 5px;
-
-				&.message_selected{
-					background-color: #4c4c4c;
-					content: '';
-				}
-			}
-
-			.message_received{
-				width: 45%;
-				float: left;
-				background-color: #ffffff;
-				padding: .5rem;
-				margin: .5rem;
-				border-radius: 5px;
-				color: #2d2d2d;
-			}
 		}
+	}
+
+	.chatboy_message{
+		color: rgba(0,0,0,.5);
+	}
+
+	.message_sent{
+		width: 45%;
+		float: right;
+		background-color: #3a3a3a;
+		padding: .5rem;
+		margin: .5rem;
+		border-radius: 5px;
+
+		&.message_selected{
+			background-color: #4c4c4c;
+			content: '';
+		}
+	}
+
+	.message_received{
+		width: 45%;
+		float: left;
+		background-color: #ffffff;
+		padding: .5rem;
+		margin: .5rem;
+		border-radius: 5px;
+		color: #2d2d2d;
 	}
 
 	.group_info.show{

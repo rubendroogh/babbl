@@ -10520,7 +10520,7 @@ body,
   left: 0;
 }
 
-.app .dim_overlay .speech_overlay {
+.app .speech_overlay {
   width: 50vw;
   background: #f8f9fa;
   position: absolute;
@@ -10531,13 +10531,13 @@ body,
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
-.app .dim_overlay .speech_overlay h2 {
+.app .speech_overlay h2 {
   width: 100%;
   color: black;
   text-align: center;
 }
 
-.app .dim_overlay .speech_overlay i {
+.app .speech_overlay i {
   width: 100%;
   color: black;
   text-align: center;
@@ -10558,29 +10558,25 @@ body,
   color: #656565;
 }
 
-.app .messages,
-.app #messages {
+.app .messages {
   max-height: 100%;
   overflow-y: auto;
   position: relative;
   padding-bottom: 2.5rem;
 }
 
-.app .messages .fullwidth,
-.app #messages .fullwidth {
+.app .messages .fullwidth {
   width: 100%;
   display: block;
   position: relative;
   clear: both;
 }
 
-.app .messages .fullwidth .chatboy_message,
-.app #messages .fullwidth .chatboy_message {
+.app .chatboy_message {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.app .messages .fullwidth .message_sent,
-.app #messages .fullwidth .message_sent {
+.app .message_sent {
   width: 45%;
   float: right;
   background-color: #3a3a3a;
@@ -10589,14 +10585,12 @@ body,
   border-radius: 5px;
 }
 
-.app .messages .fullwidth .message_sent.message_selected,
-.app #messages .fullwidth .message_sent.message_selected {
+.app .message_sent.message_selected {
   background-color: #4c4c4c;
   content: '';
 }
 
-.app .messages .fullwidth .message_received,
-.app #messages .fullwidth .message_received {
+.app .message_received {
   width: 45%;
   float: left;
   background-color: #ffffff;

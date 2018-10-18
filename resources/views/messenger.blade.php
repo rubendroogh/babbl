@@ -40,7 +40,7 @@
 
     <div class="row messages">
         <div class="col-12">
-            <div id="messages">
+            <div id="messages" class="messages">
                 @foreach( $group->messages as $m )
                     @switch($m->type)
 
