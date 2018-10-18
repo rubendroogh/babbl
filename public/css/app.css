@@ -10510,7 +10510,17 @@ body,
   color: #f8f9fa !important;
 }
 
-.app .speech_overlay {
+.app .dim_overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  top: 0;
+  left: 0;
+}
+
+.app .dim_overlay .speech_overlay {
   width: 50vw;
   background: #f8f9fa;
   position: absolute;
@@ -10519,16 +10529,15 @@ body,
   top: calc(50% - (30vh / 2));
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  display: none;
 }
 
-.app .speech_overlay h2 {
+.app .dim_overlay .speech_overlay h2 {
   width: 100%;
   color: black;
   text-align: center;
 }
 
-.app .speech_overlay i {
+.app .dim_overlay .speech_overlay i {
   width: 100%;
   color: black;
   text-align: center;

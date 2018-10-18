@@ -24,27 +24,36 @@ html, body, .app{
 	box-shadow: inset 0 0 100px rgba(0,0,0,.4);
 	color: #f8f9fa !important;
 
-	.speech_overlay{
-		width: 50vw;
-		background: #f8f9fa;
+	.dim_overlay{
 		position: absolute;
-		border-radius: $border-radius;
-		left: calc(50% - (50vw / 2));
-		top: calc(50% - (30vh / 2));
-		box-shadow: 0 0 10px rgba(0,0,0,.4);
+		width: 100%;
+		height: 100%;
+		background-color: rgba($color: #000000, $alpha: .4);
 		display: none;
+		top: 0;
+		left: 0;
 
-		h2{
-			width: 100%;
-			color: black;
-			text-align: center;
-		}
-
-		i{
-			width: 100%;
-			color: black;
-			text-align: center;
-			font-size: 8rem;
+		.speech_overlay{
+			width: 50vw;
+			background: #f8f9fa;
+			position: absolute;
+			border-radius: $border-radius;
+			left: calc(50% - (50vw / 2));
+			top: calc(50% - (30vh / 2));
+			box-shadow: 0 0 10px rgba(0,0,0,.4);
+	
+			h2{
+				width: 100%;
+				color: black;
+				text-align: center;
+			}
+	
+			i{
+				width: 100%;
+				color: black;
+				text-align: center;
+				font-size: 8rem;
+			}
 		}
 	}
 

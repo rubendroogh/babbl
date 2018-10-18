@@ -98,9 +98,11 @@
     </div>
 </div>
 
-<div class="speech_overlay p-3" id="speechOverlay">
-    <i class="fas fa-microphone mb-3"></i>
-    <h2 class="mt-3">Zeg iets!</h2>   
+<div class="dim_overlay" id="speechOverlay">
+    <div class="speech_overlay p-3">
+        <i class="fas fa-microphone mb-3"></i>
+        <h2 class="mt-3">Zeg iets!</h2>   
+    </div>
 </div>
 
 @foreach (['danger', 'warning', 'success', 'info'] as $msg)
