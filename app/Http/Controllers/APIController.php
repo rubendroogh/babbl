@@ -30,9 +30,12 @@ class APIController extends Controller
         return $groups;
     }
 
-    public function all_group_messages($group_id){
+    public function all_group_messages($group_id, Request $request){
         $group = Group::find($group_id);
         $messages = $group->messages()->with('user')->get();
+        foreach ($messages as $message){
+           $message['status'] = ($message->user->id == $request->user()->id) ? 'sent' : 'received';
+        }
         return $messages;
     }
 
