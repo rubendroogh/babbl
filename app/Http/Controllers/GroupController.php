@@ -22,7 +22,7 @@ class GroupController extends Controller
 
     public function read($group_id = 1, Request $request)
     {
-        $group = Group::find($group_id);
+        $group = Group::findOrFail($group_id);
 
 
         if (!$group->users()->where('user_id', Auth::id())->first()) {
