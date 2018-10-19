@@ -27,5 +27,5 @@ Route::middleware('auth:api')->group(function(){
 	Route::get('/groups/{id}/users', 'APIController@all_group_users');
 });
 
-Route::post('/message/send', 'APIController@send_message');
+Route::post('/message/send', 'APIController@send_message_init');
 Route::post('/message/read', 'APIController@message_read');

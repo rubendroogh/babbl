@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Babbl\BotUtil;
 use Pusher\Pusher;
 use App\Message;
 use App\Group;
@@ -44,23 +45,34 @@ class APIController extends Controller
         return $group->users;
     }
 
-    public function send_message(Request $request){
-        $pusher = $this->get_pusher_object();
-
-        $message = Message::create([
+    public function send_message_init(Request $request){
+        $message_type = ($request->message_type == null) ? 'string' : $request->message_type;
+        $message = [
             'content' => $request->message,
             'group_id' => $request->group_id,
             'user_id' => $request->user_id,
-            'type' => $request->message_type,
-        ]);
+            'user_name' => $request->user_name,
+            'type' => $message_type,
+        ];
 
-        $data['message'] = $request->message;
-        $data['user_id'] = $request->user_id;
-        $data['user_name'] = $request->user_name;
-        $data['type'] = $request->message_type;
-        $data['id'] = $message->id;
+        $this->send_message($message);
+        $botUtil = new BotUtil();
+        $botUtil->get_bot_message();
+    }
 
-        $pusher->trigger('messages', 'receive-message-' . $request->group_id, $data);
+    public function send_message($message){
+        $pusher = $this->get_pusher_object();
+
+        $message_saved = Message::create($message);
+
+        $data['message'] = $message_saved->content;
+        $data['user_id'] = $message_saved->user_id;
+        $data['type'] = $message_saved->message_type;
+        $data['id'] = $message_saved->id;
+
+        $data['user_name'] = $message['user_name'];
+
+        $pusher->trigger('messages', 'receive-message-' . $message_saved->group_id, $data);
     }
 
     public function message_read(Request $request){
