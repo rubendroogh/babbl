@@ -32,6 +32,7 @@ function sendMessage(data){
         })
         .then(
             function success(data) {
+                renderReceivedMessage(data.messages[0].text, 'Superbot5000');
                 $('#message').val('');
             }
         );
