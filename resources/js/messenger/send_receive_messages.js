@@ -32,6 +32,14 @@ function sendMessage(data){
         })
         .then(
             function success(data) {
+                try{
+                    var botInput = data.messages[0].text;
+                    if (botInput) {
+                        renderReceivedMessage(botInput, 'Superbot5000');
+                        scrollToLastMessage();
+                    }
+                } catch(e){}
+                
                 $('#message').val('');
             }
         );

@@ -40465,6 +40465,14 @@ function _sendMessage(data) {
                 message_type: data.type
             }
         }).then(function success(data) {
+            try {
+                var botInput = data.messages[0].text;
+                if (botInput) {
+                    _renderReceivedMessage(botInput, 'Superbot5000');
+                    _scrollToLastMessage();
+                }
+            } catch (e) {}
+
             $('#message').val('');
         });
     }
