@@ -18,10 +18,14 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
     <body>
-        <div class="container-fluid">
+        <img class="background" src="{{ asset('svg/babbl-welcome-bg.svg') }}" alt="">
+        <div class="container">
             <div class="row justify-content-center align-items-center">
+                <div class="col-8 text-center">
+                    <img class="mx-auto" src="{{ asset('svg/babbl-logo.svg') }}" alt="Card image cap" style="width: 7rem;">
+                    <h1>Babbl.</h1>
+                </div>
                 <div class="card col-8">
-                    <img class="card-img-top mx-auto" src="{{ asset('svg/logo.svg') }}" alt="Card image cap" style="width: 5.5rem;">
                     <hr>
                     <div class="card-body text-center">
                         @if(!Auth::User())
