@@ -25,8 +25,10 @@
                     <img class="mx-auto" src="{{ asset('svg/babbl-logo.svg') }}" alt="Card image cap" style="width: 7rem;">
                     <h1>Babbl.</h1>
                 </div>
+                <form action="">
+                    
+                </form>
                 <div class="card col-8">
-                    <hr>
                     <div class="card-body text-center">
                         @if(!Auth::User())
                             <a class="btn btn-chatboy text-light wdt-5 mb-3" href="{{ Route('login') }}" role="button">Login</a>

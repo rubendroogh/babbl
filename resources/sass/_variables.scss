@@ -1,6 +1,6 @@
 
 // Body
-$body-bg: #f8fafc;
+$body-bg: #fff;
 
 // Typography
 $font-family-sans-serif: "Nunito", sans-serif;
@@ -23,3 +23,9 @@ $chatboyPrimary: linear-gradient(to right, #ff416c, #ff4b2b);
 $chatboySecondary: linear-gradient(to right, #00b4db, #0083b0);
 
 $menu-border-radius: 10px;
+
+// Fonts
+@font-face {
+    font-family: 'Nexa';
+    src: url('/fonts/nexa-bold.otf');
+}
