@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Babbl\BotUtil;
 use Pusher\Pusher;
 use App\Message;
 use App\Group;
 use App\User;
+use Validator;
 
 class APIController extends Controller
 {
@@ -24,6 +26,28 @@ class APIController extends Controller
         return $request->user()->groups;
         $user = User::find($user_id);
         return $user->groups;
+    }
+
+    public function register(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return response()->json(['code' => 'success', 'user' => $user]);
     }
 
     public function all_groups(){

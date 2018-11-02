@@ -29,3 +29,4 @@ Route::middleware('auth:api')->group(function(){
 
 Route::post('/message/send', 'APIController@send_message_init');
 Route::post('/message/read', 'APIController@message_read');
+Route::post('/register', 'APIController@register');
