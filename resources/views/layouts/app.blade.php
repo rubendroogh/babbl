@@ -26,54 +26,10 @@
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
 </head>
 <body>
-    <div id="app" class="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img class="card-img-top mx-auto" src="{{ asset('svg/logo.svg') }}" style="width: 3rem;">
-                </a>         
-            </div>
-        </nav>
-
-        <main>
-            @yield('content')
-        </main>
-
-        <nav id="mobileMenu">
-            <div id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item pl-3">
-                    <a class="nav-link" href="{{ route('userDetailView') }}">{{ Auth::User()->name }}</a>
-                </li>
-                <li class="nav-item pl-3">
-                    <a class="nav-link" href="{{ route('home') }}">Your groups</a>
-                </li>
-                <li class="nav-item pl-3">
-                    <a class="nav-link" href="{{ route('invites') }}">
-                        Group invites
-                        @if(isset($invite_count) && $invite_count != 0)
-                            <span class="badge badge-secondary">{{ $invite_count }}</span>
-                        @endif
-                    </a>
-                </li>
-                <li class="nav-item pl-3">
-                    <a class="nav-link" href="{{ route('editUserView') }}">Settings</a>
-                </li>
-                <li class="nav-item pl-3">
-                    <a class="nav-link" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </li>
-            </ul>
-        </nav>
+    <div class="hero" style="background-image: url({{ asset('svg/babbl-welcome-bg.svg') }})">
+        <h1>Babbl.</h1>
+        @yield('header')
     </div>
+    @yield('content')
 </body>
 </html>

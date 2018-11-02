@@ -11,169 +11,130 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// Custom
-html, body, .app{
-	max-height: 100%;
-	height: 100%;
+html, body{
+	height: 100% !important;
+	max-width: 100vw;
+	overflow: hidden;
+	font-family: 'Nunito', sans-serif;
 }
 
-.app{
-	height: inherit;
+.hero{
+	background-size: cover;
+	background-position: center 100%;
+	background-repeat: no-repeat;
+	height: 11rem;
+
+	display: flex;
+    align-content: center;
+	flex-direction: column;
+
+	text-align: center;
+	padding-top: 1rem;
+
+	z-index: 1400;
 	position: relative;
-	background: $chatboyPrimary !important;
-	box-shadow: inset 0 0 100px rgba(0,0,0,.4);
-	color: #f8f9fa !important;
 
-	.dim_overlay{
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		background-color: rgba($color: #000000, $alpha: .4);
-		display: none;
-		top: 0;
-		left: 0;
+	h1{
+		color: white;
+		font-family: Nexa;
+		margin-bottom: 1.5rem;
 	}
 
-	.speech_overlay{
-		width: 50vw;
-		background: #f8f9fa;
-		position: absolute;
-		border-radius: $border-radius;
-		left: calc(50% - (50vw / 2));
-		top: calc(50% - (30vh / 2));
-		box-shadow: 0 0 10px rgba(0,0,0,.4);
+	input{
+		border-radius: $input-border-radius;
+		padding: $input-padding;
+		border: solid 0;
+		width: 60%;
+		max-width: 300px;
+		margin: 0 auto 1.5rem auto;
 
-		h2{
-			width: 100%;
-			color: black;
-			text-align: center;
-		}
-
-		i{
-			width: 100%;
-			color: black;
-			text-align: center;
-			font-size: 8rem;
-		}
-	}
-
-	main{
-		overflow-y: auto;
-		max-height: calc(100% - 4.5rem);
-		height: calc(100% - 4.5rem);
-	}
-
-	.container-fluid{
-		height: 100%;
-	}
-
-	.message_received small{
-		color: #656565;
-	}
-
-	.messages{
-		max-height: 100%;
-		overflow-y: auto;
-		position: relative;
-		padding-bottom: 2.5rem;
-
-		.fullwidth{
-			width: 100%;
-			display: block;
-			position: relative;
-			clear: both;
-		}
-	}
-
-	.chatboy_message{
-		color: rgba(0,0,0,.5);
-	}
-
-	.message_sent{
-		width: 45%;
-		float: right;
-		background-color: #3a3a3a;
-		padding: .5rem;
-		margin: .5rem;
-		border-radius: 5px;
-
-		&.message_selected{
-			background-color: #4c4c4c;
-			content: '';
-		}
-	}
-
-	.message_received{
-		width: 45%;
-		float: left;
-		background-color: #ffffff;
-		padding: .5rem;
-		margin: .5rem;
-		border-radius: 5px;
-		color: #2d2d2d;
-	}
-
-	.group_info.show{
-		transition: 1s ease;
-		height: 83vh;
-	}
-
-	.message_input{
-		width: 100%;
-		max-width: 800px;
-		margin: 0 -15px 0 -15px;
-	}
-
-	.bottom-absolute{
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-		box-shadow: 0px -1px 5px 0px #343a40;
-	}
-
-	.table-users thead th{
-		border-top: none;
-	}
-
-	.whole{
-		position: relative;
-		width: 100%;
-		height: 100%;
-	}
-
-	#mobileMenu{
-		width: 0;
-		height: 100%;
-		position: absolute;
-		display: inline-block;
-		background: $chatboySecondary;
-		top: 0;
-		right: 0;
-		z-index: 1200;
-		transition: ease .5s;
-		box-shadow: 0px -1px 5px 0px rgba(0,0,0,.4);
-
-		#menuToggle{
-			width: 3rem;
-			height: 3rem;
-			background: $chatboySecondary;
-			position: relative;
-			top: calc( 100% - 4rem );
-			right: 3rem;
-			border-top-left-radius: $menu-border-radius;
-			border-bottom-left-radius: $menu-border-radius;
-
-			i{
-				font-size: 2rem;
-				position: relative;
-				top: .5rem;
-				left: .7rem;
-			}
-		}
-
-		.navbar-nav{
-			display: none;
-		}
+		text-align: center;
+		color: $babblRed;
+		font-size: 1rem;
+		font-weight: bold;
 	}
 }
 
+.add-group-button{
+	width: 3rem;
+	height: 3rem;
+	margin: 0 auto;
+	
+	background-color: white;
+	box-shadow: 0 3px 3px #ddd;
+	border-radius: 50%;
+
+	text-align: center;
+	line-height: 3rem;
+	color: $babblRed;
+	font-size: 1.5rem;
+	font-weight: bold;
+
+	z-index: 1450;
+}
+
+.groups-container{
+	width: 100vw;
+	height: calc(100% - 8.5rem);
+	max-height: calc(100% - 8.5rem);
+	margin-top: 1.5rem;
+	padding-top: 4rem;
+
+	position: relative;
+	bottom: 4rem;
+
+	overflow-y: auto;
+	z-index: 1100;
+}
+
+.group{
+	width: calc(100% - 1rem);
+	height: 5rem;
+	max-width: 600px;
+	margin: .5rem auto;
+	padding: 1rem;
+	border-radius: $input-border-radius;
+
+	background-color: white;
+	box-shadow: 0 3px 3px #ddd;
+	color: #000;
+
+	display: block;
+
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+.group-image{
+	background-color: aquamarine;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	margin-right: 1rem;
+	float: left;
+}
+
+.group-text{
+	width: 12rem;
+	height: 3rem;
+	display: inline-block;
+}
+
+.group-name{
+	height: 2rem;
+	color: $babblRed;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.group-latest{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 16rem;
+}
+
+.group-time{
+	float: right;
+}

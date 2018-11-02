@@ -1,6 +1,6 @@
 
 // Body
-$body-bg: #fff;
+$body-bg: #f5f5f5;
 
 // Typography
 $font-family-sans-serif: "Nunito", sans-serif;
@@ -21,8 +21,11 @@ $cyan: #6cb2eb;
 
 $chatboyPrimary: linear-gradient(to right, #ff416c, #ff4b2b);
 $chatboySecondary: linear-gradient(to right, #00b4db, #0083b0);
+$babblRed: #ff416c;
 
 $menu-border-radius: 10px;
+$input-border-radius: 10px;
+$input-padding: .6rem;
 
 // Fonts
 @font-face {

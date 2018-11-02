@@ -1,52 +1,25 @@
 @extends('layouts.app')
 
+@section('header')
+<input type="text" value="Zoeken">
+<div class="add-group-button">+</div>   
+@endsection
+
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-12 px-0">
-            <div class="flash-message">
-                @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-                    @if(Session::has('alert-' . $msg))
-                        <p class="alert-panel alert-{{ $msg }} p-1 alert">{{ Session::get('alert-' . $msg) }}
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        </p>
-                    @endif
-                @endforeach
-            </div>
-            <table class="table table-hover table-users">
-                <thead>
-                    <tr>
-                        <th scope="col">Groups</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach( $groups as $group )
-                    <tr>
-                        <td>
-                            <a href="{{ route('messenger', ['group_id' => $group->id]) }}">
-                                <div>
-                                    <span>{{ $group->name }}</span>
-                                    <br />
-                                    <small>
-                                        @if($group->latestMessage()->user)
-                                            {{ $group->latestMessage()->user->name }}:
-                                        @endif
-                                        {{ $group->latestMessage()->content }}
-                                    </small>
-                                    <small class="float-right">
-                                        {{ $group->latestMessage()->created_at->diffForHumans() }}
-                                    </small>
-                                </div>
-                            </a>
-                        </td>
-                    </tr>
-                    @endforeach
-                    <tr>
-                        <td><a href="{{ route('newGroup') }}">Add new group...</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+<div class="groups-container">
+    @foreach ($groups as $group)
+
+            <a class="group" href="{{ route('messenger', ['group_id' => $group->id]) }}">
+                <div class="group-image"></div>
+                <div class="group-text">
+                    <span class="group-name">{{ $group->name }}</span>
+                    <p class="group-latest">{{ $group->latestMessage()->content }}</p>
+                </div>
+                <small class="group-time">
+                    {{ $group->latestMessage()->created_at->diffForHumans() }}
+                </small>
+            </a>
+
+    @endforeach
 </div>
 @endsection
