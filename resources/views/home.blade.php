@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
+<h1>Babbl.</h1>
 <input type="text" placeholder="Zoeken">
 <a href="{{ route('newGroup') }}" class="add-group-button">+</a>  
 @endsection

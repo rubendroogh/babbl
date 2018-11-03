@@ -27,7 +27,6 @@
 </head>
 <body>
     <div class="hero" style="background-image: url({{ asset('svg/babbl-welcome-bg.svg') }})">
-        <h1>Babbl.</h1>
         @yield('header')
     </div>
     @yield('content')
