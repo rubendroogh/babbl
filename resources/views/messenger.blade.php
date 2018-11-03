@@ -11,9 +11,12 @@
 @endsection
 
 @section('content')
-    <div id="app">
+    <div class="messages-container">
         
     </div>
+@endsection
+
+@section('js-scripts')
     <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
     <script src="../js/messenger.js"></script>
 @endsection

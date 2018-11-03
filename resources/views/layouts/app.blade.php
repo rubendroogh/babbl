@@ -31,6 +31,9 @@
     <div class="hero" style="background-image: url({{ asset('svg/babbl-welcome-bg.svg') }})">
         @yield('header')
     </div>
-    @yield('content')
+    <div class="content-container">
+        @yield('content')
+    </div>
+    @yield('js-scripts')
 </body>
 </html>
