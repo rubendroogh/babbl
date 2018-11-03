@@ -10530,7 +10530,11 @@ body {
   position: relative;
 }
 
-.hero h1 {
+.hero h1,
+.hero h2,
+.hero h3,
+.hero h4,
+.hero h5 {
   color: white;
   font-family: Nexa;
   margin-bottom: 1.5rem;

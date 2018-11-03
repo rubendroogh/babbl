@@ -14,16 +14,16 @@
     <div class="groups-container">
         @foreach ($groups as $group)
 
-                <a class="group" href="{{ route('messenger', ['group_id' => $group->id]) }}">
-                    <div class="group-image"></div>
-                    <div class="group-text">
-                        <span class="group-name">{{ $group->name }}</span>
-                        <p class="group-latest">{{ $group->latestMessage()->content }}</p>
-                    </div>
-                    <p class="group-time">
-                        {{ $group->latestMessage()->created_at->format('H:i') }}
-                    </p>
-                </a>
+            <a class="group" href="{{ route('messenger', ['group_id' => $group->id]) }}">
+                <div class="group-image"></div>
+                <div class="group-text">
+                    <span class="group-name">{{ $group->name }}</span>
+                    <p class="group-latest">{{ $group->latestMessage()->content }}</p>
+                </div>
+                <p class="group-time">
+                    {{ $group->latestMessage()->created_at->format('H:i') }}
+                </p>
+            </a>
 
         @endforeach
     </div>
