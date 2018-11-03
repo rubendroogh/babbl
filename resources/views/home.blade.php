@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('header')
-<input type="text" value="Zoeken">
-<div class="add-group-button">+</div>   
+<input type="text" placeholder="Zoeken">
+<a href="{{ route('newGroup') }}" class="add-group-button">+</a>  
 @endsection
 
 @section('content')
@@ -15,9 +15,9 @@
                     <span class="group-name">{{ $group->name }}</span>
                     <p class="group-latest">{{ $group->latestMessage()->content }}</p>
                 </div>
-                <small class="group-time">
-                    {{ $group->latestMessage()->created_at->diffForHumans() }}
-                </small>
+                <p class="group-time">
+                    {{ $group->latestMessage()->created_at->format('H:i') }}
+                </p>
             </a>
 
     @endforeach
