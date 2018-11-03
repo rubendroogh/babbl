@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'Nexa';
+  src: url("/fonts/nexa-bold.otf");
+}
+
+.add-group-button {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto;
+  background-color: white;
+  -webkit-box-shadow: 0 3px 3px #ddd;
+          box-shadow: 0 3px 3px #ddd;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 3rem;
+  color: #ff416c;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 1450;
+}
+
+.groups-container {
+  width: 100vw;
+  height: calc(100% - 8.5rem);
+  max-height: calc(100% - 8.5rem);
+  margin-top: 1.5rem;
+  padding-top: 4rem;
+  position: relative;
+  bottom: 4rem;
+  overflow-y: auto;
+  z-index: 1100;
+}
+
+.group {
+  width: calc(100% - 1rem);
+  height: 5rem;
+  max-width: 600px;
+  margin: .5rem auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 0 3px 3px #ddd;
+          box-shadow: 0 3px 3px #ddd;
+  color: #000;
+  display: block;
+  overflow: hidden;
+}
+
+.group:hover {
+  cursor: pointer;
+}
+
+.group-image {
+  background-color: aquamarine;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+  float: left;
+}
+
+.group-text {
+  width: calc(100% - 6rem);
+  height: 3rem;
+  display: inline-block;
+}
+
+.group-name {
+  height: 2rem;
+  color: #ff416c;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.group-latest {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  font-size: .8rem;
+}
+
+.group-time {
+  float: right;
+  position: relative;
+  top: 2rem;
+  width: 2rem;
+  font-size: .8rem;
+}
+

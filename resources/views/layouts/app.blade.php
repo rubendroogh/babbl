@@ -24,6 +24,8 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
+
+    @yield('head')
 </head>
 <body>
     <div class="hero" style="background-image: url({{ asset('svg/babbl-welcome-bg.svg') }})">
