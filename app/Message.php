@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Message extends Model
 {
@@ -18,5 +19,11 @@ class Message extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function getStatusAttribute()
+    {
+        $status = ($this->user_id == Auth::id()) ? 'sent' : 'received';
+        return $status;
     }
 }

@@ -9,6 +9,7 @@ use Pusher\Pusher;
 use App\Message;
 use App\Group;
 use App\User;
+use Auth;
 use Validator;
 
 class APIController extends Controller
