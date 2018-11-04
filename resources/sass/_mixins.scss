@@ -1,0 +1,6 @@
+@mixin ltr-gradient($clr1, $clr2){
+    background: $clr1;
+    background: -moz-linear-gradient(left, $clr1 0%, $clr2 100%);
+    background: -webkit-linear-gradient(left, $clr1 0%, $clr2 100%);
+    background: linear-gradient(to right, $clr1 0%, $clr2 100%);
+}

@@ -11,9 +11,15 @@
 @endsection
 
 @section('content')
-    <div class="messages-container">
-        
-    </div>
+    @foreach ($group->messages as $m)
+
+        <div class="message-clump-wrapper">
+            <div class="single-message {{$m->status}}">
+                {{$m->content}}
+            </div>
+        </div>
+
+    @endforeach
 @endsection
 
 @section('js-scripts')

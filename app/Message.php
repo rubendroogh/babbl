@@ -23,7 +23,13 @@ class Message extends Model
 
     public function getStatusAttribute()
     {
-        $status = ($this->user_id == Auth::id()) ? 'sent' : 'received';
+        if ($this->user_id == Auth::id()) {
+            $status = 'sent';
+        } elseif ($this->user_id == null) {
+            $status = 'info';
+        } else{
+            $status = 'received';
+        }
         return $status;
     }
 }

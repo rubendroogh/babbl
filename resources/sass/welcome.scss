@@ -2,7 +2,7 @@
 @import 'variables';
 
 // Components
-@import 'components';
+@import 'mixins';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -126,9 +126,6 @@ body{
 		border: none;
 
 		color: white;
-		background: rgb(255,17,72);
-		background: -moz-linear-gradient(left, $torchRed 0%, $brinkPink 100%);
-		background: -webkit-linear-gradient(left, $torchRed 0%, $brinkPink 100%);
-		background: linear-gradient(to right, $torchRed 0%, $brinkPink 100%);
+		@include ltr-gradient($torchRed, $brinkPink);
 	}
 }
