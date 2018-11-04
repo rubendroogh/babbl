@@ -1,6 +1,12 @@
 @font-face {
   font-family: 'Nexa';
+  src: url("/fonts/nexa-light.otf");
+}
+
+@font-face {
+  font-family: 'Nexa';
   src: url("/fonts/nexa-bold.otf");
+  font-weight: bold;
 }
 
 .add-group-button {
@@ -13,7 +19,7 @@
   border-radius: 50%;
   text-align: center;
   line-height: 3rem;
-  color: #ff416c;
+  color: #ff0844;
   font-size: 1.5rem;
   font-weight: bold;
   z-index: 1450;
@@ -55,7 +61,7 @@
 
 .group-name {
   height: 2rem;
-  color: #ff416c;
+  color: #ff0844;
   font-size: 1.1rem;
   font-weight: bold;
 }

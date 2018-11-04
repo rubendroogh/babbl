@@ -52547,9 +52547,8 @@ module.exports = __webpack_require__(177);
 
 /***/ }),
 /* 177 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
 // Get requirements
 __webpack_require__(13);
 __webpack_require__(178);

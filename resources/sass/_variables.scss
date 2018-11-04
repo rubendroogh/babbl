@@ -21,7 +21,11 @@ $cyan: #6cb2eb;
 
 $chatboyPrimary: linear-gradient(to right, #ff416c, #ff4b2b);
 $chatboySecondary: linear-gradient(to right, #00b4db, #0083b0);
-$babblRed: #ff416c;
+
+$torchRed: #ff0844;
+$brinkPink: #ff757b;
+$veryLightGray: #ccc;
+$black: #1d1d1b;
 
 $menu-border-radius: 10px;
 $input-border-radius: 10px;
@@ -30,5 +34,11 @@ $input-padding: .6rem;
 // Fonts
 @font-face {
     font-family: 'Nexa';
+    src: url('/fonts/nexa-light.otf');
+}
+
+@font-face {
+    font-family: 'Nexa';
     src: url('/fonts/nexa-bold.otf');
+    font-weight: bold;
 }

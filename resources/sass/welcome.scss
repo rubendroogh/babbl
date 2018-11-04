@@ -127,9 +127,8 @@ body{
 
 		color: white;
 		background: rgb(255,17,72);
-		background: -moz-linear-gradient(left, rgba(255,17,72,1) 0%, rgba(255,106,117,1) 100%);
-		background: -webkit-linear-gradient(left, rgba(255,17,72,1) 0%,rgba(255,106,117,1) 100%);
-		background: linear-gradient(to right, rgba(255,17,72,1) 0%,rgba(255,106,117,1) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff1148', endColorstr='#ff6a75',GradientType=1 );
+		background: -moz-linear-gradient(left, $torchRed 0%, $brinkPink 100%);
+		background: -webkit-linear-gradient(left, $torchRed 0%, $brinkPink 100%);
+		background: linear-gradient(to right, $torchRed 0%, $brinkPink 100%);
 	}
 }
