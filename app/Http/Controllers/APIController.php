@@ -96,6 +96,8 @@ class APIController extends Controller
 
         $data['user_name'] = $message['user_name'];
 
+        $data['status'] = ($data['user_id'] == Auth::id()) ? 'send' : 'received';
+
         $pusher->trigger('messages', 'receive-message-' . $message_saved->group_id, $data);
     }
 
