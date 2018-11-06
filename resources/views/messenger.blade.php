@@ -6,20 +6,33 @@
 
 @section('header')
     <div class="header-image"></div>
-    <h2>Henkie</h2>
+    <h2>{{$group->name}}</h2>
     <span class="status">online</span>
 @endsection
 
 @section('content')
     @foreach ($group->messages as $m)
 
-        <div class="message-clump-wrapper">
-            <div class="single-message {{$m->status}}">
+        <div class="messages {{$m->status}}">
+            <p class="message">
                 {{$m->content}}
-            </div>
+            </p>
         </div>
 
     @endforeach
+    <div class="page-bottom">
+        <div class="message-input-wrapper">
+            <form id="js-message-input">
+                <input id="user_id" type="hidden" name="_user_id" value="{{ Auth::user()->id }}">
+                <input id="group_id" type="hidden" name="_group_id" value="{{ $group->id }}">
+                <input id="user_name" type="hidden" name="_user_name" value="{{ Auth::user()->name }}">
+                <input id="message_type" type="hidden" name="_message_type" value="string">
+                <span class="file"></span>
+                <input type="text" class="message-input" placeholder="Typ een bericht…" />
+                <span class="send"></span>
+            </form>
+        </div>
+    </div>
 @endsection
 
 @section('js-scripts')

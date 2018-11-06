@@ -9,6 +9,6 @@ require('./messenger/send_receive_messages');
 scrollToLastMessage();
 
 function scrollToLastMessage(){
-    var messageContainer = document.getElementById("messages");
+    var messageContainer = document.getElementById("content-container");
     messageContainer.scrollTop = messageContainer.scrollHeight;
 }

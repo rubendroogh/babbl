@@ -52560,7 +52560,7 @@ __webpack_require__(35);
 scrollToLastMessage();
 
 function scrollToLastMessage() {
-    var messageContainer = document.getElementById("messages");
+    var messageContainer = document.getElementById("content-container");
     messageContainer.scrollTop = messageContainer.scrollHeight;
 }
 
