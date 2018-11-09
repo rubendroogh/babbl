@@ -10520,19 +10520,6 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.hero input {
-  border-radius: 10px;
-  padding: 0.6rem;
-  border: solid 0;
-  width: 60%;
-  max-width: 300px;
-  margin: 0 auto 1.5rem auto;
-  text-align: center;
-  color: #ff0844;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
 .content-container {
   width: 100vw;
   height: calc(100% - 8.5rem);
@@ -10542,6 +10529,5 @@ body {
   position: relative;
   bottom: 4rem;
   overflow-y: auto;
-  z-index: 1100;
 }
 

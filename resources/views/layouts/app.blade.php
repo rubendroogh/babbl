@@ -28,11 +28,13 @@
     @yield('head')
 </head>
 <body>
-    <div class="hero" style="background-image: url({{ asset('svg/babbl-welcome-bg.svg') }})">
-        @yield('header')
-    </div>
-    <div class="content-container" id="content-container">
-        @yield('content')
+    <div id="app">
+        <div class="hero" style="background-image: url({{ asset('svg/babbl-welcome-bg.svg') }})">
+            @yield('header')
+        </div>
+        <div class="content-container" id="content-container">
+            @yield('content')
+        </div>
     </div>
     @yield('js-scripts')
 </body>

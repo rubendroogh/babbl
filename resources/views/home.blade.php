@@ -6,23 +6,19 @@
 
 @section('header')
     <h1>Babbl.</h1>
-    <input type="text" placeholder="Zoeken">
+    <input v-model="search" class="group-search" type="text" placeholder="Zoeken">
     <a href="{{ route('newGroup') }}" class="add-group-button">+</a>  
 @endsection
 
 @section('content')
-    @foreach ($groups as $group)
-
-        <a class="group" href="{{ route('messenger', ['group_id' => $group->id]) }}">
-            <div class="group-image"></div>
-            <div class="group-text">
-                <span class="group-name">{{ $group->name }}</span>
-                <p class="group-latest">{{ $group->latestMessage()->content }}</p>
-            </div>
-            <p class="group-time">
-                {{ $group->latestMessage()->created_at->format('H:i') }}
-            </p>
-        </a>
-
-    @endforeach
+    <a class="group" v-for="chat in filteredList" :href="'/messenger/' + chat.id">
+        <div class="group-image"></div>
+        <div class="group-text">
+            <span class="group-name">@{{ chat.name }}</span>
+            <p class="group-latest">@{{ chat.latestMessage.content }}</p>
+        </div>
+        <p class="group-time">
+            @{{ chat.latestMessage.created_at | formatToTime }}
+        </p>
+    </a>
 @endsection

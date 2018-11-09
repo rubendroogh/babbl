@@ -25,6 +25,19 @@
   z-index: 1450;
 }
 
+.group-search {
+  border-radius: 10px;
+  padding: 0.6rem;
+  border: solid 0;
+  width: 60%;
+  max-width: 300px;
+  margin: 0 auto 1.5rem auto;
+  text-align: center;
+  color: #ff0844;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .group {
   width: calc(100% - 1rem);
   height: 5rem;
@@ -38,6 +51,7 @@
   color: #000;
   display: block;
   overflow: hidden;
+  z-index: 1100;
 }
 
 .group:hover {

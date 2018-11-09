@@ -37,20 +37,6 @@ html, body{
 		font-weight: bold;
 		margin-bottom: 1.5rem;
 	}
-
-	input{
-		border-radius: $input-border-radius;
-		padding: $input-padding;
-		border: solid 0;
-		width: 60%;
-		max-width: 300px;
-		margin: 0 auto 1.5rem auto;
-
-		text-align: center;
-		color: $torchRed;
-		font-size: 1rem;
-		font-weight: bold;
-	}
 }
 
 .content-container{
@@ -64,5 +50,4 @@ html, body{
 	bottom: 4rem;
 
 	overflow-y: auto;
-	z-index: 1100;
 }
