@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    <a class="group" v-for="chat in filteredList" :href="'/messenger/' + chat.id">
+    <a class="group hidden" v-for="chat in filteredList" :href="'/messenger/' + chat.id">
         <div class="group-image"></div>
         <div class="group-text">
             <span class="group-name">@{{ chat.name }}</span>
@@ -21,4 +21,11 @@
             @{{ chat.latestMessage.created_at | formatToTime }}
         </p>
     </a>
+
+    <div class="loading" id="js-loading"></div>
+    <h3 v-if="filteredList.length === 0 && search !== ''" class="no-result hidden">Geen resultaat!</h3>
+@endsection
+
+@section('js-scripts')
+    <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
 @endsection

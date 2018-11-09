@@ -30,3 +30,6 @@ Route::get('/user', 'UserController@read_form_view')->name('userDetailView');
 Route::get('/user/edit', 'UserController@edit_form_view')->name('editUserView');
 Route::post('/user/update', 'UserController@update')->name('updateUser');
 Route::get('/users/all', 'APIController@all_users');
+
+// Temporary api route
+Route::get('/user/groups', 'APIController@all_user_groups');

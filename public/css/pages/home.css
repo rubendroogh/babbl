@@ -9,6 +9,30 @@
   font-weight: bold;
 }
 
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 .add-group-button {
   width: 3rem;
   height: 3rem;
@@ -94,5 +118,26 @@
   top: 2rem;
   width: 2rem;
   font-size: .8rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.loading {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 5px solid #ccc;
+  border-left: 5px solid #ff0844;
+  border-radius: 50%;
+  margin: 4rem auto 0;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+.no-result {
+  margin: 4rem auto 0;
+  color: #ff0844;
+  text-align: center;
 }
 

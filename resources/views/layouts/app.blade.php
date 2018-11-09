@@ -22,9 +22,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/selectize.bootstrap3.css') }}" rel="stylesheet">
 
-    <!-- Scripts -->
-    <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
-
     @yield('head')
 </head>
 <body>
