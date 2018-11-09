@@ -6,6 +6,23 @@
 @import "../fa/solid";
 @import "../fa/brands";
 
+.back-button{
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+    color: white;
+
+    @extend %fa-icon;
+    @extend .fas;
+
+    &::before{
+        content: fa-content($fa-var-angle-left);
+    }
+}
+
 .hero > h2{
     margin-bottom: 0;
 }
@@ -36,7 +53,7 @@
 .messages{
     display: block;
     box-sizing: border-box;
-    width: 100%;
+    width: auto;
     margin-bottom: 1rem;
 
     &.sent, &.received{
@@ -48,6 +65,7 @@
         align-self: flex-end;
         margin-right: 1rem;
         border-radius: $border-radius $border-radius 0 $border-radius;
+        text-align: right;
         @include ltr-gradient($torchRed, $brinkPink);
 
         .message{
@@ -105,7 +123,7 @@
     text-align: center;
     float: left;
 
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: white;
 
     @include ltr-gradient($torchRed, $brinkPink);
@@ -114,7 +132,11 @@
     @extend .fas;
 
     &::before{
-        content: fa-content($fa-var-paper-plane);
+        content: fa-content($fa-var-space-shuttle);
+    }
+
+    &:hover{
+        cursor: pointer;
     }
 }
 
@@ -127,6 +149,7 @@
     border-right: 2px dotted white;
     text-align: center;
     float: left;
+    font-size: 1.2rem;
 
     @extend %fa-icon;
     @extend .fas;

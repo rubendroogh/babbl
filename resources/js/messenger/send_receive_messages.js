@@ -19,7 +19,7 @@ module.exports = {
 };
 
 function sendMessage(data){
-    if (message != '') {
+    if (data.message != '') {
         $.ajax('/api/message/send', {
             method: 'POST',
             data: {
@@ -40,7 +40,7 @@ function sendMessage(data){
                     }
                 } catch(e){}
                 
-                $('#message').val('');
+                $('#js-message-input').val('');
             }
         );
     }
@@ -49,7 +49,7 @@ function sendMessage(data){
 }
 
 function renderReceivedMessage(message, username){
-    var messageBox     = document.getElementById('messages'),
+    var messageBox     = document.getElementById('content-container'),
         messageWrapper = document.createElement('div'),
         messageBubble  = document.createElement('div'),
         breakElement   = document.createElement('br'),
@@ -78,7 +78,7 @@ function renderReceivedMessage(message, username){
 };
 
 function renderSentMessage(message, id){
-    var messageBox     = document.getElementById('messages'),
+    var messageBox     = document.getElementById('content-container'),
         messageWrapper = document.createElement('div'),
         messageBubble  = document.createElement('div'),
         breakElement   = document.createElement('br'),
@@ -109,7 +109,7 @@ function renderSentMessage(message, id){
 };
 
 function scrollToLastMessage(){
-    var messageContainer = document.getElementById("messages");
+    var messageContainer = document.getElementById("content-container");
     messageContainer.scrollTop = messageContainer.scrollHeight;
 
     return true;
@@ -135,9 +135,9 @@ pusher_connect.channel.bind('receive-message-' + group_id, function(data) {
     }
 });
 
-$( "#messageInput" ).submit(function( event ) {
+$( "#js-message-form" ).submit(function( event ) {
     var formData = {
-        message:   $('#message').val(),
+        message:   $('#js-message-input').val(),
         user_id:   $('#user_id').val(),
         group_id:  $('#group_id').val(),
         user_name: $('#user_name').val(),
@@ -148,3 +148,6 @@ $( "#messageInput" ).submit(function( event ) {
     event.preventDefault();
 });
 
+$('#js-send').click(function(){
+    $( "#js-message-form" ).submit();
+});

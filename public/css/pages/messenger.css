@@ -16,6 +16,7 @@
 
 .fa,
 .fas,
+.back-button,
 .send,
 .file,
 .far,
@@ -30,6 +31,7 @@
   line-height: 1;
 }
 
+.back-button,
 .send,
 .file {
   -webkit-font-smoothing: antialiased;
@@ -135,6 +137,7 @@
 
 .fa.fa-pull-left,
 .fas.fa-pull-left,
+.fa-pull-left.back-button,
 .fa-pull-left.send,
 .fa-pull-left.file,
 .far.fa-pull-left,
@@ -145,6 +148,7 @@
 
 .fa.fa-pull-right,
 .fas.fa-pull-right,
+.fa-pull-right.back-button,
 .fa-pull-right.send,
 .fa-pull-right.file,
 .far.fa-pull-right,
@@ -5336,6 +5340,7 @@ readers do not read off random characters that represent icons */
 
 .fa,
 .fas,
+.back-button,
 .send,
 .file {
   font-family: 'Font Awesome 5 Free';
@@ -5357,6 +5362,20 @@ readers do not read off random characters that represent icons */
 
 .fab {
   font-family: 'Font Awesome 5 Brands';
+}
+
+.back-button {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  color: white;
+}
+
+.back-button::before {
+  content: "\F104";
 }
 
 .hero > h2 {
@@ -5395,7 +5414,7 @@ readers do not read off random characters that represent icons */
   display: block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 100%;
+  width: auto;
   margin-bottom: 1rem;
 }
 
@@ -5410,6 +5429,7 @@ readers do not read off random characters that represent icons */
       align-self: flex-end;
   margin-right: 1rem;
   border-radius: 1rem 1rem 0 1rem;
+  text-align: right;
   background: #ff0844;
   background: -webkit-gradient(linear, left top, right top, from(#ff0844), to(#ff757b));
   background: linear-gradient(to right, #ff0844 0%, #ff757b 100%);
@@ -5468,7 +5488,7 @@ readers do not read off random characters that represent icons */
   margin: 0;
   text-align: center;
   float: left;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: white;
   background: #ff0844;
   background: -webkit-gradient(linear, left top, right top, from(#ff0844), to(#ff757b));
@@ -5476,7 +5496,11 @@ readers do not read off random characters that represent icons */
 }
 
 .send::before {
-  content: "\F1D8";
+  content: "\F197";
+}
+
+.send:hover {
+  cursor: pointer;
 }
 
 .file {
@@ -5489,6 +5513,7 @@ readers do not read off random characters that represent icons */
   border-right: 2px dotted white;
   text-align: center;
   float: left;
+  font-size: 1.2rem;
 }
 
 .file::before {
