@@ -11,6 +11,10 @@ class Message extends Model
         'content', 'group_id', 'user_id', 'type'
     ];
 
+    protected $appends = [
+        'status'
+    ];
+
     public function group()
     {
         return $this->belongsTo('App\Group');

@@ -59,9 +59,6 @@ class APIController extends Controller
     public function all_group_messages($group_id, Request $request){
         $group = Group::find($group_id);
         $messages = $group->messages()->with('user')->get();
-        foreach ($messages as $message){
-           $message['status'] = ($message->user == $request->user()) ? 'sent' : 'received';
-        }
         return $messages;
     }
 
@@ -98,7 +95,7 @@ class APIController extends Controller
 
         $data['user_name'] = $message['user_name'];
 
-        $data['status'] = ($data['user_id'] == Auth::id()) ? 'send' : 'received';
+        $data['status'] = $message_saved->status;
 
         $pusher->trigger('messages', 'receive-message-' . $message_saved->group_id, $data);
         
