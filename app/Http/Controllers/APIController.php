@@ -60,7 +60,7 @@ class APIController extends Controller
         $group = Group::find($group_id);
         $messages = $group->messages()->with('user')->get();
         foreach ($messages as $message){
-           $message['status'] = ($message->user->id == $request->user()->id) ? 'sent' : 'received';
+           $message['status'] = ($message->user == $request->user()) ? 'sent' : 'received';
         }
         return $messages;
     }
@@ -80,9 +80,10 @@ class APIController extends Controller
             'type' => $message_type,
         ];
 
-        $this->send_message($message);
-        $botUtil = new BotUtil();
-        $botUtil->get_bot_message();
+        return $this->send_message($message);
+        // TODO: implement bots or remove
+        // $botUtil = new BotUtil();
+        // $botUtil->get_bot_message();
     }
 
     public function send_message($message){
@@ -100,6 +101,8 @@ class APIController extends Controller
         $data['status'] = ($data['user_id'] == Auth::id()) ? 'send' : 'received';
 
         $pusher->trigger('messages', 'receive-message-' . $message_saved->group_id, $data);
+        
+        return $message_saved;    
     }
 
     public function message_read(Request $request){
