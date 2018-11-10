@@ -16,7 +16,7 @@ new Vue({
 	created(){
 		var options = {
 			method: 'GET',
-			url: 'http://babbl.local/user/groups',
+			url: '/user/groups',
 			json: true
 		}
 		

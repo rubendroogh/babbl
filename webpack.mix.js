@@ -1,4 +1,9 @@
 const mix = require('laravel-mix');
+mix.browserSync({
+    open: 'external',
+    host: 'babbl.local',
+    proxy: 'babbl.local'
+});
 
 /*
  |--------------------------------------------------------------------------
