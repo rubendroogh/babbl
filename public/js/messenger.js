@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 176);
+/******/ 	return __webpack_require__(__webpack_require__.s = 178);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1902,7 +1902,7 @@
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(179)("./" + name);
+                __webpack_require__(161)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4888,6 +4888,33 @@ module.exports = {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4989,33 +5016,6 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
 
 /***/ }),
 /* 4 */
@@ -17927,7 +17927,7 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
 /* 6 */
@@ -18419,8 +18419,14 @@ process.umask = function() { return 0; };
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(17);
 
-window._ = __webpack_require__(14);
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+window._ = __webpack_require__(15);
 window.Popper = __webpack_require__(5).default;
 
 /**
@@ -18432,7 +18438,7 @@ window.Popper = __webpack_require__(5).default;
 try {
   window.$ = window.jQuery = __webpack_require__(4);
 
-  __webpack_require__(15);
+  __webpack_require__(16);
 } catch (e) {}
 
 /**
@@ -18441,7 +18447,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(16);
+window.axios = __webpack_require__(13);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -18477,7 +18483,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -35589,10 +35595,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(11)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(11)(module)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -39542,12 +39548,6 @@ if (token) {
 
 
 /***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(17);
-
-/***/ }),
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39557,7 +39557,7 @@ module.exports = __webpack_require__(17);
 var utils = __webpack_require__(1);
 var bind = __webpack_require__(6);
 var Axios = __webpack_require__(19);
-var defaults = __webpack_require__(2);
+var defaults = __webpack_require__(3);
 
 /**
  * Create an instance of Axios
@@ -39640,7 +39640,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(2);
+var defaults = __webpack_require__(3);
 var utils = __webpack_require__(1);
 var InterceptorManager = __webpack_require__(28);
 var dispatchRequest = __webpack_require__(29);
@@ -40179,7 +40179,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(1);
 var transformData = __webpack_require__(30);
 var isCancel = __webpack_require__(9);
-var defaults = __webpack_require__(2);
+var defaults = __webpack_require__(3);
 var isAbsoluteURL = __webpack_require__(31);
 var combineURLs = __webpack_require__(32);
 
@@ -40433,162 +40433,6 @@ module.exports = function spread(callback) {
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.moment = __webpack_require__(0);
-var pusher_connect = __webpack_require__(159);
-var read_messages = __webpack_require__(160);
-var notifications = __webpack_require__(161);
-
-module.exports = {
-    sendMessage: function sendMessage(data) {
-        _sendMessage(data);
-    },
-    renderReceivedMessage: function renderReceivedMessage(message, username) {
-        return _renderReceivedMessage(message, username);
-    },
-    renderSentMessage: function renderSentMessage(message, id) {
-        return _renderSentMessage(message, id);
-    },
-    scrollToLastMessage: function scrollToLastMessage() {
-        return _scrollToLastMessage();
-    }
-};
-
-function _sendMessage(data) {
-    if (data.message != '') {
-        $.ajax('/api/message/send', {
-            method: 'POST',
-            data: {
-                message: data.message,
-                group_id: data.group_id,
-                user_id: data.user_id,
-                user_name: data.user_name,
-                message_type: data.type
-            }
-        }).then(function success(data) {
-            try {
-                var botInput = data.messages[0].text;
-                if (botInput) {
-                    _renderReceivedMessage(botInput, 'Superbot5000');
-                    _scrollToLastMessage();
-                }
-            } catch (e) {}
-
-            $('#js-message-input').val('');
-        });
-    }
-
-    return false;
-}
-
-function _renderReceivedMessage(message, username) {
-    var messageBox = document.getElementById('content-container'),
-        messageWrapper = document.createElement('div'),
-        messageBubble = document.createElement('div'),
-        breakElement = document.createElement('br'),
-        userNameBox = document.createElement('small'),
-        dateBox = document.createElement('small');
-
-    var userNameNode = document.createTextNode(username + ":\n\n"),
-        messageNode = document.createTextNode(message),
-        dateNode = document.createTextNode(moment().fromNow()); // This uses moment.js 
-
-    messageWrapper.className = 'fullwidth';
-    messageBubble.className = 'message_received';
-
-    userNameBox.appendChild(userNameNode);
-    dateBox.appendChild(dateNode);
-    messageBubble.appendChild(userNameBox);
-    messageBubble.appendChild(breakElement);
-    messageBubble.appendChild(messageNode);
-    messageBubble.appendChild(breakElement);
-    messageBubble.appendChild(dateBox);
-    messageWrapper.appendChild(messageBubble);
-
-    messageBox.appendChild(messageWrapper);
-
-    return messageBox;
-};
-
-function _renderSentMessage(message, id) {
-    var messageBox = document.getElementById('content-container'),
-        messageWrapper = document.createElement('div'),
-        messageBubble = document.createElement('div'),
-        breakElement = document.createElement('br'),
-        messageNode = document.createTextNode(message),
-        dateBox = document.createElement('small'),
-        dateNode = document.createTextNode(moment().fromNow() + ' '),
-        // This uses moment.js 
-    readBox = document.createElement('small'),
-        readNode = document.createElement('i');
-
-    messageWrapper.className = 'fullwidth';
-    messageBubble.className = 'message_sent';
-
-    readBox.id = 'messageRead' + id;
-    readNode.className = 'fas fa-check';
-
-    dateBox.appendChild(dateNode);
-    readBox.appendChild(readNode);
-
-    messageBubble.appendChild(messageNode);
-    messageBubble.appendChild(breakElement);
-    messageBubble.appendChild(dateBox);
-    messageBubble.appendChild(readBox);
-    messageWrapper.appendChild(messageBubble);
-
-    messageBox.appendChild(messageWrapper);
-
-    return messageBox;
-};
-
-function _scrollToLastMessage() {
-    var messageContainer = document.getElementById("content-container");
-    messageContainer.scrollTop = messageContainer.scrollHeight;
-
-    return true;
-};
-
-var group_id = $('#group_id').val();
-
-pusher_connect.channel.bind('receive-message-' + group_id, function (data) {
-    if (data.user_id == document.getElementById('user_id').value) {
-        _renderSentMessage(data.message, data.id);
-        _scrollToLastMessage();
-    } else {
-        _renderReceivedMessage(data.message, data.user_name);
-        read_messages.messagesRead();
-        _scrollToLastMessage();
-        if (document.hidden) {
-            message = {
-                title: data.user_name,
-                text: data.message
-            };
-            notifications.notifyUser(message);
-        }
-    }
-});
-
-$("#js-message-form").submit(function (event) {
-    var formData = {
-        message: $('#js-message-input').val(),
-        user_id: $('#user_id').val(),
-        group_id: $('#group_id').val(),
-        user_name: $('#user_name').val(),
-        type: $('#message_type').val()
-    };
-
-    _sendMessage(formData);
-    event.preventDefault();
-});
-
-$('#js-send').click(function () {
-    $("#js-message-form").submit();
-});
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
 //! moment.js locale configuration
 
 ;(function (global, factory) {
@@ -40663,7 +40507,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40802,7 +40646,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40865,7 +40709,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40928,7 +40772,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41054,7 +40898,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41117,7 +40961,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41225,7 +41069,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41288,7 +41132,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41397,7 +41241,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41533,7 +41377,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41627,7 +41471,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41689,7 +41533,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41812,7 +41656,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41935,7 +41779,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42047,7 +41891,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42202,7 +42046,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42294,7 +42138,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42477,7 +42321,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42544,7 +42388,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42628,7 +42472,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42692,7 +42536,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42772,7 +42616,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42852,7 +42696,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -42932,7 +42776,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43035,7 +42879,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43139,7 +42983,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43210,7 +43054,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43277,7 +43121,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43348,7 +43192,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43419,7 +43263,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43485,7 +43329,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43556,7 +43400,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43631,7 +43475,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43727,7 +43571,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43823,7 +43667,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43910,7 +43754,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -43994,7 +43838,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -44064,7 +43908,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -44174,7 +44018,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -44287,7 +44131,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -44351,7 +44195,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -44438,7 +44282,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -44516,7 +44360,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -44598,7 +44442,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -44677,7 +44521,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -44757,7 +44601,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -44838,7 +44682,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -44965,7 +44809,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -45093,7 +44937,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -45194,7 +45038,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -45322,7 +45166,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -45480,7 +45324,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -45594,7 +45438,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -45693,7 +45537,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -45779,7 +45623,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -45915,7 +45759,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -45988,7 +45832,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -46084,7 +45928,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -46170,7 +46014,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -46263,7 +46107,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -46354,7 +46198,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -46468,7 +46312,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -46598,7 +46442,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -46683,7 +46527,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -46774,7 +46618,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -46914,7 +46758,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -46988,7 +46832,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -47110,7 +46954,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 104 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -47211,7 +47055,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 105 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -47327,7 +47171,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -47395,7 +47239,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -47489,7 +47333,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -47574,7 +47418,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -47682,7 +47526,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 110 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -47846,7 +47690,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 111 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -47932,7 +47776,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 112 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -48018,7 +47862,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 113 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -48082,7 +47926,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 114 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -48179,7 +48023,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 115 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -48245,7 +48089,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 116 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -48372,7 +48216,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 117 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -48463,7 +48307,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 118 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -48554,7 +48398,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 119 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -48618,7 +48462,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 120 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -48746,7 +48590,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 121 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -48876,7 +48720,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 122 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -48945,7 +48789,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 123 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -49010,7 +48854,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 124 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -49089,7 +48933,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 125 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -49275,7 +49119,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 126 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -49377,7 +49221,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 127 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -49441,7 +49285,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 128 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -49516,7 +49360,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 129 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -49676,7 +49520,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 130 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -49853,7 +49697,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 131 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -49925,7 +49769,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 132 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -50040,7 +49884,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 133 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -50155,7 +49999,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 134 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -50247,7 +50091,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 135 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -50320,7 +50164,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 136 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -50383,7 +50227,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 137 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -50516,7 +50360,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 138 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -50609,7 +50453,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 139 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -50680,7 +50524,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 140 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -50800,7 +50644,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 141 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -50871,7 +50715,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 142 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -50937,7 +50781,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 143 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -51063,7 +50907,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 144 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -51161,7 +51005,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 145 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -51256,7 +51100,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 146 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -51318,7 +51162,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 147 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -51380,7 +51224,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 148 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js language configuration
@@ -51503,7 +51347,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 149 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -51658,7 +51502,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 150 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -51760,7 +51604,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 151 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -51822,7 +51666,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 152 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -51884,7 +51728,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 153 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -51967,7 +51811,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 154 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -52039,7 +51883,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 155 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -52103,7 +51947,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 156 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -52217,7 +52061,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 157 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -52324,7 +52168,7 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 158 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -52431,7 +52275,434 @@ $('#js-send').click(function () {
 
 
 /***/ }),
-/* 159 */
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": 35,
+	"./af.js": 35,
+	"./ar": 36,
+	"./ar-dz": 37,
+	"./ar-dz.js": 37,
+	"./ar-kw": 38,
+	"./ar-kw.js": 38,
+	"./ar-ly": 39,
+	"./ar-ly.js": 39,
+	"./ar-ma": 40,
+	"./ar-ma.js": 40,
+	"./ar-sa": 41,
+	"./ar-sa.js": 41,
+	"./ar-tn": 42,
+	"./ar-tn.js": 42,
+	"./ar.js": 36,
+	"./az": 43,
+	"./az.js": 43,
+	"./be": 44,
+	"./be.js": 44,
+	"./bg": 45,
+	"./bg.js": 45,
+	"./bm": 46,
+	"./bm.js": 46,
+	"./bn": 47,
+	"./bn.js": 47,
+	"./bo": 48,
+	"./bo.js": 48,
+	"./br": 49,
+	"./br.js": 49,
+	"./bs": 50,
+	"./bs.js": 50,
+	"./ca": 51,
+	"./ca.js": 51,
+	"./cs": 52,
+	"./cs.js": 52,
+	"./cv": 53,
+	"./cv.js": 53,
+	"./cy": 54,
+	"./cy.js": 54,
+	"./da": 55,
+	"./da.js": 55,
+	"./de": 56,
+	"./de-at": 57,
+	"./de-at.js": 57,
+	"./de-ch": 58,
+	"./de-ch.js": 58,
+	"./de.js": 56,
+	"./dv": 59,
+	"./dv.js": 59,
+	"./el": 60,
+	"./el.js": 60,
+	"./en-au": 61,
+	"./en-au.js": 61,
+	"./en-ca": 62,
+	"./en-ca.js": 62,
+	"./en-gb": 63,
+	"./en-gb.js": 63,
+	"./en-ie": 64,
+	"./en-ie.js": 64,
+	"./en-il": 65,
+	"./en-il.js": 65,
+	"./en-nz": 66,
+	"./en-nz.js": 66,
+	"./eo": 67,
+	"./eo.js": 67,
+	"./es": 68,
+	"./es-do": 69,
+	"./es-do.js": 69,
+	"./es-us": 70,
+	"./es-us.js": 70,
+	"./es.js": 68,
+	"./et": 71,
+	"./et.js": 71,
+	"./eu": 72,
+	"./eu.js": 72,
+	"./fa": 73,
+	"./fa.js": 73,
+	"./fi": 74,
+	"./fi.js": 74,
+	"./fo": 75,
+	"./fo.js": 75,
+	"./fr": 76,
+	"./fr-ca": 77,
+	"./fr-ca.js": 77,
+	"./fr-ch": 78,
+	"./fr-ch.js": 78,
+	"./fr.js": 76,
+	"./fy": 79,
+	"./fy.js": 79,
+	"./gd": 80,
+	"./gd.js": 80,
+	"./gl": 81,
+	"./gl.js": 81,
+	"./gom-latn": 82,
+	"./gom-latn.js": 82,
+	"./gu": 83,
+	"./gu.js": 83,
+	"./he": 84,
+	"./he.js": 84,
+	"./hi": 85,
+	"./hi.js": 85,
+	"./hr": 86,
+	"./hr.js": 86,
+	"./hu": 87,
+	"./hu.js": 87,
+	"./hy-am": 88,
+	"./hy-am.js": 88,
+	"./id": 89,
+	"./id.js": 89,
+	"./is": 90,
+	"./is.js": 90,
+	"./it": 91,
+	"./it.js": 91,
+	"./ja": 92,
+	"./ja.js": 92,
+	"./jv": 93,
+	"./jv.js": 93,
+	"./ka": 94,
+	"./ka.js": 94,
+	"./kk": 95,
+	"./kk.js": 95,
+	"./km": 96,
+	"./km.js": 96,
+	"./kn": 97,
+	"./kn.js": 97,
+	"./ko": 98,
+	"./ko.js": 98,
+	"./ky": 99,
+	"./ky.js": 99,
+	"./lb": 100,
+	"./lb.js": 100,
+	"./lo": 101,
+	"./lo.js": 101,
+	"./lt": 102,
+	"./lt.js": 102,
+	"./lv": 103,
+	"./lv.js": 103,
+	"./me": 104,
+	"./me.js": 104,
+	"./mi": 105,
+	"./mi.js": 105,
+	"./mk": 106,
+	"./mk.js": 106,
+	"./ml": 107,
+	"./ml.js": 107,
+	"./mn": 108,
+	"./mn.js": 108,
+	"./mr": 109,
+	"./mr.js": 109,
+	"./ms": 110,
+	"./ms-my": 111,
+	"./ms-my.js": 111,
+	"./ms.js": 110,
+	"./mt": 112,
+	"./mt.js": 112,
+	"./my": 113,
+	"./my.js": 113,
+	"./nb": 114,
+	"./nb.js": 114,
+	"./ne": 115,
+	"./ne.js": 115,
+	"./nl": 116,
+	"./nl-be": 117,
+	"./nl-be.js": 117,
+	"./nl.js": 116,
+	"./nn": 118,
+	"./nn.js": 118,
+	"./pa-in": 119,
+	"./pa-in.js": 119,
+	"./pl": 120,
+	"./pl.js": 120,
+	"./pt": 121,
+	"./pt-br": 122,
+	"./pt-br.js": 122,
+	"./pt.js": 121,
+	"./ro": 123,
+	"./ro.js": 123,
+	"./ru": 124,
+	"./ru.js": 124,
+	"./sd": 125,
+	"./sd.js": 125,
+	"./se": 126,
+	"./se.js": 126,
+	"./si": 127,
+	"./si.js": 127,
+	"./sk": 128,
+	"./sk.js": 128,
+	"./sl": 129,
+	"./sl.js": 129,
+	"./sq": 130,
+	"./sq.js": 130,
+	"./sr": 131,
+	"./sr-cyrl": 132,
+	"./sr-cyrl.js": 132,
+	"./sr.js": 131,
+	"./ss": 133,
+	"./ss.js": 133,
+	"./sv": 134,
+	"./sv.js": 134,
+	"./sw": 135,
+	"./sw.js": 135,
+	"./ta": 136,
+	"./ta.js": 136,
+	"./te": 137,
+	"./te.js": 137,
+	"./tet": 138,
+	"./tet.js": 138,
+	"./tg": 139,
+	"./tg.js": 139,
+	"./th": 140,
+	"./th.js": 140,
+	"./tl-ph": 141,
+	"./tl-ph.js": 141,
+	"./tlh": 142,
+	"./tlh.js": 142,
+	"./tr": 143,
+	"./tr.js": 143,
+	"./tzl": 144,
+	"./tzl.js": 144,
+	"./tzm": 145,
+	"./tzm-latn": 146,
+	"./tzm-latn.js": 146,
+	"./tzm.js": 145,
+	"./ug-cn": 147,
+	"./ug-cn.js": 147,
+	"./uk": 148,
+	"./uk.js": 148,
+	"./ur": 149,
+	"./ur.js": 149,
+	"./uz": 150,
+	"./uz-latn": 151,
+	"./uz-latn.js": 151,
+	"./uz.js": 150,
+	"./vi": 152,
+	"./vi.js": 152,
+	"./x-pseudo": 153,
+	"./x-pseudo.js": 153,
+	"./yo": 154,
+	"./yo.js": 154,
+	"./zh-cn": 155,
+	"./zh-cn.js": 155,
+	"./zh-hk": 156,
+	"./zh-hk.js": 156,
+	"./zh-tw": 157,
+	"./zh-tw.js": 157
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 161;
+
+/***/ }),
+/* 162 */
+/***/ (function(module, exports, __webpack_require__) {
+
+window.moment = __webpack_require__(0);
+var pusher_connect = __webpack_require__(163);
+var read_messages = __webpack_require__(164);
+var notifications = __webpack_require__(165);
+
+module.exports = {
+    sendMessage: function sendMessage(data) {
+        _sendMessage(data);
+    },
+    renderReceivedMessage: function renderReceivedMessage(message, username) {
+        return _renderReceivedMessage(message, username);
+    },
+    renderSentMessage: function renderSentMessage(message, id) {
+        return _renderSentMessage(message, id);
+    },
+    scrollToLastMessage: function scrollToLastMessage() {
+        return _scrollToLastMessage();
+    }
+};
+
+function _sendMessage(data) {
+    if (data.message != '') {
+        $.ajax('/api/message/send', {
+            method: 'POST',
+            data: {
+                message: data.message,
+                group_id: data.group_id,
+                user_id: data.user_id,
+                user_name: data.user_name,
+                message_type: data.type
+            }
+        }).then(function success(data) {
+            try {
+                var botInput = data.messages[0].text;
+                if (botInput) {
+                    _renderReceivedMessage(botInput, 'Superbot5000');
+                    _scrollToLastMessage();
+                }
+            } catch (e) {}
+
+            $('#js-message-input').val('');
+        });
+    }
+
+    return false;
+}
+
+function _renderReceivedMessage(message, username) {
+    var messageBox = document.getElementById('content-container'),
+        messageWrapper = document.createElement('div'),
+        messageBubble = document.createElement('div'),
+        breakElement = document.createElement('br'),
+        userNameBox = document.createElement('small'),
+        dateBox = document.createElement('small');
+
+    var userNameNode = document.createTextNode(username + ":\n\n"),
+        messageNode = document.createTextNode(message),
+        dateNode = document.createTextNode(moment().fromNow()); // This uses moment.js 
+
+    messageWrapper.className = 'fullwidth';
+    messageBubble.className = 'message_received';
+
+    userNameBox.appendChild(userNameNode);
+    dateBox.appendChild(dateNode);
+    messageBubble.appendChild(userNameBox);
+    messageBubble.appendChild(breakElement);
+    messageBubble.appendChild(messageNode);
+    messageBubble.appendChild(breakElement);
+    messageBubble.appendChild(dateBox);
+    messageWrapper.appendChild(messageBubble);
+
+    messageBox.appendChild(messageWrapper);
+
+    return messageBox;
+};
+
+function _renderSentMessage(message, id) {
+    var messageBox = document.getElementById('content-container'),
+        messageWrapper = document.createElement('div'),
+        messageBubble = document.createElement('div'),
+        breakElement = document.createElement('br'),
+        messageNode = document.createTextNode(message),
+        dateBox = document.createElement('small'),
+        dateNode = document.createTextNode(moment().fromNow() + ' '),
+        // This uses moment.js 
+    readBox = document.createElement('small'),
+        readNode = document.createElement('i');
+
+    messageWrapper.className = 'fullwidth';
+    messageBubble.className = 'message_sent';
+
+    readBox.id = 'messageRead' + id;
+    readNode.className = 'fas fa-check';
+
+    dateBox.appendChild(dateNode);
+    readBox.appendChild(readNode);
+
+    messageBubble.appendChild(messageNode);
+    messageBubble.appendChild(breakElement);
+    messageBubble.appendChild(dateBox);
+    messageBubble.appendChild(readBox);
+    messageWrapper.appendChild(messageBubble);
+
+    messageBox.appendChild(messageWrapper);
+
+    return messageBox;
+};
+
+function _scrollToLastMessage() {
+    var messageContainer = document.getElementById("content-container");
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+
+    return true;
+};
+
+var group_id = $('#group_id').val();
+
+pusher_connect.channel.bind('receive-message-' + group_id, function (data) {
+    if (data.user_id == document.getElementById('user_id').value) {
+        _renderSentMessage(data.message, data.id);
+        _scrollToLastMessage();
+    } else {
+        _renderReceivedMessage(data.message, data.user_name);
+        read_messages.messagesRead();
+        _scrollToLastMessage();
+        if (document.hidden) {
+            message = {
+                title: data.user_name,
+                text: data.message
+            };
+            notifications.notifyUser(message);
+        }
+    }
+});
+
+$("#js-message-form").submit(function (event) {
+    var formData = {
+        message: $('#js-message-input').val(),
+        user_id: $('#user_id').val(),
+        group_id: $('#group_id').val(),
+        user_name: $('#user_name').val(),
+        type: $('#message_type').val()
+    };
+
+    _sendMessage(formData);
+    event.preventDefault();
+});
+
+$('#js-send').click(function () {
+    $("#js-message-form").submit();
+});
+
+/***/ }),
+/* 163 */
 /***/ (function(module, exports) {
 
 var pusher = new Pusher('c4229bd9d8566c211080', {
@@ -52447,10 +52718,10 @@ module.exports = {
 };
 
 /***/ }),
-/* 160 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var pusher_connect = __webpack_require__(159);
+var pusher_connect = __webpack_require__(163);
 
 module.exports = {
     messagesRead: function messagesRead() {
@@ -52493,7 +52764,7 @@ pusher_connect.channel.bind('read-messages', function (data) {
 });
 
 /***/ }),
-/* 161 */
+/* 165 */
 /***/ (function(module, exports) {
 
 Notification.requestPermission().then(function (permission) {
@@ -52529,10 +52800,6 @@ module.exports = {
 }
 
 /***/ }),
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
 /* 166 */,
 /* 167 */,
 /* 168 */,
@@ -52543,22 +52810,24 @@ module.exports = {
 /* 173 */,
 /* 174 */,
 /* 175 */,
-/* 176 */
+/* 176 */,
+/* 177 */,
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(177);
+module.exports = __webpack_require__(179);
 
 
 /***/ }),
-/* 177 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Get requirements
-__webpack_require__(13);
-__webpack_require__(178);
-__webpack_require__(161);
-__webpack_require__(160);
-__webpack_require__(35);
+__webpack_require__(14);
+__webpack_require__(180);
+__webpack_require__(165);
+__webpack_require__(164);
+__webpack_require__(162);
 
 // Scroll down on init
 scrollToLastMessage();
@@ -52569,10 +52838,10 @@ function scrollToLastMessage() {
 }
 
 /***/ }),
-/* 178 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var sendReceive = __webpack_require__(35);
+var sendReceive = __webpack_require__(162);
 
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
@@ -52601,274 +52870,6 @@ recognition.onresult = function (event) {
 
     sendReceive.sendMessage(data);
 };
-
-/***/ }),
-/* 179 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./af": 36,
-	"./af.js": 36,
-	"./ar": 37,
-	"./ar-dz": 38,
-	"./ar-dz.js": 38,
-	"./ar-kw": 39,
-	"./ar-kw.js": 39,
-	"./ar-ly": 40,
-	"./ar-ly.js": 40,
-	"./ar-ma": 41,
-	"./ar-ma.js": 41,
-	"./ar-sa": 42,
-	"./ar-sa.js": 42,
-	"./ar-tn": 43,
-	"./ar-tn.js": 43,
-	"./ar.js": 37,
-	"./az": 44,
-	"./az.js": 44,
-	"./be": 45,
-	"./be.js": 45,
-	"./bg": 46,
-	"./bg.js": 46,
-	"./bm": 47,
-	"./bm.js": 47,
-	"./bn": 48,
-	"./bn.js": 48,
-	"./bo": 49,
-	"./bo.js": 49,
-	"./br": 50,
-	"./br.js": 50,
-	"./bs": 51,
-	"./bs.js": 51,
-	"./ca": 52,
-	"./ca.js": 52,
-	"./cs": 53,
-	"./cs.js": 53,
-	"./cv": 54,
-	"./cv.js": 54,
-	"./cy": 55,
-	"./cy.js": 55,
-	"./da": 56,
-	"./da.js": 56,
-	"./de": 57,
-	"./de-at": 58,
-	"./de-at.js": 58,
-	"./de-ch": 59,
-	"./de-ch.js": 59,
-	"./de.js": 57,
-	"./dv": 60,
-	"./dv.js": 60,
-	"./el": 61,
-	"./el.js": 61,
-	"./en-au": 62,
-	"./en-au.js": 62,
-	"./en-ca": 63,
-	"./en-ca.js": 63,
-	"./en-gb": 64,
-	"./en-gb.js": 64,
-	"./en-ie": 65,
-	"./en-ie.js": 65,
-	"./en-il": 66,
-	"./en-il.js": 66,
-	"./en-nz": 67,
-	"./en-nz.js": 67,
-	"./eo": 68,
-	"./eo.js": 68,
-	"./es": 69,
-	"./es-do": 70,
-	"./es-do.js": 70,
-	"./es-us": 71,
-	"./es-us.js": 71,
-	"./es.js": 69,
-	"./et": 72,
-	"./et.js": 72,
-	"./eu": 73,
-	"./eu.js": 73,
-	"./fa": 74,
-	"./fa.js": 74,
-	"./fi": 75,
-	"./fi.js": 75,
-	"./fo": 76,
-	"./fo.js": 76,
-	"./fr": 77,
-	"./fr-ca": 78,
-	"./fr-ca.js": 78,
-	"./fr-ch": 79,
-	"./fr-ch.js": 79,
-	"./fr.js": 77,
-	"./fy": 80,
-	"./fy.js": 80,
-	"./gd": 81,
-	"./gd.js": 81,
-	"./gl": 82,
-	"./gl.js": 82,
-	"./gom-latn": 83,
-	"./gom-latn.js": 83,
-	"./gu": 84,
-	"./gu.js": 84,
-	"./he": 85,
-	"./he.js": 85,
-	"./hi": 86,
-	"./hi.js": 86,
-	"./hr": 87,
-	"./hr.js": 87,
-	"./hu": 88,
-	"./hu.js": 88,
-	"./hy-am": 89,
-	"./hy-am.js": 89,
-	"./id": 90,
-	"./id.js": 90,
-	"./is": 91,
-	"./is.js": 91,
-	"./it": 92,
-	"./it.js": 92,
-	"./ja": 93,
-	"./ja.js": 93,
-	"./jv": 94,
-	"./jv.js": 94,
-	"./ka": 95,
-	"./ka.js": 95,
-	"./kk": 96,
-	"./kk.js": 96,
-	"./km": 97,
-	"./km.js": 97,
-	"./kn": 98,
-	"./kn.js": 98,
-	"./ko": 99,
-	"./ko.js": 99,
-	"./ky": 100,
-	"./ky.js": 100,
-	"./lb": 101,
-	"./lb.js": 101,
-	"./lo": 102,
-	"./lo.js": 102,
-	"./lt": 103,
-	"./lt.js": 103,
-	"./lv": 104,
-	"./lv.js": 104,
-	"./me": 105,
-	"./me.js": 105,
-	"./mi": 106,
-	"./mi.js": 106,
-	"./mk": 107,
-	"./mk.js": 107,
-	"./ml": 108,
-	"./ml.js": 108,
-	"./mn": 109,
-	"./mn.js": 109,
-	"./mr": 110,
-	"./mr.js": 110,
-	"./ms": 111,
-	"./ms-my": 112,
-	"./ms-my.js": 112,
-	"./ms.js": 111,
-	"./mt": 113,
-	"./mt.js": 113,
-	"./my": 114,
-	"./my.js": 114,
-	"./nb": 115,
-	"./nb.js": 115,
-	"./ne": 116,
-	"./ne.js": 116,
-	"./nl": 117,
-	"./nl-be": 118,
-	"./nl-be.js": 118,
-	"./nl.js": 117,
-	"./nn": 119,
-	"./nn.js": 119,
-	"./pa-in": 120,
-	"./pa-in.js": 120,
-	"./pl": 121,
-	"./pl.js": 121,
-	"./pt": 122,
-	"./pt-br": 123,
-	"./pt-br.js": 123,
-	"./pt.js": 122,
-	"./ro": 124,
-	"./ro.js": 124,
-	"./ru": 125,
-	"./ru.js": 125,
-	"./sd": 126,
-	"./sd.js": 126,
-	"./se": 127,
-	"./se.js": 127,
-	"./si": 128,
-	"./si.js": 128,
-	"./sk": 129,
-	"./sk.js": 129,
-	"./sl": 130,
-	"./sl.js": 130,
-	"./sq": 131,
-	"./sq.js": 131,
-	"./sr": 132,
-	"./sr-cyrl": 133,
-	"./sr-cyrl.js": 133,
-	"./sr.js": 132,
-	"./ss": 134,
-	"./ss.js": 134,
-	"./sv": 135,
-	"./sv.js": 135,
-	"./sw": 136,
-	"./sw.js": 136,
-	"./ta": 137,
-	"./ta.js": 137,
-	"./te": 138,
-	"./te.js": 138,
-	"./tet": 139,
-	"./tet.js": 139,
-	"./tg": 140,
-	"./tg.js": 140,
-	"./th": 141,
-	"./th.js": 141,
-	"./tl-ph": 142,
-	"./tl-ph.js": 142,
-	"./tlh": 143,
-	"./tlh.js": 143,
-	"./tr": 144,
-	"./tr.js": 144,
-	"./tzl": 145,
-	"./tzl.js": 145,
-	"./tzm": 146,
-	"./tzm-latn": 147,
-	"./tzm-latn.js": 147,
-	"./tzm.js": 146,
-	"./ug-cn": 148,
-	"./ug-cn.js": 148,
-	"./uk": 149,
-	"./uk.js": 149,
-	"./ur": 150,
-	"./ur.js": 150,
-	"./uz": 151,
-	"./uz-latn": 152,
-	"./uz-latn.js": 152,
-	"./uz.js": 151,
-	"./vi": 153,
-	"./vi.js": 153,
-	"./x-pseudo": 154,
-	"./x-pseudo.js": 154,
-	"./yo": 155,
-	"./yo.js": 155,
-	"./zh-cn": 156,
-	"./zh-cn.js": 156,
-	"./zh-hk": 157,
-	"./zh-hk.js": 157,
-	"./zh-tw": 158,
-	"./zh-tw.js": 158
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 179;
 
 /***/ })
 /******/ ]);
