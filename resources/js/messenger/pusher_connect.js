@@ -1,4 +1,4 @@
-var pusher = new Pusher('c4229bd9d8566c211080', {
+var pusher = new Pusher(process.env.MIX_PUSHER_APP_KEY, {
     cluster: 'eu',
     forceTLS: true
 })
