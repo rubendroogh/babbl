@@ -21912,6 +21912,7 @@ var app = new Vue({
 pusher_connect.channel.bind('receive-message-' + group_id.value, function (data) {
     data = JSON.parse(data);
     if (data.user_id != user_id.value) {
+        data.status = 'received';
         app.messages.push(data);
         if (document.hidden) {
             message = {
