@@ -5,11 +5,6 @@ var read_messages = require('./messenger/read_messages');
 var notifications = require('./messenger/notifications');
 var pusher_connect = require('./messenger/pusher_connect');
 
-function scrollToLastMessage(){
-    var messageContainer = document.getElementById("content-container");
-    messageContainer.scrollTop = messageContainer.scrollHeight;
-}
-
 window.Vue = require('vue');
 
 var app = new Vue({
@@ -31,6 +26,7 @@ var app = new Vue({
 		
 		axios(options)
             .then(response => this.messages = response.data);
+        this.scrollToBottom();
             
         $('.messages').removeClass('hidden');
         $('.no-messages').removeClass('hidden');
@@ -61,9 +57,12 @@ var app = new Vue({
                     .then(function(response){
                         _this.messages.push(response.data);
                         $('#js-message-input').val('');
-                        scrollToLastMessage();
                     });
             }
+        },
+        scrollToBottom: function () {
+            var container = document.getElementById('content-container');
+            container.scrollTop = container.scrollHeight;
         }
     },
 
@@ -74,17 +73,14 @@ var app = new Vue({
     },
     
     updated(){
-        var container = document.getElementById('app');
-        container.scrollTop = container.scrollHeight;
+        this.scrollToBottom();
     }
 });
 
-pusher_connect.channel.bind('receive-message-' + group_id, function(data) {
-    console.log('message');
-    if (data.user_id != document.getElementById('user_id').value) {
+pusher_connect.channel.bind('receive-message-' + group_id.value, function(data) {
+    data = JSON.parse(data);
+    if (data.user_id != user_id.value) {
         app.messages.push(data);
-        // read_messages.messagesRead();
-        // scrollToLastMessage();
         if (document.hidden) {
             message = { 
                 title: data.user_name,
