@@ -43,10 +43,8 @@
     flex-direction: column;
     justify-items: center;
     max-width: 1200px;
-    margin: 1.5rem auto 0;
-    padding-top: 6.5rem;
-    position: relative;
-    bottom: 7.5rem;
+    height: calc(100% - 15rem);
+    margin: 0 auto;
 }
 
 .messages{
