@@ -12,15 +12,16 @@
 @endsection
 
 @section('content')
-    @foreach ($group->messages as $m)
 
-        <div class="messages {{$m->status}}">
-            <p class="message">
-                {{$m->content}}
-            </p>
-        </div>
+    <div v-for="m in messages" :class="m.status" class="messages hidden">
+        <p class="message">
+            @{{m.content}}
+        </p>
+    </div>
 
-    @endforeach
+    <div class="loading" id="js-loading"></div>
+    <h3 v-if="messages.length === 0" class="no-result hidden">Nog geen berichten!</h3>
+
     <div class="page-bottom">
         <div class="message-input-wrapper">
             <form id="js-message-form">
@@ -29,8 +30,8 @@
                 <input id="user_name" type="hidden" name="_user_name" value="{{ Auth::user()->name }}">
                 <input id="message_type" type="hidden" name="_message_type" value="string">
                 <span class="file"></span>
-                <input type="text" class="message-input" id="js-message-input" placeholder="Typ een bericht…" />
-                <span id="js-send" class="send"></span>
+                <input v-on:keydown.enter="sendMessage()" type="text" class="message-input" id="js-message-input" placeholder="Typ een bericht…" />
+                <span v-on:click="sendMessage()" id="js-send" class="send"></span>
             </form>
         </div>
     </div>

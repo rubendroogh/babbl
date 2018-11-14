@@ -10482,6 +10482,30 @@ a.text-dark:focus {
   }
 }
 
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 html,
 body {
   height: 100% !important;
@@ -10493,6 +10517,21 @@ body {
 #app {
   height: 100%;
   width: 100%;
+}
+
+.loading {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 5px solid #ccc;
+  border-left: 5px solid #ff0844;
+  border-radius: 50%;
+  margin: 0 auto;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .hero {

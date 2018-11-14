@@ -86,20 +86,12 @@ class APIController extends Controller
     public function send_message($message){
         $pusher = $this->get_pusher_object();
 
-        $message_saved = Message::create($message);
+        $_message = Message::create($message);
+        $_message->user_name = $message['user_name'];
 
-        $data['message'] = $message_saved->content;
-        $data['user_id'] = $message_saved->user_id;
-        $data['type'] = $message_saved->message_type;
-        $data['id'] = $message_saved->id;
-
-        $data['user_name'] = $message['user_name'];
-
-        $data['status'] = $message_saved->status;
-
-        $pusher->trigger('messages', 'receive-message-' . $message_saved->group_id, $data);
+        $pusher->trigger('messages', 'receive-message-' . $_message->group_id, $_message->toJson());
         
-        return $message_saved;    
+        return $_message;    
     }
 
     public function message_read(Request $request){
