@@ -10622,3 +10622,9 @@ body {
   background: linear-gradient(to right, #ff0844 0%, #ff757b 100%);
 }
 
+button:hover,
+input[type="submit"] {
+  opacity: .8;
+  cursor: pointer;
+}
+

@@ -129,3 +129,8 @@ body{
 		@include ltr-gradient($torchRed, $brinkPink);
 	}
 }
+
+button:hover, input[type="submit"]{
+	opacity: .8;
+	cursor: pointer;
+}

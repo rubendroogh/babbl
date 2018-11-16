@@ -61,13 +61,7 @@ html, body{
 
 .content-container{
 	width: 100vw;
-	height: calc(100% - 8.5rem);
-	max-height: calc(100% - 8.5rem);
-	margin-top: 1.5rem;
-	padding-top: 4rem;
-
+	height: calc(100% - 11rem);
 	position: relative;
-	bottom: 4rem;
-
 	overflow-y: auto;
 }
