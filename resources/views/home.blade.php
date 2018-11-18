@@ -7,7 +7,19 @@
 @section('header')
     <h1>Babbl.</h1>
     <input v-model="search" class="group-search" type="text" placeholder="Zoeken">
-    <a href="{{ route('newGroup') }}" class="add-group-button">+</a>  
+    <a href="{{ route('newGroup') }}" class="add-group-button">+</a> 
+    <div class="menu-icon" v-on:click="toggleMenu" :class="{open : menuOut}">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="mobile-menu-overlay" :class="{'overlay-darken' : menuOut}"></div>
+    <nav class="mobile-menu" :class="{'menu-out' : menuOut}">
+
+    </nav>
 @endsection
 
 @section('content')

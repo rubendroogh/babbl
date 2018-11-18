@@ -10,6 +10,7 @@ new Vue({
 		return {
 			search: '',
 			chats: [],
+			menuOut: false
 		}
 	},
 
@@ -26,6 +27,12 @@ new Vue({
 		$('.group').removeClass('hidden');
 		$('.no-result').removeClass('hidden');
 		$('#js-loading').addClass('hidden');
+	},
+
+	methods: {
+		toggleMenu() {
+			this.menuOut = !this.menuOut;
+		}
 	},
 
 	computed: {

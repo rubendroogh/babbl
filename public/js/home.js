@@ -63547,7 +63547,8 @@ new Vue({
 	data: function data() {
 		return {
 			search: '',
-			chats: []
+			chats: [],
+			menuOut: false
 		};
 	},
 	created: function created() {
@@ -63568,6 +63569,12 @@ new Vue({
 		$('#js-loading').addClass('hidden');
 	},
 
+
+	methods: {
+		toggleMenu: function toggleMenu() {
+			this.menuOut = !this.menuOut;
+		}
+	},
 
 	computed: {
 		filteredList: function filteredList() {

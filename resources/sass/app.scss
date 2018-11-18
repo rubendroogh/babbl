@@ -4,10 +4,14 @@
 
 // Variables
 @import 'variables';
+@import 'mixins';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import 'animations';
+
+@import "fa/fontawesome";
+@import "fa/solid";
 
 html, body{
 	height: 100% !important;
@@ -64,4 +68,130 @@ html, body{
 	height: calc(100% - 11rem);
 	position: relative;
 	overflow-y: auto;
+}
+
+.mobile-menu{
+	max-width: 18rem;
+	width: 70%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateX(100%);
+	transition: .5s ease;
+	z-index: 1600;
+
+	@include ltr-gradient($torchRed, $brinkPink);
+}
+
+.mobile-menu-overlay{
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	z-index: 1550;
+	top: 0;
+	left: 0;
+	transform: translateX(100%);
+	transition: background-color .5s ease;
+}
+
+.overlay-darken{
+	background-color: rgba($color: #000000, $alpha: .5);
+	transform: translateX(0);
+}
+
+.menu-out{
+	transform: translateX(0);
+}
+
+/* menu */
+.menu-icon {
+	width: 60px;
+    height: 45px;
+    position: absolute;
+	right: .6rem;
+	top: .6rem;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+	cursor: pointer;
+	z-index: 1650;
+	transform: scale(.5);
+}
+.menu-icon span {
+	height: 9px;
+ 	width: 50%;
+	display: block;
+  	position: absolute;
+  	top: 1rem;
+	right: 1rem;
+	background-color: white;
+	opacity: 1;
+  	transform: rotate(0deg);
+  	transition: .25s ease-in-out;
+}
+
+.menu-icon span:nth-child(even) {
+  left: 50%;
+  border-radius: 0 9px 9px 0;
+}
+
+.menu-icon span:nth-child(odd) {
+  left:0px;
+  border-radius: 9px 0 0 9px;
+}
+
+.menu-icon span:nth-child(1), .menu-icon span:nth-child(2) {
+  top: 0px;
+}
+
+.menu-icon span:nth-child(3), .menu-icon span:nth-child(4) {
+  top: 18px;
+}
+
+.menu-icon span:nth-child(5), .menu-icon span:nth-child(6) {
+  top: 36px;
+}
+
+.menu-icon.open span:nth-child(1),.menu-icon.open span:nth-child(6) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.menu-icon.open span:nth-child(2),.menu-icon.open span:nth-child(5) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.menu-icon.open span:nth-child(1) {
+  left: 5px;
+  top: 7px;
+}
+
+.menu-icon.open span:nth-child(2) {
+  left: calc(50% - 5px);
+  top: 7px;
+}
+
+.menu-icon.open span:nth-child(3) {
+  left: -50%;
+  opacity: 0;
+}
+
+.menu-icon.open span:nth-child(4) {
+  left: 100%;
+  opacity: 0;
+}
+
+.menu-icon.open span:nth-child(5) {
+  left: 5px;
+  top: 29px;
+}
+
+.menu-icon.open span:nth-child(6) {
+  left: calc(50% - 5px);
+  top: 29px;
 }
