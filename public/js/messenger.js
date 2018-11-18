@@ -47319,7 +47319,9 @@ var app = new Vue({
     data: function data() {
         return {
             messages: [],
-            inputMessage: ''
+            inputMessage: '',
+            voiceMode: false,
+            messagesLoaded: false
         };
     },
     created: function created() {
@@ -47337,14 +47339,25 @@ var app = new Vue({
         });
         this.scrollToBottom();
 
+        this.messagesLoaded = true;
+
         $('.messages').removeClass('hidden');
-        $('.no-messages').removeClass('hidden');
     },
 
 
     computed: {},
 
     methods: {
+        sendTextOrVoice: function sendTextOrVoice() {
+            if (this.inputMessage == '') {
+                this.toggleVoiceUI();
+            } else {
+                this.sendMessage();
+            }
+        },
+        toggleVoiceUI: function toggleVoiceUI() {
+            this.voiceMode = !this.voiceMode;
+        },
         sendMessage: function sendMessage() {
             var options = {
                 method: 'POST',

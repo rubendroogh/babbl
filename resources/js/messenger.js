@@ -13,7 +13,9 @@ var app = new Vue({
 	data(){
 		return {
             messages: [],
-            inputMessage: ''
+            inputMessage: '',
+            voiceMode: false,
+            messagesLoaded: false
 		}
 	},
 
@@ -28,9 +30,10 @@ var app = new Vue({
 		axios(options)
             .then(response => this.messages = response.data);
         this.scrollToBottom();
+
+        this.messagesLoaded = true;
             
         $('.messages').removeClass('hidden');
-        $('.no-messages').removeClass('hidden');
 	},
 
 	computed: {
@@ -38,6 +41,16 @@ var app = new Vue({
     },
     
     methods: {
+        sendTextOrVoice: function () {
+            if (this.inputMessage == '') {
+                this.toggleVoiceUI();
+            } else{
+                this.sendMessage();
+            }
+        },
+        toggleVoiceUI: function () {
+            this.voiceMode = !this.voiceMode;
+        },
         sendMessage: function(){
             var options = {
                 method: 'POST',

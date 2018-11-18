@@ -52,6 +52,7 @@
         <div class="content-container" id="content-container">
             @yield('content')
         </div>
+        @yield('outside-container')
     </div>
     @yield('js-scripts')
 </body>

@@ -15880,7 +15880,6 @@ body {
 .content-container {
   width: 100vw;
   height: calc(100% - 11rem);
-  position: relative;
   overflow-y: auto;
 }
 

@@ -20,7 +20,7 @@
     </div>
 
     <div v-if="!messages" class="loading" id="js-loading"></div>
-    <h3 v-if="messages.length === 0" class="no-result hidden">Nog geen berichten!</h3>
+    <h3 v-if="messages.length === 0 && messagesLoaded" class="no-result hidden">Nog geen berichten!</h3>
 
     <div class="page-bottom">
         <div class="message-input-wrapper">
@@ -31,9 +31,18 @@
                 <input id="message_type" type="hidden" name="_message_type" value="string">
                 <span class="file"></span>
                 <input v-model="inputMessage" v-on:keydown.enter="sendMessage()" type="text" class="message-input" id="js-message-input" placeholder="Typ een bericht…" />
-                <span v-on:click="sendMessage()" id="js-send" class="send" :class="{'send-text' : this.inputMessage != ''}"></span>
+                <span v-on:click="sendTextOrVoice()" id="js-send" class="send" :class="{'send-text' : this.inputMessage != ''}"></span>
             </form>
         </div>
+    </div>
+
+@endsection
+
+@section('outside-container')
+    <div :class="{'voice-ui-open' : voiceMode}" class="voice-ui" id="js-voice-ui">
+        <h2>Voice mode</h2>
+        <span>Say something!</span>
+        <div v-on:click="toggleVoiceUI" class="voice-back-button"></div>
     </div>
 @endsection
 

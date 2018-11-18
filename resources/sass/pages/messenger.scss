@@ -178,3 +178,56 @@
 .loading{
     margin-top: 4rem;
 }
+
+.voice-ui{
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: calc(100% - 2rem);
+    left: calc(100% - 2.5rem);
+    z-index: 2000;
+    transition: .5s ease;
+    overflow: hidden;
+    border-radius: 50%;
+    text-align: center;
+    @include ltr-gradient($torchRed, $brinkPink);
+
+    h2{
+        color: white;
+		font-family: Nexa;
+		font-weight: bold;
+    }
+
+    span{
+        color: white;
+    }
+
+    .voice-back-button{
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        bottom: .5rem;
+        right: 1rem;
+        
+        @extend %fa-icon;
+        @extend .fas;
+
+        &::before{
+            font-size: 1.5rem;
+            color: $torchRed;
+            line-height: 3rem;
+            content: fa-content($fa-var-keyboard);
+        }
+    }
+}
+
+.voice-ui-open{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 2rem;
+    border-radius: 0;
+}
