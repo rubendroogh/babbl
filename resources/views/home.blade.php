@@ -16,9 +16,14 @@
         <span></span>
         <span></span>
     </div>
-    <div class="mobile-menu-overlay" :class="{'overlay-darken' : menuOut}"></div>
+    <div class="mobile-menu-overlay" :class="{'overlay-darken' : menuOut}" v-on:click="toggleMenu"></div>
     <nav class="mobile-menu" :class="{'menu-out' : menuOut}">
-
+        <ul>
+            <li><a href="{{ route('home') }}">Home</a></li>
+            <li><a href="{{ route('invites') }}">Invites</a></li>
+            <li><a href="{{ route('userDetailView') }}">User settings</a></li>
+            <li><a href="{{ route('logout') }}">Logout</a></li>
+        </ul>
     </nav>
 @endsection
 

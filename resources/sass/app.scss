@@ -77,11 +77,27 @@ html, body{
 	position: absolute;
 	top: 0;
 	right: 0;
+	padding-top: 4rem;
 	transform: translateX(100%);
 	transition: .5s ease;
 	z-index: 1600;
 
 	@include ltr-gradient($torchRed, $brinkPink);
+
+	li{
+		list-style: none;
+		padding: 1rem;
+		color: white;
+		float: left;
+		clear: both;
+		font-family: Nexa;
+		font-weight: bold;
+		font-size: 1.5rem;
+
+		a{
+			color: white;
+		}
+	}
 }
 
 .mobile-menu-overlay{

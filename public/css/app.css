@@ -15891,6 +15891,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
+  padding-top: 4rem;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
   -webkit-transition: .5s ease;
@@ -15899,6 +15900,21 @@ body {
   background: #ff0844;
   background: -webkit-gradient(linear, left top, right top, from(#ff0844), to(#ff757b));
   background: linear-gradient(to right, #ff0844 0%, #ff757b 100%);
+}
+
+.mobile-menu li {
+  list-style: none;
+  padding: 1rem;
+  color: white;
+  float: left;
+  clear: both;
+  font-family: Nexa;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.mobile-menu li a {
+  color: white;
 }
 
 .mobile-menu-overlay {
