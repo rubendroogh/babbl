@@ -6,26 +6,6 @@
 
 @section('header')
     <h1>Babbl.</h1>
-    <main-menu
-        :menu-items="[
-            {
-                href: '{{route('home')}}',
-                name: 'Home'
-            },
-            {
-                href: '{{route('invites')}}',
-                name: 'Invites'
-            },
-            {
-                href: '{{route('userDetailView')}}',
-                name: 'User settings'
-            },
-            {
-                href: '{{route('logOut')}}',
-                name: 'Log out'
-            },
-        ]">
-    </main-menu>
 @endsection
 
 @section('content')

@@ -28,6 +28,26 @@
     <div id="app">
         <div class="hero" style="background-image: url({{ asset('svg/babbl-welcome-bg.svg') }})">
             @yield('header')
+            <main-menu
+                :menu-items="[
+                    {
+                        href: '{{route('home')}}',
+                        name: 'Home'
+                    },
+                    {
+                        href: '{{route('invites')}}',
+                        name: 'Invites'
+                    },
+                    {
+                        href: '{{route('userDetailView')}}',
+                        name: 'User settings'
+                    },
+                    {
+                        href: '{{route('logOut')}}',
+                        name: 'Log out'
+                    },
+                ]">
+            </main-menu>
         </div>
         <div class="content-container" id="content-container">
             @yield('content')
