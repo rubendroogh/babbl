@@ -2,6 +2,7 @@ require('./bootstrap');
 require('axios');
 window.Vue = require('vue');
 const moment = require('moment');
+Vue.component('main-menu', require('./components/MainMenu.vue'));
 
 new Vue({
 	el: '#app',
@@ -9,8 +10,7 @@ new Vue({
 	data(){
 		return {
 			search: '',
-			chats: [],
-			menuOut: false
+			chats: []
 		}
 	},
 
@@ -27,12 +27,6 @@ new Vue({
 		$('.group').removeClass('hidden');
 		$('.no-result').removeClass('hidden');
 		$('#js-loading').addClass('hidden');
-	},
-
-	methods: {
-		toggleMenu() {
-			this.menuOut = !this.menuOut;
-		}
 	},
 
 	computed: {

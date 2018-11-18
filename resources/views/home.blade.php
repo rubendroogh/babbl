@@ -8,19 +8,7 @@
     <h1>Babbl.</h1>
     <input v-model="search" class="group-search" type="text" placeholder="Zoeken">
     <a href="{{ route('newGroup') }}" class="add-group-button">+</a> 
-    <div class="menu-icon" v-on:click="toggleMenu" :class="{open : menuOut}">
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-    </div>
-    <div class="mobile-menu-overlay" :class="{'overlay-darken' : menuOut}" v-on:click="toggleMenu"></div>
-    <nav class="mobile-menu" :class="{'menu-out' : menuOut}">
-        <ul>
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('invites') }}">Invites</a></li>
-            <li><a href="{{ route('userDetailView') }}">User settings</a></li>
-            <li><a href="{{ route('logOut') }}">Logout</a></li>
-        </ul>
-    </nav>
+    <main-menu></main-menu>
 @endsection
 
 @section('content')
