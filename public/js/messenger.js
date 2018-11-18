@@ -47317,7 +47317,8 @@ var app = new Vue({
 
     data: function data() {
         return {
-            messages: []
+            messages: [],
+            inputMessage: ''
         };
     },
     created: function created() {
@@ -47350,7 +47351,7 @@ var app = new Vue({
                 url: '/message/send',
                 json: true,
                 data: {
-                    message: $('#js-message-input').val(),
+                    message: this.inputMessage,
                     group_id: $('#group_id').val(),
                     user_id: $('#user_id').val(),
                     message_type: $('#message_type').val()
@@ -47361,7 +47362,7 @@ var app = new Vue({
             if ($('#js-message-input').val() != '') {
                 axios(options).then(function (response) {
                     _this.messages.push(response.data);
-                    $('#js-message-input').val('');
+                    _this.inputMessage = '';
                 });
             }
         },

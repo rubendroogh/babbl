@@ -30,8 +30,8 @@
                 <input id="user_name" type="hidden" name="_user_name" value="{{ Auth::user()->name }}">
                 <input id="message_type" type="hidden" name="_message_type" value="string">
                 <span class="file"></span>
-                <input v-on:keydown.enter="sendMessage()" type="text" class="message-input" id="js-message-input" placeholder="Typ een bericht…" />
-                <span v-on:click="sendMessage()" id="js-send" class="send"></span>
+                <input v-model="inputMessage" v-on:keydown.enter="sendMessage()" type="text" class="message-input" id="js-message-input" placeholder="Typ een bericht…" />
+                <span v-on:click="sendMessage()" id="js-send" class="send" :class="{'send-text' : this.inputMessage != ''}"></span>
             </form>
         </div>
     </div>

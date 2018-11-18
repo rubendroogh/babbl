@@ -5494,11 +5494,15 @@ readers do not read off random characters that represent icons */
 }
 
 .send::before {
-  content: "\F197";
+  content: "\F130";
 }
 
 .send:hover {
   cursor: pointer;
+}
+
+.send-text::before {
+  content: "\F197";
 }
 
 .file {

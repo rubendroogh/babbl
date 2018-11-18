@@ -129,11 +129,17 @@
     @extend .fas;
 
     &::before{
-        content: fa-content($fa-var-space-shuttle);
+        content: fa-content($fa-var-microphone);
     }
 
     &:hover{
         cursor: pointer;
+    }
+}
+
+.send-text{
+    &::before{
+        content: fa-content($fa-var-space-shuttle);
     }
 }
 
