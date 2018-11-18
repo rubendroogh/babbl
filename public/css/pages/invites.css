@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Nexa';
+  src: url("/fonts/nexa-light.otf");
+}
+
+@font-face {
+  font-family: 'Nexa';
+  src: url("/fonts/nexa-bold.otf");
+  font-weight: bold;
+}
+
+.invite {
+  width: calc(100% - 1rem);
+  height: 5rem;
+  max-width: 600px;
+  margin: .5rem auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 0 3px 3px #ddd;
+          box-shadow: 0 3px 3px #ddd;
+  color: #000;
+  display: block;
+  overflow: hidden;
+  z-index: 1100;
+}
+
+.invite:hover {
+  cursor: pointer;
+}
+

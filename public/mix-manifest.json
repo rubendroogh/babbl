@@ -6,5 +6,7 @@
     "/css/pages/home.css": "/css/pages/home.css",
     "/css/pages/messenger.css": "/css/pages/messenger.css",
     "/css/pages/new_group.css": "/css/pages/new_group.css",
-    "/js/new_group.js": "/js/new_group.js"
+    "/js/new_group.js": "/js/new_group.js",
+    "/js/invites.js": "/js/invites.js",
+    "/css/pages/invites.css": "/css/pages/invites.css"
 }
