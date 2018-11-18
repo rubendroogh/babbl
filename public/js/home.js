@@ -64052,9 +64052,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+	props: {
+		menuItems: {
+			type: Array
+		}
+	},
+
 	data: function data() {
 		return {
 			menuOut: false
@@ -64105,26 +64110,22 @@ var render = function() {
     _c(
       "nav",
       { staticClass: "mobile-menu", class: { "menu-out": _vm.menuOut } },
-      [_vm._m(0)]
+      [
+        _c(
+          "ul",
+          _vm._l(_vm.menuItems, function(item) {
+            return _c("li", [
+              _c("a", { attrs: { href: item.href } }, [
+                _vm._v(_vm._s(item.name))
+              ])
+            ])
+          })
+        )
+      ]
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", [
-      _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Home")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Invites")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("User settings")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Logout")])])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

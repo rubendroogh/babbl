@@ -8,7 +8,26 @@
     <h1>Babbl.</h1>
     <input v-model="search" class="group-search" type="text" placeholder="Zoeken">
     <a href="{{ route('newGroup') }}" class="add-group-button">+</a> 
-    <main-menu></main-menu>
+    <main-menu
+        :menu-items="[
+            {
+                href: '{{route('home')}}',
+                name: 'Home'
+            },
+            {
+                href: '{{route('invites')}}',
+                name: 'Invites'
+            },
+            {
+                href: '{{route('userDetailView')}}',
+                name: 'User settings'
+            },
+            {
+                href: '{{route('logOut')}}',
+                name: 'Log out'
+            },
+        ]">
+    </main-menu>
 @endsection
 
 @section('content')

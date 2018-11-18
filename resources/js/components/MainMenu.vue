@@ -7,16 +7,21 @@
         <div class="mobile-menu-overlay" :class="{'overlay-darken' : menuOut}" v-on:click="toggleMenu"></div>
         <nav class="mobile-menu" :class="{'menu-out' : menuOut}">
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Invites</a></li>
-                <li><a href="">User settings</a></li>
-                <li><a href="">Logout</a></li>
+                <li v-for="item in menuItems">
+                    <a :href="item.href">{{item.name}}</a>
+                </li>
             </ul>
         </nav>
     </div>
 </template>
 <script>
 export default {
+    props: {
+        menuItems: {
+            type: Array
+        }
+    },
+
     data(){
 		return {
 			menuOut: false
