@@ -1,12 +1,10 @@
 {
     "/js/home.js": "/js/home.js",
-    "/js/app.js": "/js/app.js",
+    "/js/messenger.js": "/js/messenger.js",
     "/css/app.css": "/css/app.css",
-    "/css/auth.css": "/css/auth.css",
     "/css/welcome.css": "/css/welcome.css",
     "/css/pages/home.css": "/css/pages/home.css",
     "/css/pages/messenger.css": "/css/pages/messenger.css",
     "/css/pages/new_group.css": "/css/pages/new_group.css",
-    "/js/messenger.js": "/js/messenger.js",
     "/js/new_group.js": "/js/new_group.js"
 }
