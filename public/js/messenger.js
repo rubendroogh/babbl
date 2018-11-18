@@ -47311,6 +47311,15 @@ var read_messages = __webpack_require__(164);
 var notifications = __webpack_require__(165);
 var pusher_connect = __webpack_require__(38);
 
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+
+var recognition = new SpeechRecognition();
+
+recognition.lang = 'nl-NL';
+recognition.interimResults = true;
+recognition.maxAlternatives = 1;
+
 window.Vue = __webpack_require__(35);
 
 var app = new Vue({
@@ -47321,7 +47330,8 @@ var app = new Vue({
             messages: [],
             inputMessage: '',
             voiceMode: false,
-            messagesLoaded: false
+            messagesLoaded: false,
+            voiceInput: ''
         };
     },
     created: function created() {
@@ -47357,6 +47367,13 @@ var app = new Vue({
         },
         toggleVoiceUI: function toggleVoiceUI() {
             this.voiceMode = !this.voiceMode;
+            if (this.voiceMode) {
+                recognition.start();
+                var _this = this;
+                recognition.onresult = function (event) {
+                    _this.voiceInput = event.results[0][0].transcript;
+                };
+            }
         },
         sendMessage: function sendMessage() {
             var options = {

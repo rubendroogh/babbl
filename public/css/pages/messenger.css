@@ -5572,6 +5572,14 @@ readers do not read off random characters that represent icons */
   color: white;
 }
 
+.voice-ui .voice-input {
+  color: white;
+  font-family: Nexa;
+  position: relative;
+  top: 60%;
+  font-size: 2rem;
+}
+
 .voice-ui .voice-back-button {
   height: 3rem;
   width: 3rem;

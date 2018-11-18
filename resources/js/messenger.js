@@ -5,6 +5,15 @@ var read_messages = require('./messenger/read_messages');
 var notifications = require('./messenger/notifications');
 var pusher_connect = require('./messenger/pusher_connect');
 
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+
+var recognition = new SpeechRecognition();
+
+recognition.lang = 'nl-NL';
+recognition.interimResults = true;
+recognition.maxAlternatives = 1;
+
 window.Vue = require('vue');
 
 var app = new Vue({
@@ -15,7 +24,8 @@ var app = new Vue({
             messages: [],
             inputMessage: '',
             voiceMode: false,
-            messagesLoaded: false
+            messagesLoaded: false,
+            voiceInput: ''
 		}
 	},
 
@@ -50,6 +60,13 @@ var app = new Vue({
         },
         toggleVoiceUI: function () {
             this.voiceMode = !this.voiceMode;
+            if (this.voiceMode) {
+                recognition.start();
+                var _this = this;
+                recognition.onresult = function(event) {
+                    _this.voiceInput = event.results[0][0].transcript;
+                }
+            }
         },
         sendMessage: function(){
             var options = {

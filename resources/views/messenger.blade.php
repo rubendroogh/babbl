@@ -42,6 +42,7 @@
     <div :class="{'voice-ui-open' : voiceMode}" class="voice-ui" id="js-voice-ui">
         <h2>Voice mode</h2>
         <span>Say something!</span>
+        <p class="voice-input">@{{voiceInput}}</p>
         <div v-on:click="toggleVoiceUI" class="voice-back-button"></div>
     </div>
 @endsection
