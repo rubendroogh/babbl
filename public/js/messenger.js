@@ -47338,7 +47338,6 @@ var app = new Vue({
 
         $('.messages').removeClass('hidden');
         $('.no-messages').removeClass('hidden');
-        $('#js-loading').addClass('hidden');
     },
 
 

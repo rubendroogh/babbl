@@ -15902,6 +15902,10 @@ body {
   background: linear-gradient(to right, #ff0844 0%, #ff757b 100%);
 }
 
+.mobile-menu ul {
+  padding: 0;
+}
+
 .mobile-menu li {
   list-style: none;
   padding: 1rem;

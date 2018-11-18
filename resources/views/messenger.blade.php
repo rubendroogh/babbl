@@ -19,7 +19,7 @@
         </p>
     </div>
 
-    <div class="loading" id="js-loading"></div>
+    <div v-if="!messages" class="loading" id="js-loading"></div>
     <h3 v-if="messages.length === 0" class="no-result hidden">Nog geen berichten!</h3>
 
     <div class="page-bottom">
