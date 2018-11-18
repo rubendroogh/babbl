@@ -25,6 +25,8 @@ Route::get('/invites', 'InviteController@index')->name('invites');
 Route::get('/invites/accept/{id}', 'InviteController@accept')->name('acceptInvite');
 Route::get('/invites/decline/{id}', 'InviteController@decline')->name('declineInvite');
 
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logOut');
+
 //user routes
 Route::get('/user', 'UserController@read_form_view')->name('userDetailView');
 Route::get('/user/edit', 'UserController@edit_form_view')->name('editUserView');

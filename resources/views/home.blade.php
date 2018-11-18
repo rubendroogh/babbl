@@ -22,7 +22,7 @@
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('invites') }}">Invites</a></li>
             <li><a href="{{ route('userDetailView') }}">User settings</a></li>
-            <li><a href="{{ route('logout') }}">Logout</a></li>
+            <li><a href="{{ route('logOut') }}">Logout</a></li>
         </ul>
     </nav>
 @endsection
