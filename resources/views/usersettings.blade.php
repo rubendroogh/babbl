@@ -6,8 +6,6 @@
 
 @section('header')
     <h1>Babbl.</h1>
-    <input v-model="search" class="group-search" type="text" placeholder="Zoeken">
-    <a href="{{ route('newGroup') }}" class="add-group-button">+</a> 
 @endsection
 
 @section('content')

@@ -38,6 +38,22 @@
   font-weight: bold;
 }
 
+.group-search::-webkit-input-placeholder {
+  color: #ff0844;
+}
+
+.group-search:-ms-input-placeholder {
+  color: #ff0844;
+}
+
+.group-search::-ms-input-placeholder {
+  color: #ff0844;
+}
+
+.group-search::placeholder {
+  color: #ff0844;
+}
+
 .group {
   width: calc(100% - 1rem);
   height: 5rem;

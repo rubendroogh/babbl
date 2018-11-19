@@ -30,6 +30,10 @@
 	color: $torchRed;
 	font-size: 1rem;
 	font-weight: bold;
+
+	&::placeholder{
+		color: $torchRed;
+	}
 }
 
 .group{
