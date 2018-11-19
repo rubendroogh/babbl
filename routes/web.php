@@ -28,8 +28,7 @@ Route::get('/invites/decline/{id}', 'InviteController@decline')->name('declineIn
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logOut');
 
 //user routes
-Route::get('/user', 'UserController@read_form_view')->name('userDetailView');
-Route::get('/user/edit', 'UserController@edit_form_view')->name('editUserView');
+Route::get('/user', 'UserController@edit_form_view')->name('userSettings');
 Route::post('/user/update', 'UserController@update')->name('updateUser');
 Route::get('/users/all', 'APIController@all_users');
 

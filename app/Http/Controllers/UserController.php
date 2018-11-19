@@ -19,22 +19,12 @@ class UserController extends Controller
     }
 
     /** -----------------------------------------------------------------------------------------------
-     * UserDetailView
-     * - Show the detail view of the user.
-     *
-     */
-    public function read_form_view()
-    {
-        return view('user/overview');
-    }
-
-    /** -----------------------------------------------------------------------------------------------
      * EditUserView
      * - Show a form where the user can edit their details.
      */
     public function edit_form_view()
     {
-        return view('user/edit');
+        return view('usersettings');
     }
 
     /** -----------------------------------------------------------------------------------------------

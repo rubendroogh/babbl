@@ -39,7 +39,7 @@
                         name: 'Invites'
                     },
                     {
-                        href: '{{route('userDetailView')}}',
+                        href: '{{route('userSettings')}}',
                         name: 'User settings'
                     },
                     {
