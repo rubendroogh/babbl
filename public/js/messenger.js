@@ -47373,6 +47373,8 @@ var app = new Vue({
                 recognition.onresult = function (event) {
                     _this.voiceInput = event.results[0][0].transcript;
                 };
+            } else {
+                recognition.stop();
             }
         },
         sendMessage: function sendMessage() {

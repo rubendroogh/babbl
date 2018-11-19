@@ -23,6 +23,7 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
-    "moment": "^2.22.2"
+    "moment": "^2.22.2",
+    "wavebell": "^0.1.6"
   }
 }
