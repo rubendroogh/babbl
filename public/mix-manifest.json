@@ -1,12 +1,14 @@
 {
     "/js/home.js": "/js/home.js",
-    "/js/messenger.js": "/js/messenger.js",
+    "/js/user_settings.js": "/js/user_settings.js",
     "/css/app.css": "/css/app.css",
     "/css/welcome.css": "/css/welcome.css",
     "/css/pages/home.css": "/css/pages/home.css",
+    "/css/pages/invites.css": "/css/pages/invites.css",
     "/css/pages/messenger.css": "/css/pages/messenger.css",
     "/css/pages/new_group.css": "/css/pages/new_group.css",
-    "/js/new_group.js": "/js/new_group.js",
+    "/css/pages/user_settings.css": "/css/pages/user_settings.css",
     "/js/invites.js": "/js/invites.js",
-    "/css/pages/invites.css": "/css/pages/invites.css"
+    "/js/messenger.js": "/js/messenger.js",
+    "/js/new_group.js": "/js/new_group.js"
 }
