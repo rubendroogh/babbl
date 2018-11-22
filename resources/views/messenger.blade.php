@@ -14,7 +14,10 @@
 @section('content')
 
     <div v-for="m in messages" :class="m.status" class="messages hidden">
-        <p class="message">
+        <span v-if="m.status === 'info'" class="message">
+            @{{m.content}}
+        </span>
+        <p v-else class="message">
             @{{m.content}}
         </p>
     </div>
