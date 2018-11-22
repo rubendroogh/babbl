@@ -20,6 +20,7 @@
         <p class="group-time">
             @{{ chat.latestMessage.created_at | formatToTime }}
         </p>
+        <span class="group-new-number" v-if="chat.amountNewMessages">@{{ chat.amountNewMessages }}</span>
     </a>
 
     <div class="loading" id="js-loading"></div>
