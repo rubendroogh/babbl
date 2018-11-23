@@ -47,6 +47,10 @@
     margin: 0 auto;
 }
 
+[v-cloak] {
+    display: none;
+}
+
 .messages{
     display: block;
     box-sizing: border-box;

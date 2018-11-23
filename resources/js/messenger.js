@@ -43,8 +43,6 @@ var app = new Vue({
         this.scrollToBottom();
 
         this.messagesLoaded = true;
-            
-        $('.messages').removeClass('hidden');
 	},
 
 	computed: {

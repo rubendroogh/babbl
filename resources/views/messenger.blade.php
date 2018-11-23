@@ -13,12 +13,12 @@
 
 @section('content')
 
-    <div v-for="m in messages" :class="m.status" class="messages hidden">
-        <span v-if="m.status === 'info' && m.type === 'string'" class="message">
+    <div v-for="m in messages" :class="m.status" class="messages" v-cloak>
+        <span v-if="m.status === 'info' && m.type === 'string'" class="message" v-cloak>
             @{{m.content}}
         </span>
         <img v-if="m.type === 'image'" class="image" :src="'../storage/' + m.content" />
-        <p v-if="m.status !== 'info' && m.type === 'string'" class="message">
+        <p v-if="m.status !== 'info' && m.type === 'string'" class="message" v-cloak>
             @{{m.content}}
         </p>
     </div>

@@ -21837,14 +21837,16 @@ var read_messages = __webpack_require__(177);
 var notifications = __webpack_require__(178);
 var pusher_connect = __webpack_require__(42);
 
-var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+if (typeof webkitSpeechRecognition !== 'undefined') {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
-var recognition = new SpeechRecognition();
+    var recognition = new SpeechRecognition();
 
-recognition.lang = 'nl-NL';
-recognition.interimResults = true;
-recognition.maxAlternatives = 1;
+    recognition.lang = 'nl-NL';
+    recognition.interimResults = true;
+    recognition.maxAlternatives = 1;
+}
 
 window.Vue = __webpack_require__(35);
 
@@ -21875,8 +21877,6 @@ var app = new Vue({
         this.scrollToBottom();
 
         this.messagesLoaded = true;
-
-        $('.messages').removeClass('hidden');
     },
 
 
