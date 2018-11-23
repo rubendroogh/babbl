@@ -28,7 +28,7 @@
 
     <div class="page-bottom">
         <div class="message-input-wrapper">
-            <form id="js-message-form">
+            <form id="js-message-form" onsubmit="event.preventDefault()">
                 <input id="user_id" type="hidden" name="_user_id" value="{{ Auth::user()->id }}">
                 <input id="group_id" type="hidden" name="_group_id" value="{{ $group->id }}">
                 <input id="user_name" type="hidden" name="_user_name" value="{{ Auth::user()->name }}">
