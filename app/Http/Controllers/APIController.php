@@ -68,6 +68,7 @@ class APIController extends Controller
     public function send_message_init(Request $request){
         $pusher = $this->get_pusher_object();
         $message_type = ($request->message_type == null) ? 'string' : $request->message_type;
+        $path = '';
 
         switch ($message_type) {
             case 'image':
@@ -90,6 +91,7 @@ class APIController extends Controller
         
         $_message = Message::create($message);
         $_message->user_name = $message['user_name'];
+        $_message->path = $path;
 
         $pusher->trigger('messages', 'receive-message-' . $_message->group_id, $_message->toJson());
         

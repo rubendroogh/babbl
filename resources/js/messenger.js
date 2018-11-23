@@ -27,7 +27,7 @@ var app = new Vue({
             inputMessage: '',
             voiceMode: false,
             messagesLoaded: false,
-            voiceInput: ''
+            voiceInput: '',
 		}
 	},
 

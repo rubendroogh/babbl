@@ -15,7 +15,8 @@
         <div class="group-image"></div>
         <div class="group-text">
             <span class="group-name">@{{ chat.name }}</span>
-            <p class="group-latest">@{{ chat.latestMessage.content }}</p>
+            <p class="group-latest" v-if="chat.latestMessage.type == 'image'">Image</p>
+            <p class="group-latest" v-else>@{{ chat.latestMessage.content }}</p>
         </div>
         <p class="group-time">
             @{{ chat.latestMessage.created_at | formatToTime }}
