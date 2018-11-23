@@ -5442,12 +5442,20 @@ readers do not read off random characters that represent icons */
   color: white;
 }
 
+.messages.sent .image {
+  border-radius: inherit;
+}
+
 .messages.received {
   -ms-flex-item-align: start;
       align-self: flex-start;
   margin-left: 1rem;
   border-radius: 1rem 1rem 1rem 0;
   background-color: white;
+}
+
+.messages.received .image {
+  border-radius: inherit;
 }
 
 .messages.info {
@@ -5461,6 +5469,7 @@ readers do not read off random characters that represent icons */
   z-index: 2;
   color: #ccc;
   position: relative;
+  font-size: .7rem;
 }
 
 .messages.info::after {
@@ -5472,6 +5481,10 @@ readers do not read off random characters that represent icons */
   left: 0;
   top: 50%;
   z-index: 1;
+}
+
+.messages .image {
+  max-width: 100%;
 }
 
 .message {
@@ -5527,6 +5540,7 @@ readers do not read off random characters that represent icons */
 .file {
   line-height: 3rem;
   width: 3rem;
+  max-height: 3rem;
   background-color: #ccc;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -5535,10 +5549,17 @@ readers do not read off random characters that represent icons */
   text-align: center;
   float: left;
   font-size: 1.2rem;
+  outline: none;
+}
+
+.file::-webkit-file-upload-button {
+  visibility: hidden;
 }
 
 .file::before {
   content: "\F0C6";
+  position: relative;
+  left: .9rem;
 }
 
 .message-input {

@@ -14,10 +14,11 @@
 @section('content')
 
     <div v-for="m in messages" :class="m.status" class="messages hidden">
-        <span v-if="m.status === 'info'" class="message">
+        <span v-if="m.status === 'info' && m.type === 'string'" class="message">
             @{{m.content}}
         </span>
-        <p v-else class="message">
+        <img v-if="m.type === 'image'" class="image" :src="'../storage/' + m.content" />
+        <p v-if="m.status !== 'info' && m.type === 'string'" class="message">
             @{{m.content}}
         </p>
     </div>
@@ -32,7 +33,7 @@
                 <input id="group_id" type="hidden" name="_group_id" value="{{ $group->id }}">
                 <input id="user_name" type="hidden" name="_user_name" value="{{ Auth::user()->name }}">
                 <input id="message_type" type="hidden" name="_message_type" value="string">
-                <span class="file"></span>
+                <input v-on:input="sendImage()" class="file" type="file" name="_image" id="image" accept="image/x-png,image/gif,image/jpeg">
                 <input v-model="inputMessage" v-on:keydown.enter="sendMessage()" type="text" class="message-input" id="js-message-input" placeholder="Typ een bericht…" />
                 <span v-on:click="sendTextOrVoice()" id="js-send" class="send" :class="{'send-text' : this.inputMessage != ''}"></span>
             </form>

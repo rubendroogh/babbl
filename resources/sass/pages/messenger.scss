@@ -68,6 +68,10 @@
         .message{
             color: white;
         }
+
+        .image{
+            border-radius: inherit;
+        }
     }
     
     &.received{
@@ -75,6 +79,10 @@
         margin-left: 1rem;
         border-radius: $border-radius $border-radius $border-radius 0;
         background-color: white;
+
+        .image{
+            border-radius: inherit;
+        }
     }
 
     &.info{
@@ -87,6 +95,7 @@
             z-index: 2;
             color: $veryLightGray;
             position: relative;
+            font-size: .7rem;
         }
 
         &::after{
@@ -99,6 +108,10 @@
             top: 50%;
             z-index: 1;
         }
+    }
+
+    .image{
+        max-width: 100%;
     }
 }
 
@@ -160,6 +173,7 @@
 .file{
     line-height: 3rem;
     width: 3rem;
+    max-height: 3rem;
     background-color: $veryLightGray;
     box-sizing: border-box;
     border-radius: 1rem 0 0 1rem;
@@ -167,12 +181,19 @@
     text-align: center;
     float: left;
     font-size: 1.2rem;
+    outline: none;
 
     @extend %fa-icon;
     @extend .fas;
 
+    &::-webkit-file-upload-button{
+        visibility: hidden;
+    }
+
     &::before{
         content: fa-content($fa-var-paperclip);
+        position: relative;
+        left: .9rem;
     }
 }
 

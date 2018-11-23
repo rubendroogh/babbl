@@ -30,10 +30,9 @@ var app = new Vue({
 	},
 
 	created(){
-        var group_id = $('#group_id').val();
 		var options = {
 			method: 'GET',
-			url: '/groups/' + group_id + '/messages',
+			url: '/groups/' + group_id.value + '/messages',
 			json: true
 		}
 		
@@ -91,6 +90,25 @@ var app = new Vue({
                         _this.inputMessage = '';
                     });
             }
+        },
+        sendImage() {
+            var formData = new FormData();
+            formData.append('image', image.files[0], image.files[0].name);
+            formData.append('group_id', group_id.value);
+            formData.append('user_id', user_id.value);
+            formData.append('message_type', 'image');
+
+            var options = {
+                method: 'POST',
+                url: '/message/send',
+                json: true,
+                data: formData
+            }
+            var _this = this;
+            axios(options)
+                .then(function(response){
+                    _this.messages.push(response.data);
+                });
         },
         scrollToBottom: function () {
             var container = document.getElementById('content-container');

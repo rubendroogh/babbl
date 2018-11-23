@@ -66,30 +66,34 @@ class APIController extends Controller
     }
 
     public function send_message_init(Request $request){
+        $pusher = $this->get_pusher_object();
         $message_type = ($request->message_type == null) ? 'string' : $request->message_type;
+
+        switch ($message_type) {
+            case 'image':
+                $path = $request->image->store('public/images');
+                $content = strstr($path, '/');
+                break;
+            
+            default:
+                $content = $request->message;
+                break;
+        }
+
         $message = [
-            'content' => $request->message,
+            'content' => $content,
             'group_id' => $request->group_id,
             'user_id' => $request->user_id,
             'user_name' => $request->user_name,
             'type' => $message_type,
         ];
-
-        return $this->send_message($message);
-        // TODO: implement bots or remove
-        // $botUtil = new BotUtil();
-        // $botUtil->get_bot_message();
-    }
-
-    public function send_message($message){
-        $pusher = $this->get_pusher_object();
-
+        
         $_message = Message::create($message);
         $_message->user_name = $message['user_name'];
 
         $pusher->trigger('messages', 'receive-message-' . $_message->group_id, $_message->toJson());
         
-        return $_message;    
+        return $_message; 
     }
 
     public function message_read(Request $request){
