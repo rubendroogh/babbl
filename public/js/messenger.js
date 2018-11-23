@@ -21859,7 +21859,8 @@ var app = new Vue({
             inputMessage: '',
             voiceMode: false,
             messagesLoaded: false,
-            voiceInput: ''
+            voiceInput: '',
+            imageIsSending: false
         };
     },
     created: function created() {
@@ -21937,8 +21938,10 @@ var app = new Vue({
                 data: formData
             };
             var _this = this;
+            this.imageIsSending = true;
             axios(options).then(function (response) {
                 _this.messages.push(response.data);
+                _this.imageIsSending = false;
             });
         },
 

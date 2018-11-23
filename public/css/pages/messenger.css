@@ -5581,7 +5581,9 @@ readers do not read off random characters that represent icons */
 }
 
 .loading {
-  margin-top: 4rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  min-height: 2.5rem;
 }
 
 .voice-ui {
