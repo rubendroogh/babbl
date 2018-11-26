@@ -17,7 +17,7 @@
         <span v-if="m.status === 'info' && m.type === 'string'" class="message" v-cloak>
             @{{m.content}}
         </span>
-        <img v-if="m.type === 'image'" class="image" :src="'../storage/' + m.content" />
+        <img v-if="m.type === 'image'" class="image" :src="'../storage/' + m.content" v-on:click="toggleImageModal('../storage/' + m.content)" />
         <p v-if="m.status !== 'info' && m.type === 'string'" class="message" v-cloak>
             @{{m.content}}
         </p>
@@ -48,6 +48,10 @@
         <span>Say something!</span>
         <p class="voice-input">@{{voiceInput}}</p>
         <div v-on:click="toggleVoiceUI" class="voice-back-button"></div>
+    </div>
+
+    <div class="image-modal-bg" v-if="showImageModal" v-on:click="toggleImageModal('')" v-cloak>
+        <img class="image-modal" :src="modalImage" />
     </div>
 @endsection
 

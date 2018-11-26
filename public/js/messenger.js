@@ -21860,7 +21860,9 @@ var app = new Vue({
             voiceMode: false,
             messagesLoaded: false,
             voiceInput: '',
-            imageIsSending: false
+            imageIsSending: false,
+            modalImage: '',
+            showImageModal: false
         };
     },
     created: function created() {
@@ -21943,6 +21945,10 @@ var app = new Vue({
                 _this.messages.push(response.data);
                 _this.imageIsSending = false;
             });
+        },
+        toggleImageModal: function toggleImageModal(img) {
+            this.showImageModal = !this.showImageModal;
+            this.modalImage = img;
         },
 
         scrollToBottom: function scrollToBottom() {
